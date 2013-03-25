@@ -6,11 +6,10 @@ Promoting the "Resource Way" of writing semantic, reusable, and cohesive JavaScr
 
 ### 1. [Formatting](#formatting)  
   1. [Comments](#comments)  
-  1. [Whitespace](#whitespace)  
-  1. [Blocks](#blocks)   
-  1. [Commas & Semicolons](#commas-and-semicolons)  
   1. [Naming Conventions](#naming-conventions)  
-  1. [Readable Milliseconds](#readable-milliseconds)  
+  1. [Whitespace](#whitespace)   
+  1. [Commas & Semicolons](#commas-and-semicolons)  
+  1. [Blocks](#blocks)  
 
 ### 2. [Types](#types)
   1. [Primitive vs. Complex](#primitive-vs-complex)   
@@ -27,6 +26,7 @@ Promoting the "Resource Way" of writing semantic, reusable, and cohesive JavaScr
   1. [Casting & Coercion](#casting-and-coercion)  
   1. [Conditional Expressions & Equality](#conditionals)  
   1. [For Loops](#for-loops)  
+  1. [Readable Milliseconds](#readable-milliseconds)  
 
 ### 4. [BOM and DOM](#bom-dom)    
   1. [jQuery](#jquery)  
@@ -34,6 +34,7 @@ Promoting the "Resource Way" of writing semantic, reusable, and cohesive JavaScr
 
 ### 5. [Architecure](#architecture)  
   1. [Modules](#modules)  
+  1. ????  
 
 ### 6. [Appendix](#appendix)  
   1. [References](#references)
@@ -45,11 +46,10 @@ Promoting the "Resource Way" of writing semantic, reusable, and cohesive JavaScr
 
 ## <a name='formatting'>Formatting</a>  
 ### <a name='comments'>Comments</a>  
-### <a name='whitespace'>Whitespace</a>  
-### <a name='blocks'>Blocks</a>  
-### <a name='commas-and-semicolons'>Commas & Semicolons</a>
 ### <a name='naming-conventions'>Naming Conventions</a>  
-### <a name='readable-milliseconds'>Readable Milliseconds</a>
+### <a name='whitespace'>Whitespace</a>  
+### <a name='commas-and-semicolons'>Commas & Semicolons</a> 
+### <a name='blocks'>Blocks</a>  
 
 
 ## <a name='types'>Types</a>  
@@ -67,7 +67,8 @@ Promoting the "Resource Way" of writing semantic, reusable, and cohesive JavaScr
 ### <a name='properties'>Properties</a>
 ### <a name='casting-and-coercion'>Casting & Coercion</a>
 ### <a name='conditionals'>Conditional Expressions & Equality</a>
-### <a name='for-loops'>For Loops</a>
+### <a name='for-loops'>For Loops</a>  
+### <a name='readable-milliseconds'>Readable Milliseconds</a>
 
 
 ## <a name='bom-dom'>BOM and DOM</a>  
