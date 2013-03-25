@@ -7,6 +7,7 @@ Promoting the "Resource Way" of writing semantic, reusable, and cohesive JavaScr
 ### 1. [Formatting](#formatting)  
   1. [Comments](#comments)  
   1. [Whitespace](#whitespace)  
+  1. [Blocks](#blocks)   
   1. [Commas & Semicolons](#commas-and-semicolons)  
   1. [Naming Conventions](#naming-conventions)  
   1. [Readable Milliseconds](#readable-milliseconds)  
@@ -25,19 +26,16 @@ Promoting the "Resource Way" of writing semantic, reusable, and cohesive JavaScr
   1. [Properties](#properties)  
   1. [Casting & Coercion](#casting-and-coercion)  
   1. [Conditional Expressions & Equality](#conditionals)  
-
-### 4. [Blocks](#blocks)  
-  1. [Block Formatting](#block-formatting)  
   1. [For Loops](#for-loops)  
 
-### 5. [BOM and DOM](#bom-dom)    
+### 4. [BOM and DOM](#bom-dom)    
   1. [jQuery](#jquery)  
   1. [Security](#security)  
 
-### 6. [Architecure](#architecture)  
+### 5. [Architecure](#architecture)  
   1. [Modules](#modules)  
 
-### 7. [Appendix](#appendix)  
+### 6. [Appendix](#appendix)  
   1. [References](#references)
   1. [Performance](#performance) 
   1. [About Resource](#about-resource) 
@@ -47,7 +45,8 @@ Promoting the "Resource Way" of writing semantic, reusable, and cohesive JavaScr
 
 ## <a name='formatting'>Formatting</a>  
 ### <a name='comments'>Comments</a>  
-### <a name='whitespace'>Whitespace</a>
+### <a name='whitespace'>Whitespace</a>  
+### <a name='blocks'>Blocks</a>  
 ### <a name='commas-and-semicolons'>Commas & Semicolons</a>
 ### <a name='naming-conventions'>Naming Conventions</a>  
 ### <a name='readable-milliseconds'>Readable Milliseconds</a>
@@ -68,10 +67,6 @@ Promoting the "Resource Way" of writing semantic, reusable, and cohesive JavaScr
 ### <a name='properties'>Properties</a>
 ### <a name='casting-and-coercion'>Casting & Coercion</a>
 ### <a name='conditionals'>Conditional Expressions & Equality</a>
-
-
-## <a name='blocks'>Blocks</a>  
-### <a name='block-formatting'>Block Formatting</a>
 ### <a name='for-loops'>For Loops</a>
 
 
