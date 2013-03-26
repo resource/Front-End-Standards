@@ -46,29 +46,999 @@ Promoting the "Resource Way" of writing semantic, reusable, and cohesive JavaScr
 
 ## <a name='formatting'>Formatting</a>  
 ### <a name='comments'>Comments</a>  
-### <a name='naming-conventions'>Naming Conventions</a>  
+
+- Code should be thoroughly documented. The developer should strive to write logical and informative comments that contriburte to code maintainabiltiy and developer collaboration.
+
+- Comment blocks spanning multiple lines should be written using an opening `/**` and closing `*/`, with each line beginning with a single `*` surrounded by one leading and trailing space. 
+
+    ```javascript
+    /**
+    *Bad multi-line comment 
+    */
+
+    /**
+     * Good multi-line comment 
+     */
+    ```
+    
+- A document's first comment block should be used for declaring a summary of the document. The second `*` should be replaced with an `!` in order to preserve the block during minification.
+
+    ```javascript
+    /*!
+     * Opening comment block
+     * @author Nancy Kramer
+     */
+    ```
+    
+- Single-line comments should be written with two leading `//` followed by one space.
+
+    ```javascript
+    //bad
+
+    // good
+    ```
+
+
+### <a name='naming-conventions'>Naming Conventions</a>
+  
+- Avoid ambigious names. Be descriptive with your naming.
+
+    ```javascript
+    // bad
+    function leanf() {
+      // ...stuff...
+    }
+    
+    // worse
+    function lf() {
+      // ...stuff...
+    }
+
+    // good
+    function leanForward() {
+      // ..stuff..
+    }
+    ```
+
+- Use camelCase when naming objects, functions, and instances
+
+    ```javascript
+    // bad
+    var OBJEcttsssss = {};
+    var this_is_my_object = {};
+    var this-is-my-object = {};
+    function c() {};
+    var u = new user({
+      name: 'Nancy Kramer'
+    });
+
+    // good
+    var thisIsMyObject = {};
+    function thisIsMyFunction() {};
+    var user = new User({
+      name: 'Nancy Kramer'
+    });
+    ```
+
+- Use PascalCase when naming constructors or classes
+
+    ```javascript
+    // bad
+    function user(options) {
+      this.name = options.name;
+    }
+
+    var bad = new user({
+      name: 'nope'
+    });
+
+    // good
+    function User(options) {
+      this.name = options.name;
+    }
+
+    var good = new User({
+      name: 'yup'
+    });
+    ```
+
+- Use snake_case when naming properties.
+
+    ```javascript
+    // bad
+    var aboutResource = {
+        yearsInOperation: 30,
+        notableClients: ["Sherwin Williams", "HP", "Victoria Secret", "P&G"],
+        founder: "Nancy Kramer",
+        total-associates: 300
+    };
+    
+    // good
+    var aboutResource = {
+        years_in_operation: 30,
+        notable_clients: ["Sherwin Williams", "HP", "Victoria Secret", "P&G"],
+        founder: "Nancy Kramer",
+        total_associates: 300
+    };
+    ```
+
+- Use a leading underscore `_` when naming private properties.
+
+    ```javascript
+    // bad
+    this.__firstName__ = 'Nancy';
+    this.firstName_ = 'Nancy';
+
+    // good
+    this._firstName = 'Nancy';
+    ```
+
+- **Filenames**: Plugins/Modules should be prepended with the library/class they extend.
+
+    ```javascript
+    // bad
+    myJqueryPlugin.js
+    
+    // good
+    jquery.myJqueryPlugin.js
+    ```
+
+
 ### <a name='whitespace'>Whitespace</a>  
+
+- Use liberal whitespace to enhance legibility.
+
+- Use tabs set to 4 spaces.
+
+    ```javascript
+    // bad
+    function() {
+    ∙∙var name;
+    }
+    
+    // good
+    function() {
+    ∙∙∙∙var name;
+    }
+    ```
+
+- No end of line (trailing) whitespace.
+
+    ```javascript
+    // bad
+    function() {
+        var name;∙
+    }
+    
+    // good
+    function() {
+        var name;
+    }
+    ```
+
+- Include extra space around arguments.
+
+    ```javascript
+    // bad
+    myFunction(foo);
+    
+    // good
+    myfunction( foo );
+    
+    // good
+    myfunction( foo, bar );
+    ```
+
+- Use one space before leading parens and leading brackets.
+
+    ```javascript
+    // bad
+    if( expression ){
+        // ...stuff...
+    }
+    
+    // good
+    if ( expression ) {
+        // ...stuff...
+    }
+    
+    // bad
+    function(){
+        // ...stuff...
+    }
+    
+    // good
+    function() {
+        // ...stuff...
+    }
+    ```
+
+
+- **Exceptions**:  
+  - Function declarations and invocations.    
+
+    ```javascript
+    // ok
+    var myFunction = function() {
+        // ...stuff...
+    }
+    
+    // ok
+    myfunction();
+    ```
+    
+  - Functions with callbacks.
+    
+    ```javascript
+    // ok
+    myfunction(function() {
+        // ..stuff...
+    });
+    ```
+
+  - Functions accepting arrays or objects.
+    
+    ```javascript
+    // ok
+    myfunction(["foo", "bar"]);    
+
+    // ok
+    myfunction({
+        foo: "bar"
+    });
+    ```
+
+
 ### <a name='commas-and-semicolons'>Commas & Semicolons</a> 
+- Place commas end of line.
+
+    ```javascript
+    // bad
+    var once
+      , upon
+      , aTime;
+
+    // good
+    var once,
+        upon,
+        aTime;
+
+    // bad
+    var hero = {
+        firstName: 'Bob'
+      , lastName: 'Parr'
+      , heroName: 'Mr. Incredible'
+      , superPower: 'strength'
+    };
+
+    // good
+    var hero = {
+      firstName: 'Bob',
+      lastName: 'Parr',
+      heroName: 'Mr. Incredible',
+      superPower: 'strength'
+    };
+    ```
+    
+- Always use semicolons.
+
+    ```javascript
+    // bad
+    (function() {
+      var name = 'Kramer'
+      return name
+    })()
+
+    // good
+    (function() {
+      var name = 'Kramer';
+      return name;
+    })();
+    ```
+
+
 ### <a name='blocks'>Blocks</a>  
+
+- `if/else/for/while/try` always have braces and are always on multiple lines.
+
+    ```javascript
+    // bad
+    if ( expression )
+        return value;
+        
+    // bad
+    if ( expression ) return value;
+    
+    // good
+    if ( expression ) {
+        return value;
+    }
+    ```
+
+- Pad large blocks with blank lines.
+    
+    ```javascript
+    // bad
+    if ( lastName ) {
+        // ... lots of stuff...
+    }
+    
+    // good
+    if ( lastName ) {
+
+        // ... lots of stuff...
+    
+    }
+    ```
 
 
 ## <a name='types'>Types</a>  
 ### <a name='primitive-vs-complex'>Primitive vs. Complex</a>
+
+- **Primitives**: When you access a primitive type you work directly on its value.
+
+    + `string`
+    + `number`
+    + `boolean`
+    + `null`
+    + `undefined`
+
+    ```javascript
+    var foo = 1,
+        bar = foo;
+
+    bar = 9;
+
+    console.log(foo, bar); // => 1, 9
+    ```
+
+- **Complex**: When you access a complex type you work on a reference to its value.
+
+    + `object`
+    + `array`
+    + `function`
+
+    ```javascript
+    var foo = [1, 2],
+        bar = foo;
+
+    bar[0] = 9;
+
+    console.log(foo[0], bar[0]); // => 9, 9
+    ```
+
+
 ### <a name='strings'>Strings</a>
+- Use single quotes `''` for strings
+
+    ```javascript
+    // bad
+    var name = "Nancy Kramer";
+
+    // good
+    var name = 'Nancy Kramer';
+
+    // bad
+    var fullName = "Nancy " + this.lastName;
+
+    // good
+    var fullName = 'Nancy ' + this.lastName;
+    ```
+
+- Strings longer than 80 characters should be written across multiple lines using string concatenation.
+- Note: If overused, long strings with concatenation could impact performance. [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40)
+
+    ```javascript
+    // bad
+    var errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
+
+    // bad
+    var errorMessage = 'This is a super long error that \
+    was thrown because of Batman. \
+    When you stop to think about \
+    how Batman had anything to do \
+    with this, you would get nowhere \
+    fast.';
+
+
+    // good
+    var errorMessage = 'This is a super long error that ' +
+      'was thrown because of Batman.' +
+      'When you stop to think about ' +
+      'how Batman had anything to do ' +
+      'with this, you would get nowhere ' +
+      'fast.';
+    ```
+
+- When programatically building up a string, use Array#join instead of string concatenation. Mostly for IE: [jsPerf](http://jsperf.com/string-vs-array-concat/2).
+
+    ```javascript
+    var items,
+        messages,
+        length, i;
+
+    messages = [{
+        state: 'success',
+        message: 'This one worked.'
+    }, {
+        state: 'success',
+        message: 'This one worked as well.'
+    }, {
+        state: 'error',
+        message: 'This one did not work.'
+    }];
+
+    length = messages.length;
+
+    // bad
+    var inbox = function( messages ) {
+      
+      items = '<ul>';
+
+      for ( i = 0; i < length; i += 1 ) {
+        items += '<li>' + messages[i].message + '</li>';
+      }
+
+      return items + '</ul>';
+      
+    }
+
+    // good
+    var inbox = function( messages ) {
+      
+      items = [];
+
+      for ( i = 0; i < length; i += 1 ) {
+        items[i] = messages[i].message;
+      }
+
+      return '<ul><li>' + items.join('</li><li>') + '</li></ul>';
+      
+    }
+    ```
+
+
 ### <a name='booleans'>Booleans</a>
+
+- Use “can”, “has” or “is” as a prefix when naming booleans.
+
+    ```javascript
+    // bad
+    if ( kramer.superPumped() ) {
+        return false;
+    }
+    
+    // good
+    if ( kramer.isSuperPumped() ) {
+        return false;
+    }
+    
+    // good
+    if ( kramer.canParty() ) {
+        return false;
+    }
+    
+    // good
+    if ( kramer.hasGoodTimes() ) {
+        return false;
+    }
+    ```
+
+
 ### <a name='arrays'>Arrays</a>
+- Use the literal syntax for array creation
+
+    ```javascript
+    // bad
+    var items = new Array();
+
+    // good
+    var items = [];
+    ```
+
+- If you don't know array length use Array#push.
+
+    ```javascript
+    var someStack = [];
+
+
+    // bad
+    someStack[someStack.length] = 'abracadabra';
+
+    // good
+    someStack.push( 'abracadabra' );
+    ```
+
+- When you need to copy an array use Array#slice. [jsPerf](http://jsperf.com/converting-arguments-to-an-array/7)
+
+    ```javascript
+    var len = items.length,
+        itemsCopy = [],
+        i;
+
+    // bad
+    for ( i = 0; i < len; i += 1 ) {
+      itemsCopy[i] = items[i];
+    }
+
+    // good
+    itemsCopy = Array.prototype.slice.call(items);
+    ```
+    
 ### <a name='objects'>Objects</a>
+
+- Use the literal syntax for object creation.
+
+    ```javascript
+    // bad
+    var item = new Object();
+
+    // good
+    var item = {};
+    ```
+
+- Don't use [reserved words](https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Reserved_Words) as keys.
+
+    ```javascript
+    // bad
+    var superman = {
+      class: 'superhero',
+      default: { clark: 'kent' },
+      private: true
+    };
+
+    // good
+    var superman = {
+      klass: 'superhero',
+      defaults: { clark: 'kent' },
+      hidden: true
+    };
+    ```
+
+
+
 ### <a name='functions'>Functions</a>
+
+- Use function expressions rather than function declarations.
+
+    ```javascript
+    // bad 
+    function funkDeclaration() {
+        // ...stuff...
+    };
+    
+    // good
+    var funkExpression = function() {
+        // ...stuff...
+    };
+    ```
+
+- Function expressions:
+
+    ```javascript
+    // anonymous function expression
+    var anonymous = function() {
+      return true;
+    };
+
+    // named function expression for better traceability
+    var named = function named() {
+      return true;
+    };
+
+    // immediately-invoked function expression (IIFE)
+    (function() {
+      console.log('Welcome to the Internet. Please follow me.');
+    })();
+    ```
+
+- Never declare a function in a non-function block (if, while, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears.
+  - **Note:** ECMA-262 defines a `block` as a list of statements. A function declaration is not a statement. [Read ECMA-262's note on this issue](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
+
+    ```javascript
+    // bad
+    if ( currentUser ) {
+      function test() {
+        console.log('Nope.');
+      }
+    }
+
+    // good
+    if ( currentUser ) {
+      var test = function test() {
+        console.log('Yup.');
+      };
+    }
+    ```
+
+- Never name a parameter `arguments`, this will take precedence over the `arguments` object that is given to every function scope.
+
+    ```javascript
+    // bad
+    function nope( name, options, arguments ) {
+      // ...stuff...
+    }
+
+    // good
+    function yup( name, options, args ) {
+      // ...stuff...
+    }
+    ```
 
 
 ## <a name='working-with-types'>Working With Types</a>  
 ### <a name='variables'>Variables</a>
+- Use one `var` declaration for multiple variables.
+
+    ```javascript
+    // bad
+    var foo = 'foo';
+    var bar = 'bar';
+    
+    // good
+    var foo = 'foo',
+        bar = 'bar';
+    ```
+  
+- **Exception**: It's ok to use dedicated `var` declarations in order to enhance legibility, but ONLY when the code is going to be uglified eventually.
+    
+    ```javascript
+    // ok
+
+    /**
+     * Data models
+     */
+    var storeModel = {
+        foo: "bar"
+    };
+
+    var userModel = {
+        foo: "bar"
+    };
+    ```
+
+- Declare unassigned variables last. This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
+
+    ```javascript
+    // bad
+    var gpat,
+        beerCart = true,
+        noodle,
+        locations = ["Columbus", "Cincinatti", "San Francisco", "Chicago"];
+    
+    // good
+    var beerCart = true,
+        locations = ["Columbus", "Cincinatti", "San Francisco", "Chicago"],
+        gpat, noodle;
+    ```
+
+- Assign variables at the top of their scope. This helps avoid issues with variable declaration and assignment hoisting related issues.
+
+    ```javascript
+    // bad
+    function() {
+      test();
+      console.log('doing stuff..');
+
+      //..other stuff..
+
+      var name = getName();
+
+      if (name === 'test') {
+        return false;
+      }
+
+      return name;
+    }
+
+    // good
+    function() {
+      var name = getName();
+
+      test();
+      console.log('doing stuff..');
+
+      //..other stuff..
+
+      if (name === 'test') {
+        return false;
+      }
+
+      return name;
+    }
+
+    // bad
+    function() {
+      var name = getName();
+
+      if (!arguments.length) {
+        return false;
+      }
+
+      return true;
+    }
+
+    // good
+    function() {
+      if (!arguments.length) {
+        return false;
+      }
+
+      var name = getName();
+
+      return true;
+    }
+    ```
+
+- Create as few globals as possible.
+
+    ```javascript
+    // bad
+    window.brownBagContent = "Knowledge Bombs";
+    window.brownBagPresenter = "Super Cool Associte";
+    
+    // good
+    var brownBag = {
+        content: "Knowledge Bombs",
+        presenter: "Super Cool Associate"
+    };
+    
+    // bad (implied global 'goodTime')
+    var brownBag = function( content, presenter ) {
+        goodTime = content + presenter;
+        return goodTime;
+    };
+    
+    // good
+    var brownBag = function( content, presenter ) {
+        var goodTime = content + presenter;
+        return goodTime;
+    };
+    ```
+
+
 ### <a name='constructors'>Constructors</a>
+
+- Assign methods to the prototype object, instead of overwriting the prototype with a new object. Overwriting the prototype makes inheritance impossible: by resetting the prototype you'll overwrite the base!
+
+    ```javascript
+    function Jedi() {
+      console.log('new jedi');
+    }
+
+    // bad
+    Jedi.prototype = {
+      fight: function fight() {
+        console.log('fighting');
+      },
+
+      block: function block() {
+        console.log('blocking');
+      }
+    };
+
+    // good
+    Jedi.prototype.fight = function fight() {
+      console.log('fighting');
+    };
+
+    Jedi.prototype.block = function block() {
+      console.log('blocking');
+    };
+    ```
+
+- Methods can return `this` to help with method chaining.
+
+    ```javascript
+    // bad
+    Jedi.prototype.jump = function() {
+      this.jumping = true;
+      return true;
+    };
+
+    Jedi.prototype.setHeight = function(height) {
+      this.height = height;
+    };
+
+    var luke = new Jedi();
+    luke.jump(); // => true
+    luke.setHeight(20) // => undefined
+
+    // good
+    Jedi.prototype.jump = function() {
+      this.jumping = true;
+      return this;
+    };
+
+    Jedi.prototype.setHeight = function(height) {
+      this.height = height;
+      return this;
+    };
+
+    var luke = new Jedi();
+
+    luke.jump()
+      .setHeight(20);
+    ```
+
+
+
 ### <a name='properties'>Properties</a>
+- Use dot notation when accessing properties.
+
+    ```javascript
+    var luke = {
+      jedi: true,
+      age: 28
+    };
+
+    // bad
+    var isJedi = luke['jedi'];
+
+    // good
+    var isJedi = luke.jedi;
+    ```
+
+- Use subscript notation `[]` when accessing properties with a variable.
+
+    ```javascript
+    var luke = {
+      jedi: true,
+      age: 28
+    };
+
+    function getProp(prop) {
+      return luke[prop];
+    }
+
+    var isJedi = getProp('jedi');
+    ```
+
+
+
 ### <a name='casting-and-coercion'>Casting & Coercion</a>
-### <a name='conditionals'>Conditional Expressions & Equality</a>
+
+- Perform type coercion at the beginning of the statement.
+
+    ```javascript
+    //  => this.reviewScore = 9;
+
+    // bad
+    var totalScore = this.reviewScore + '';
+
+    // good
+    var totalScore = '' + this.reviewScore;
+
+    // bad
+    var totalScore = '' + this.reviewScore + ' total score';
+
+    // good
+    var totalScore = this.reviewScore + ' total score';
+    ```
+
+- Use `parseInt` for Numbers and always with a radix for type casting.
+    
+    ```javascript
+    // bad
+    var newNumber = parseFloat( '30' );
+    
+    // bad
+    var newNumber = parseInt( '30' );
+
+    // good
+    var newNumber = parseInt( '30', 10 );
+    ```
+
+  - **Exception**: Use `parseFloat` when converting to a floating point number.
+
+    ```javascropt
+    // ok
+    var newNumer = parseFloat( '30.4' );
+    ```
+
+### <a name='conditionals'>Operators, Conditional Expressions & Equality</a>
+
+- Use `===` and `!==` over `==` and `!=`.
+
+- Conditional expressions are evaluated using coercion with the `ToBoolean` method and always follow these simple rules:
+
+    + **Objects** evaluate to **true**
+    + **Undefined** evaluates to **false**
+    + **Null** evaluates to **false**
+    + **Booleans** evaluate to **the value of the boolean**
+    + **Numbers** evalute to **false** if **+0, -0, or NaN**, otherwise **true**
+    + **Strings** evaluate to **false** if an empty string `''`, otherwise **true**
+
+    ```javascript
+    if ([0]) {
+      // true
+      // An array is an object, objects evaluate to true
+    }
+    ```
+
+- Use shortcuts.
+
+    ```javascript
+    // bad
+    if ( name !== '' ) {
+      // ...stuff...
+    }
+
+    // good
+    if ( name ) {
+      // ...stuff...
+    }
+
+    // bad
+    if ( collection.length > 0 ) {
+      // ...stuff...
+    }
+
+    // good
+    if ( collection.length ) {
+      // ...stuff...
+    }
+    ```
+
+- Avoid comparing to `true` and `false`.
+
+    ```javascript
+    // bad
+    if ( superPumped === true ) {
+        // ...party...
+    }
+    
+    // good
+    if ( superPumped ) {
+        // ...party...
+    }
+    
+    // bad
+    if ( superPumped === false ) {
+        // ...go home...
+    }
+    
+    // good
+    if ( !superPumped ) {
+        // ...go home...
+    }
+    ```
+
+- Avoid incrementing and decrementing with `++` and '--'.
+
+    ```javascript
+    // bad
+    i ++;
+    
+    // good
+    i += 1;
+    ```
+
+
 ### <a name='for-loops'>For Loops</a>  
+
+- Cache loop length.
+  - **Note**: It's OK to declare a variable inside the initialization expression.
+
+    ```javascript
+    // yup
+    for ( var i = 0, length = toLoop.length; i < length; i+=1 ) {
+        // GOOD - the length is only looked up once and then cached
+    }
+    ```
+
+
 ### <a name='readable-milliseconds'>Readable Milliseconds</a>
+
+- Use a multiplier of `1000` to produce more readble timers.
+
+    ```javascript
+    // bad
+    var timeout = 30000; 
+    
+    // good
+    var timeout = 30 * 1000; 
+    ```
 
 
 ## <a name='bom-dom'>BOM and DOM</a>  
