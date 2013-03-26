@@ -1,0 +1,10 @@
+// Sample settings for Sublime Text.
+// Merge the properties below with your own.
+{
+	"dictionary": "Packages/Language - English/en_US.dic",
+  "spell_check": true,
+	"indent_to_bracket": true,
+	"tab_size": 4,
+	"translate_tabs_to_spaces": false,
+	"trim_trailing_white_space_on_save": true,
+}
