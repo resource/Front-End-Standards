@@ -216,17 +216,20 @@ Promoting the "Resource Way" of writing semantic, reusable, and cohesive JavaScr
     }
     ```
 
-- Include extra space around arguments.
+- Include extra space around multiple arguments.
 
     ```javascript
     // bad
-    myFunction(foo);
-    
-    // good
-    myfunction( foo );
+    myFunction(foo, bar);
     
     // good
     myfunction( foo, bar );
+    
+    // ok
+    myfunction(foo);
+    
+    // ok too
+    myfunction( foo );
     ```
 
 - Use one space before leading parens and leading brackets.
@@ -1040,10 +1043,90 @@ Promoting the "Resource Way" of writing semantic, reusable, and cohesive JavaScr
     var timeout = 30 * 1000; 
     ```
 
-
 ## <a name='bom-dom'>BOM and DOM</a>  
 ### <a name='jquery'>jQuery</a>
+
+- Prefix jQuery object variables with a `$`.
+
+    ```javascript
+    // bad
+    var sidebar = $('.sidebar');
+
+    // good
+    var $sidebar = $('.sidebar');
+    ```
+
+- Cache jQuery lookups.
+
+    ```javascript
+    // bad
+    function setSidebar() {
+      $('.sidebar').hide();
+
+      // ...stuff...
+
+      $('.sidebar').css({
+        'background-color': 'pink'
+      });
+    }
+
+    // good
+    function setSidebar() {
+      var $sidebar = $('.sidebar');
+      $sidebar.hide();
+
+      // ...stuff...
+
+      $sidebar.css({
+        'background-color': 'pink'
+      });
+    }
+    ```
+
+- Use performant selectors. Sizzle reads right-to-left like native CSS, so much of the same rules apply.
+
+- Use `find` with scoped jQuery object queries (rather than context).
+
+    ```javascript
+    // bad
+    $('.sidebar', 'ul').hide();
+
+    // bad
+    $('.sidebar').find('ul').hide();
+
+    // good
+    $('.sidebar ul').hide();
+
+    // good
+    $('.sidebar > ul').hide();
+
+    // good (slower)
+    $sidebar.find('ul');
+
+    // good (faster)
+    $($sidebar[0]).find('ul');
+    ```
+
 ### <a name='security'>Security</a>
+
+- Cleanse data before evaluating.
+
+    ```javascript
+    // bad
+    var hash = window.location.hash;
+    
+    if ( hash ) {
+        // ...XSS bro...
+    };
+    
+    
+    // good
+    var hash = encodeURIComponent( window.location.hash );
+    
+    if ( hash ) {
+        // ...some stuff...
+    };
+    ```
 
 
 ## <a name='architecture'>Architecture</a>  
