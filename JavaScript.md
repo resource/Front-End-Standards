@@ -1109,7 +1109,7 @@ Promoting the "Resource Way" of writing semantic, reusable, and cohesive JavaScr
 
 ### <a name='security'>Security</a>
 
-- Cleanse data before evaluating.
+- Cleanse user-inputted data before evaluating.
 
     ```javascript
     // bad
@@ -1134,7 +1134,26 @@ Promoting the "Resource Way" of writing semantic, reusable, and cohesive JavaScr
 
 
 ## <a name='appendix'>Appendix</a>  
-### <a name='references'>References</a>  
-### <a name='performance'>Performance</a>  
+
+### <a name='references'>Resources</a>
+
+- [Annotated ECMAScript 5.1](http://es5.github.com/)
+- [AirBnb JavaScript Style Guide](https://github.com/airbnb/javascript)
+- [jQuery Style Guide](http://contribute.jquery.org/style-guide/js/)
+- [Idiomatic JS](https://github.com/rwldrn/idiomatic.js/)
+- [JavaScript Patterns Collection](http://shichuan.github.com/javascript-patterns/)
+- [Front End Development Guidelines](http://taitems.github.com/Front-End-Development-Guidelines/#javascriptSection)
+- [Functions Explained](http://markdaggett.com/blog/2013/02/15/functions-explained/)
+- [The Essentials of Writing High Quality JavaScript](http://net.tutsplus.com/tutorials/javascript-ajax/the-essentials-of-writing-high-quality-javascript/)
+
+### <a name='performance'>Performance</a> 
+- [On Layout & Web Performance](http://kellegous.com/j/2013/01/26/layout-performance/)
+- [String vs Array Concat](http://jsperf.com/string-vs-array-concat/2)
+- [Try/Catch Cost In a Loop](http://jsperf.com/try-catch-in-loop-cost)
+- [Bang Function](http://jsperf.com/bang-function)
+- [jQuery Find vs Context, Selector](http://jsperf.com/jquery-find-vs-context-sel/13)
+- [innerHTML vs textContent for script text](http://jsperf.com/innerhtml-vs-textcontent-for-script-text)
+- [Long String Concatenation](http://jsperf.com/ya-string-concat)
+
 ### <a name='about-resource'>About Resource</a>  
 ### <a name='license'>License</a>  
