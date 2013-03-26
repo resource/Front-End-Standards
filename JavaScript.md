@@ -1,6 +1,6 @@
 # Resource JavaScript Style Guide
 
-Promoting the "Resource Way" of writing semantic, reusable, and cohesive JavaScript.
+Promoting the "Resource Way" of writing semantic, reusable, and maintainable JavaScript.
 
 ## Table of Contents
 
