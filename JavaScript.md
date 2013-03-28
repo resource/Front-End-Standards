@@ -602,7 +602,7 @@ Promoting the "Resource Way" of writing semantic, reusable, and maintainable Jav
 
     // good
     if ( currentUser ) {
-      var test = function test() {
+      var test = function() {
         console.log('Yup.');
       };
     }
