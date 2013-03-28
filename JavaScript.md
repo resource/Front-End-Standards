@@ -30,6 +30,7 @@ Promoting the "Resource Way" of writing semantic, reusable, and maintainable Jav
 
 
 ### 5. [Structure](#structure)  
+  1. [File Naming Conventions](#file-naming-conventions) 
   1. [Modules](#modules)  
   1. ????  
 
@@ -138,17 +139,6 @@ Promoting the "Resource Way" of writing semantic, reusable, and maintainable Jav
     // good
     this._firstName = 'Nancy';
     ```
-
-- **Filenames**: Plugins/Modules should be prepended with the library/class they extend.
-
-    ```javascript
-    // bad
-    myJqueryPlugin.js
-    
-    // good
-    jquery.myJqueryPlugin.js
-    ```
-
 
 ### <a name='whitespace'>Whitespace</a>  
 
@@ -1010,6 +1000,17 @@ Promoting the "Resource Way" of writing semantic, reusable, and maintainable Jav
     ```
 
 ## <a name='structure'>Structure</a>  
+### <a name='file-naming-conventions'>File Naming Conventions</a>
+- Plugins/Modules should be prepended with the library/class they extend.
+
+    ```javascript
+    // bad
+    myJqueryPlugin.js
+    
+    // good
+    jquery.myJqueryPlugin.js
+    ```
+    
 ### <a name='modules'>Modules</a>
 
 
