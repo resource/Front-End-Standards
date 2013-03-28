@@ -29,7 +29,7 @@ Promoting the "Resource Way" of writing semantic, reusable, and maintainable Jav
   1. [Readable Milliseconds](#readable-milliseconds)  
 
 
-### 5. [Architecure](#architecture)  
+### 5. [Structure](#structure)  
   1. [Modules](#modules)  
   1. ????  
 
@@ -1009,7 +1009,7 @@ Promoting the "Resource Way" of writing semantic, reusable, and maintainable Jav
     var timeout = 30 * 1000; 
     ```
 
-## <a name='architecture'>Architecture</a>  
+## <a name='structure'>Structure</a>  
 ### <a name='modules'>Modules</a>
 
 
