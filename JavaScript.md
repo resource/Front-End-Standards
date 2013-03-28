@@ -894,18 +894,16 @@ Promoting the "Resource Way" of writing semantic, reusable, and maintainable Jav
     ```
 
 ### <a name='conditionals'>Operators, Conditional Expressions & Equality</a>
+- **Objects** evaluate to **true**
+- **Undefined** evaluates to **false**
+- **Null** evaluates to **false**
+- **Booleans** evaluate to **the value of the boolean**
+- **Numbers** evalute to **false** if **+0, -0, or NaN**, otherwise **true**
+- **Strings** evaluate to **false** if an empty string `''`, otherwise **true**  
 
-- Conditional expressions follow these simple rules:
-
-    + **Objects** evaluate to **true**
-    + **Undefined** evaluates to **false**
-    + **Null** evaluates to **false**
-    + **Booleans** evaluate to **the value of the boolean**
-    + **Numbers** evalute to **false** if **+0, -0, or NaN**, otherwise **true**
-    + **Strings** evaluate to **false** if an empty string `''`, otherwise **true**
-
+  
 - Use `===` and `!==` over `==` and `!=`.
-  - **Exception**: `==` comparison is allowed when comparing to null, because it will detect both null or undefined properties.
+  - **Exception**: `==` comparison is allowed when comparing to `null`, because it will detect both `null` or `undefined` properties.
 
     ```javascript
     var foo = null;
