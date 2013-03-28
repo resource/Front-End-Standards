@@ -170,22 +170,6 @@ Promoting the "Resource Way" of writing semantic, reusable, and maintainable Jav
     }
     ```
 
-- Include extra space around multiple arguments.
-
-    ```javascript
-    // bad
-    myFunction(foo, bar);
-    
-    // good
-    myfunction( foo, bar );
-    
-    // ok
-    myfunction(foo);
-    
-    // ok too
-    myfunction( foo );
-    ```
-
 - Use one space before leading parens and leading brackets.
 
     ```javascript
@@ -943,6 +927,23 @@ Promoting the "Resource Way" of writing semantic, reusable, and maintainable Jav
     // good
     if ( !superPumped ) {
         // ...go home...
+    }
+    ```
+
+- Make your expressions more legible by keeping them brief.
+
+    ```javascript
+    // bad
+    if ((buca || zPizza) && (udf || jenis)) {
+      // ...party?
+    }
+    
+    // good
+    var pizza = buca || zPizza,
+        iceCream = udf || jenis;
+    
+    if (pizza && iceCream) {
+      // ...party!
     }
     ```
 
