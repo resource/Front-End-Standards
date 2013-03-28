@@ -886,23 +886,38 @@ Promoting the "Resource Way" of writing semantic, reusable, and maintainable Jav
 
     ```javascript
     // bad
-    if ( name !== '' ) {
+    if (name !== "") {
       // ...stuff...
     }
 
     // good
-    if ( name ) {
+    if (name) {
       // ...stuff...
     }
 
     // bad
-    if ( collection.length > 0 ) {
+    if (collection.length > 0) {
       // ...stuff...
     }
 
     // good
-    if ( collection.length ) {
+    if (collection.length) {
       // ...stuff...
+    }
+    ```
+  - **Exception**: Avoid shortcut if checking for `0`.
+
+    ```javascript
+    // => value = 0;
+    
+    // bad 
+    if (value) {
+        // I'm in!
+    }
+
+    // good
+    if (value !== 0) {
+        // I'm NOT in!
     }
     ```
 
