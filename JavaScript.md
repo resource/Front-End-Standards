@@ -28,9 +28,6 @@ Promoting the "Resource Way" of writing semantic, reusable, and maintainable Jav
   1. [For Loops](#for-loops)  
   1. [Readable Milliseconds](#readable-milliseconds)  
 
-### 4. [BOM and DOM](#bom-dom)    
-  1. [jQuery](#jquery)  
-  1. [Security](#security)  
 
 ### 5. [Architecure](#architecture)  
   1. [Modules](#modules)  
@@ -49,34 +46,23 @@ Promoting the "Resource Way" of writing semantic, reusable, and maintainable Jav
 
 - Code should be thoroughly documented. The developer should strive to write logical and informative comments that contriburte to code maintainabiltiy and developer collaboration.
 
-- Comment blocks spanning multiple lines should be written using an opening `/**` and closing `*/`, with each line beginning with a single `*` surrounded by one leading and trailing space. 
-
-    ```javascript
-    /**
-    *Bad multi-line comment 
-    */
-
-    /**
-     * Good multi-line comment 
-     */
-    ```
-    
-- A document's first comment block should be used for declaring a summary of the document. The second `*` should be replaced with an `!` in order to preserve the block during minification.
-
-    ```javascript
-    /*!
-     * Opening comment block
-     * @author Nancy Kramer
-     */
-    ```
-    
 - Single-line comments should be written with two leading `//` followed by one space.
+  - Use case goes here.
 
     ```javascript
-    //bad
-
-    // good
+    // single-line comment
     ```
+
+- Comment blocks spanning multiple lines should be written using an opening `/**` and closing `*/`, with each line beginning with a single `*` surrounded by one leading and trailing space. 
+  - Use case goes here.
+
+    ```javascript
+    /**
+     * Multi-line comment 
+     */
+    ```
+   
+
 
 
 ### <a name='naming-conventions'>Naming Conventions</a>
@@ -1042,92 +1028,6 @@ Promoting the "Resource Way" of writing semantic, reusable, and maintainable Jav
     // good
     var timeout = 30 * 1000; 
     ```
-
-## <a name='bom-dom'>BOM and DOM</a>  
-### <a name='jquery'>jQuery</a>
-
-- Prefix jQuery object variables with a `$`.
-
-    ```javascript
-    // bad
-    var sidebar = $('.sidebar');
-
-    // good
-    var $sidebar = $('.sidebar');
-    ```
-
-- Cache jQuery lookups.
-
-    ```javascript
-    // bad
-    function setSidebar() {
-      $('.sidebar').hide();
-
-      // ...stuff...
-
-      $('.sidebar').css({
-        'background-color': 'pink'
-      });
-    }
-
-    // good
-    function setSidebar() {
-      var $sidebar = $('.sidebar');
-      $sidebar.hide();
-
-      // ...stuff...
-
-      $sidebar.css({
-        'background-color': 'pink'
-      });
-    }
-    ```
-
-- Use performant selectors. Sizzle reads right-to-left like native CSS, so much of the same rules apply.
-
-- Use `find` with scoped jQuery object queries (rather than context).
-
-    ```javascript
-    // bad
-    $('.sidebar', 'ul').hide();
-
-    // bad
-    $('.sidebar').find('ul').hide();
-
-    // good
-    $('.sidebar ul').hide();
-
-    // good
-    $('.sidebar > ul').hide();
-
-    // good (slower)
-    $sidebar.find('ul');
-
-    // good (faster)
-    $($sidebar[0]).find('ul');
-    ```
-
-### <a name='security'>Security</a>
-
-- Cleanse user-inputted data before evaluating.
-
-    ```javascript
-    // bad
-    var hash = window.location.hash;
-    
-    if ( hash ) {
-        // ...XSS bro...
-    };
-    
-    
-    // good
-    var hash = encodeURIComponent( window.location.hash );
-    
-    if ( hash ) {
-        // ...some stuff...
-    };
-    ```
-
 
 ## <a name='architecture'>Architecture</a>  
 ### <a name='modules'>Modules</a>
