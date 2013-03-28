@@ -64,8 +64,6 @@ Promoting the "Resource Way" of writing semantic, reusable, and maintainable Jav
     ```
    
 
-
-
 ### <a name='naming-conventions'>Naming Conventions</a>
   
 - Avoid ambigious names. Be descriptive with your naming.
@@ -898,6 +896,16 @@ Promoting the "Resource Way" of writing semantic, reusable, and maintainable Jav
 ### <a name='conditionals'>Operators, Conditional Expressions & Equality</a>
 
 - Use `===` and `!==` over `==` and `!=`.
+  - **Exception**: `==` comparison is allowed when comparing to null, because it will detect both null or undefined properties.
+
+    ```javascript
+    var pizza = null;
+
+    // pizza is null, but beer is undefined as it has not been declared
+    if (pizza == null && beer == null) {
+        // buy more pizza and beer
+    }
+    ```
 
 - Conditional expressions are evaluated using coercion with the `ToBoolean` method and always follow these simple rules:
 
