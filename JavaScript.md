@@ -434,7 +434,7 @@ Promoting the "Resource Way" of writing semantic, reusable, and maintainable Jav
       
       items = '<ul>';
 
-      for ( i = 0; i < length; i += 1 ) {
+      for ( i = 0; i < length; i++ ) {
         items += '<li>' + messages[i].message + '</li>';
       }
 
@@ -447,7 +447,7 @@ Promoting the "Resource Way" of writing semantic, reusable, and maintainable Jav
       
       items = [];
 
-      for ( i = 0; i < length; i += 1 ) {
+      for ( i = 0; i < length; i++ ) {
         items[i] = messages[i].message;
       }
 
@@ -516,7 +516,7 @@ Promoting the "Resource Way" of writing semantic, reusable, and maintainable Jav
         i;
 
     // bad
-    for ( i = 0; i < len; i += 1 ) {
+    for ( i = 0; i < len; i++ ) {
       itemsCopy[i] = items[i];
     }
 
@@ -963,17 +963,6 @@ Promoting the "Resource Way" of writing semantic, reusable, and maintainable Jav
     }
     ```
 
-- Avoid incrementing and decrementing with `++` and '--'.
-
-    ```javascript
-    // bad
-    i ++;
-    
-    // good
-    i += 1;
-    ```
-
-
 ### <a name='for-loops'>For Loops</a>  
 
 - Cache loop length.
@@ -981,7 +970,7 @@ Promoting the "Resource Way" of writing semantic, reusable, and maintainable Jav
 
     ```javascript
     // yup
-    for ( var i = 0, length = toLoop.length; i < length; i+=1 ) {
+    for ( var i = 0, length = toLoop.length; i < length; i++ ) {
         // GOOD - the length is only looked up once and then cached
     }
     ```
