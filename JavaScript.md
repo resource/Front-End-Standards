@@ -366,20 +366,20 @@ Promoting the "Resource Way" of writing semantic, reusable, and maintainable Jav
 
 
 ### <a name='strings'>Strings</a>
-- Use single quotes `''` for strings
+- Use double quotes `""` for strings
 
     ```javascript
     // bad
-    var name = "Nancy Kramer";
-
-    // good
     var name = 'Nancy Kramer';
 
+    // good
+    var name = "Nancy Kramer";
+
     // bad
-    var fullName = "Nancy " + this.lastName;
+    var fullName = 'Nancy ' + this.lastName;
 
     // good
-    var fullName = 'Nancy ' + this.lastName;
+    var fullName = "Nancy " + this.lastName;
     ```
 
 - Strings longer than 80 characters should be written across multiple lines using string concatenation.
