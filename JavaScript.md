@@ -895,19 +895,7 @@ Promoting the "Resource Way" of writing semantic, reusable, and maintainable Jav
 
 ### <a name='conditionals'>Operators, Conditional Expressions & Equality</a>
 
-- Use `===` and `!==` over `==` and `!=`.
-  - **Exception**: `==` comparison is allowed when comparing to null, because it will detect both null or undefined properties.
-
-    ```javascript
-    var pizza = null;
-
-    // pizza is null, but beer is undefined as it has not been declared
-    if (pizza == null && beer == null) {
-        // buy more pizza and beer
-    }
-    ```
-
-- Conditional expressions are evaluated using coercion with the `ToBoolean` method and always follow these simple rules:
+- Conditional expressions follow these simple rules:
 
     + **Objects** evaluate to **true**
     + **Undefined** evaluates to **false**
@@ -916,10 +904,15 @@ Promoting the "Resource Way" of writing semantic, reusable, and maintainable Jav
     + **Numbers** evalute to **false** if **+0, -0, or NaN**, otherwise **true**
     + **Strings** evaluate to **false** if an empty string `''`, otherwise **true**
 
+- Use `===` and `!==` over `==` and `!=`.
+  - **Exception**: `==` comparison is allowed when comparing to null, because it will detect both null or undefined properties.
+
     ```javascript
-    if ([0]) {
-      // true
-      // An array is an object, objects evaluate to true
+    var foo = null;
+
+    // foo is null, but bar is undefined as it has not been declared
+    if (foo == null && bar == null) {
+        // ...stuff...
     }
     ```
 
