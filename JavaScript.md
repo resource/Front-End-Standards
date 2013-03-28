@@ -313,15 +313,15 @@ Promoting the "Resource Way" of writing semantic, reusable, and maintainable Jav
     ```
 
 - Pad large blocks with blank lines.
-    
+
     ```javascript
     // bad
-    if ( lastName ) {
+    var createOpenBrand = function() {
         // ... lots of stuff...
     }
     
     // good
-    if ( lastName ) {
+    var createOpenBrand = function() {
 
         // ... lots of stuff...
     
