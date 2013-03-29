@@ -32,7 +32,6 @@ Promoting the "Resource Way" of writing semantic, reusable, and maintainable Jav
 ### 5. [Structure](#structure)  
   1. [File Naming Conventions](#file-naming-conventions) 
   1. [Modules](#modules)  
-  1. ????  
 
 ### 6. [Appendix](#appendix)  
   1. [References](#references)
