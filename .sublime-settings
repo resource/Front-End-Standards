@@ -1,5 +1,5 @@
 // Sample settings for Sublime Text.
-// Merge the properties below with your own setting file.
+// Place these items in you User Settings file (accessible from the Preferences/Settings - User menu)
 {
 	"dictionary": "Packages/Language - English/en_US.dic",
   	"spell_check": true,
