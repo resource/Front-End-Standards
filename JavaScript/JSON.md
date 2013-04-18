@@ -8,7 +8,8 @@ Promoting the "Resource Way" of writing JavaScript Object Notation.
 1. [Formatting](#formatting)  
 1. [Naming Conventions](#naming-conventions)  
 1. [Structure](#structure)  
-1. [Tools](#tools)  
+1. [Tools](#tools) 
+1. [Well-formed JSON API Examples](#api-examples)  
 1. [References](#references)  
 
 All JSON should adhere to the standards defined on [JSON.org](http://json.org/). The purpose of this document is to provide guidelines for writing JSON at Resource. It assumes that all JSON conforms to the JSON.org standard, and that this document is used as a continuation of those standards.
@@ -51,7 +52,7 @@ JSON, or JavaScript Object Notation, is a text-based open standard designed for 
     }
     ```
 
-- Use snake_case when naming properties.
+- Write underscore `_` delimited property names.
 
     ```javascript
     // bad
@@ -126,10 +127,10 @@ JSON, or JavaScript Object Notation, is a text-based open standard designed for 
 
 ### <a name='structure'>Structure</a>  
 - Use nested objects to provide structure.
-    
-    ```javascript      
-    // bad
-    {
+
+	```javascript      
+	// bad
+	{
     	"company": "Resource",
     	"address": "343 Front St.",
     	"address2": "Floor 3",
@@ -148,8 +149,8 @@ JSON, or JavaScript Object Notation, is a text-based open standard designed for 
     ```
     
 - Resevere the "top-level" of you JSON object for meta data.
-- Use a `data` object to store the main content of your object.
-- Use an `items` collection to store an array of response data.
+- Use a `data` object to store the primary content of your JSON object.
+- Use an `items` collection to store sets of like-data.
 
 	```javascript
 	// example
@@ -177,6 +178,11 @@ JSON, or JavaScript Object Notation, is a text-based open standard designed for 
 ### <a name='tools'>Tools</a> 
 - [JSONLint](http://jsonlint.com/)
 - [JSONmate](http://jsonmate.com/) 
+
+### <a name='api-examples'>Well-formed JSON API Examples</a> 
+- [Soundcloud](http://developers.soundcloud.com/docs/api/reference)
+- [Youtube](https://developers.google.com/youtube/2.0/reference)
+- [Twitter](https://dev.twitter.com/docs/api/1.1)
 
 ### <a name='references'>References</a>
 - [JSON.org](http://json.org/)
