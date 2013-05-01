@@ -633,11 +633,7 @@ Promoting the "Resource Way" of writing semantic, reusable, and maintainable Jav
         gpat, noodle;
     ```
 
-- Assign variables at the top of their scope. This helps avoid issues with variable declaration and assignment hoisting related issues.
-
-    ```javascript
-    TODO: Kevin's hoisting example
-    ```
+- Assign variables at the top of their scope. This helps avoid issues with variable declaration and assignment hoisting related issues. [More information about hoisting in JavaScript](http://www.adequatelygood.com/JavaScript-Scoping-and-Hoisting.html)
 
 - Create as few globals as possible.
 
