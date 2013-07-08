@@ -506,7 +506,7 @@ Promoting the "Resource Way" of writing semantic, reusable, and maintainable Jav
 
     // good
     var resourceU = {
-        klass: "Raving Clients",
+        className: "Raving Clients",
         defaults: { teacher: "Kramer" },
         hidden: true
     };
