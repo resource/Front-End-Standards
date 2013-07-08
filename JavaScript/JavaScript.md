@@ -460,7 +460,7 @@ Promoting the "Resource Way" of writing semantic, reusable, and maintainable Jav
 
     ```javascript
     // bad
-    if (kramer.superPumped()) {
+    if (kramer.isSuperPumped()) {
         return false;
     }
     
