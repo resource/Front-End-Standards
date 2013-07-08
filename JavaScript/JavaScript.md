@@ -549,7 +549,7 @@ Promoting the "Resource Way" of writing semantic, reusable, and maintainable Jav
     };
     ```
 
-- Properly writter function expressions:
+- Properly written function expressions:
 
     ```javascript
     // anonymous function expression
