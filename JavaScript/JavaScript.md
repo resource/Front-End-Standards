@@ -460,7 +460,7 @@ Promoting the "Resource Way" of writing semantic, reusable, and maintainable Jav
 
     ```javascript
     // bad
-    if (kramer.isSuperPumped()) {
+    if (kramer.superPumped()) {
         return false;
     }
     
@@ -469,15 +469,11 @@ Promoting the "Resource Way" of writing semantic, reusable, and maintainable Jav
         return false;
     }
     
+    // bad
+    var shoe.tied = false;
+
     // good
-    if (kramer.canParty()) {
-        return false;
-    }
-    
-    // good
-    if (kramer.hasGoodTimes()) {
-        return false;
-    }
+    var shoe.isTied = false
     ```
 
 
