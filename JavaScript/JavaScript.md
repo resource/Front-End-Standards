@@ -5,7 +5,7 @@ Promoting the "Resource Way" of writing semantic, reusable, and maintainable Jav
 ## Table of Contents
 
 ### 1. [Formatting](#formatting)  
-  1. [Comments](#comments)  
+  1. [Comments](#comments)
   1. [Naming Conventions](#naming-conventions)  
   1. [Whitespace](#whitespace)   
   1. [Commas & Semicolons](#commas-and-semicolons)  
@@ -927,7 +927,8 @@ Promoting the "Resource Way" of writing semantic, reusable, and maintainable Jav
 
     ```javascript
     // yup
-    for (var i = 0, length = toLoop.length; i < length; i++) {
+    var length = toLoop.length
+    for (var i = 0; i < length; i++) {
         // GOOD - the length is only looked up once and then cached
     }
     ```
