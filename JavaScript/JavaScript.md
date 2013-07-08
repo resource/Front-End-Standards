@@ -294,25 +294,6 @@ Promoting the "Resource Way" of writing semantic, reusable, and maintainable Jav
         return value;
     }
     ```
-    
-- `if/else` statements should always begin on a new line.
-
-    ```javascript
-    // bad
-    if (expresion) {
-        // ...stuff...
-    } else {
-        // ...stuff...    
-    }
-
-    // good
-    if (expresion) {
-        // ...stuff...
-    } 
-    else {
-        // ...stuff...    
-    }
-    ```
 
 - Pad large blocks with blank lines.
 
