@@ -883,22 +883,22 @@ Promoting the "Resource Way" of writing semantic, reusable, and maintainable Jav
 
     ```javascript
     // bad
-    if (superPumped === true) {
+    if (isSuperPumped === true) {
         // ...party...
     }
     
     // good
-    if (superPumped) {
+    if (isSuperPumped) {
         // ...party...
     }
     
     // bad
-    if (superPumped === false) {
+    if (isSuperPumped === false) {
         // ...go home...
     }
     
     // good
-    if (!superPumped) {
+    if (!isSuperPumped) {
         // ...go home...
     }
     ```
