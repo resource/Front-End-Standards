@@ -61,7 +61,7 @@ JSON, or JavaScript Object Notation, is a text-based open standard designed for 
     	"NotableClients": [
         	"Sherwin Williams",
         	"HP",
-        	"Victoria Secret",
+        	"Victoria’s Secret",
         	"P&G"
     	],
     	"founder": "Nancy Kramer",
@@ -74,7 +74,7 @@ JSON, or JavaScript Object Notation, is a text-based open standard designed for 
     	"notable_clients": [
        		"Sherwin Williams",
         	"HP",
-        	"Victoria Secret",
+        	"Victoria’s Secret",
         	"P&G"
     	],
     	"founder": "Nancy Kramer",
@@ -148,7 +148,7 @@ JSON, or JavaScript Object Notation, is a text-based open standard designed for 
     }
     ```
     
-- Resevere the "top-level" of you JSON object for meta data.
+- Resevere the "top-level" of your JSON object for meta data.
 - Use a `data` object to store the primary content of your JSON object.
 - Use an `items` collection to store sets of like-data.
 
