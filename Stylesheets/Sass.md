@@ -140,3 +140,4 @@ Below are four contextual examples to keep in mind:
 - [More Modular CSS](http://thesassway.com/intermediate/avoid-nested-selectors-for-more-modular-css)
 - [Modular Variables](http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-name-your-sass-variables-modularly/)
 - [Sass Style Guide](http://css-tricks.com/sass-style-guide/)
+- [Boost Sass/Compass Efficiency](http://www.netmagazine.com/tutorials/boost-sass-compass-efficiency)
