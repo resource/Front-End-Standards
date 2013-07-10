@@ -48,8 +48,54 @@ and _somepartial.scss would be imported.
 
 More on @imports here [Sass Lang #directives](http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#directives)
 
+##### The "Inception Rule"
+Nesting too deep is getting away from a modular approach to writing css. Thinking about context before writing your rules is a good start. See the [References](#references) section in this document for more on modular CSS and avoiding deeply nested selectors.
+
+Below are four contextual examples to keep in mind:
+
+1) Site Context
+- Elements lacking a class or id. One level. e.g. h1-h6, body, ul, p
+
+2) Page Context
+- Styling the layout (elements that vary depending on the page). Usually two levels.
+
+```SCSS
+.cart {
+  #sidebar { width: 150px; }
+  #content { width: 850px; }
+}
+```
+
+3) Objects
+- An element, alone or with children, identifed by class or id
+
+```SCSS
+.special-widget {
+	li { ... }
+	a { ... }
+}
+```
+
+4) Interaction State
+- Covers anything that changes when you interact with an object. This usually gets close to a fourth indentation, and is "ok". If you find yourself with lots of four-level-nested components consider revising.
+
+```SCSS
+.special-widget {
+	background-color: blue;
+	.super-special { 
+		background-color: red;	
+		a {
+			border: 2px solid yellow;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+}
+```
 
 ### <a name='references'>References</a>
 - [Sass Reference Docs](http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html)
-- [The Sass Way](http://thesassway.com/) 
-
+- [The Sass Way](http://thesassway.com/)
+- [The Inception Rule](http://thesassway.com/beginner/the-inception-rule)
+- [More Modular CSS](http://thesassway.com/intermediate/avoid-nested-selectors-for-more-modular-css)
