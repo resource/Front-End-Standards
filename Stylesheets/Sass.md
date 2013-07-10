@@ -48,6 +48,45 @@ and _somepartial.scss would be imported.
 
 More on @imports here [Sass Lang #directives](http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#directives)
 
+##### Variable Naming
+Name you variables in a modular way.
+
+```SCSS
+// Too specific. Poor.
+$blue;
+$dark-blue;
+$darkest-blue;
+$light-blue;
+
+// Instead, group variables that share relationships and commonalities.
+// Get generic. Good.
+$blue;
+$blue-dark;
+$blue-darkest;
+$blue-light;
+```
+
+##### Indentation and Bracket location
+Keep indentation consistent to your project. If you're using 2 spaces, use 2 spaces. If you're using tabs, use tabs. End each object
+
+```SCSS
+// Good. End each module where it starts
+.foo {
+	...
+	.bar { 
+		...
+		.baz { ... }
+	}
+}
+
+// Weird, bad bracket location
+.foo {
+	...
+	.bar { 
+		...
+		.baz { ... } } }
+```
+
 ##### The "Inception Rule"
 Nesting too deep is getting away from a modular approach to writing css. Thinking about context before writing your rules is a good start. See the [References](#references) section in this document for more on modular CSS and avoiding deeply nested selectors.
 
@@ -61,8 +100,8 @@ Below are four contextual examples to keep in mind:
 
 ```SCSS
 .cart {
-  #sidebar { width: 150px; }
-  #content { width: 850px; }
+  .sidebar { width: 150px; }
+  .content { width: 850px; }
 }
 ```
 
@@ -77,7 +116,7 @@ Below are four contextual examples to keep in mind:
 ```
 
 4) Interaction State
-- Covers anything that changes when you interact with an object. This usually gets close to a fourth indentation, and is "ok". If you find yourself with lots of four-level-nested components consider revising.
+- Covers anything that changes when you interact with an object. This usually gets close to a fourth indentation, and is "ok". If you find yourself with lots of four-level-nested components consider revising and/or using the [@extend](http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#extend) directive to get back to less than four levels.
 
 ```SCSS
 .special-widget {
@@ -99,3 +138,5 @@ Below are four contextual examples to keep in mind:
 - [The Sass Way](http://thesassway.com/)
 - [The Inception Rule](http://thesassway.com/beginner/the-inception-rule)
 - [More Modular CSS](http://thesassway.com/intermediate/avoid-nested-selectors-for-more-modular-css)
+- [Modular Variables](http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-name-your-sass-variables-modularly/)
+- [Sass Style Guide](http://css-tricks.com/sass-style-guide/)
