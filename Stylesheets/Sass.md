@@ -90,12 +90,12 @@ Keep indentation consistent to your project. If you're using 2 spaces, use 2 spa
 ##### The "Inception Rule"
 Nesting too deep is getting away from a modular approach to writing css. Thinking about context before writing your rules is a good start. See the [References](#references) section in this document for more on modular CSS and avoiding deeply nested selectors.
 
-Below are four contextual examples to keep in mind:
+**Four contextual examples to keep in mind to avoid over-nesting:**
 
-1) Site Context
+**1) Site Context**
 - Elements lacking a class or id. One level. e.g. h1-h6, body, ul, p
 
-2) Page Context
+**2) Page Context**
 - Styling the layout (elements that vary depending on the page). Usually two levels.
 
 ```SCSS
@@ -105,7 +105,7 @@ Below are four contextual examples to keep in mind:
 }
 ```
 
-3) Objects
+**3) Objects**
 - An element, alone or with children, identifed by class or id
 
 ```SCSS
@@ -115,7 +115,7 @@ Below are four contextual examples to keep in mind:
 }
 ```
 
-4) Interaction State
+**4) Interaction State**
 - Covers anything that changes when you interact with an object. This usually gets close to a fourth indentation, and is "ok". If you find yourself with lots of four-level-nested components consider revising and/or using the [@extend](http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#extend) directive to get back to less than four levels.
 
 ```SCSS
