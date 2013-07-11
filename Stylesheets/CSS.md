@@ -117,7 +117,55 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     ```
 
 
-## <a name="white-space">White Space</a>  
+## <a name="white-space">White Space</a> 
+- One space between selector and opening bracket.
+    
+    ```
+ 	/* bad */
+    .selector{
+		...
+    }
+
+	/* good */
+	.selector∙{
+		...
+	}
+    ```
+ 
+- Use tabs set to 4 spaces/.
+    
+	```
+	/* bad */
+	.selector {
+	∙∙float: left;
+	}
+
+	/* good */
+	.selector {
+	∙∙∙∙float: left;
+	}
+	```
+	
+- No space after property; one space before property value declaration.
+
+	```
+	/* bad */
+	.selector {
+		float:left;
+	}
+	
+	/* bad */
+	.selector {
+		float∙:∙left;
+	}
+
+	/* good */
+	.selector {
+		float:∙left;
+	}
+	```
+	
+- Avoid nesting declaration blocks.
 
 ## <a name="selectors">Selectors</a>
 ### <a name="naming">Naming</a> 
