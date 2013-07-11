@@ -86,6 +86,69 @@ Keep indentation consistent to your project. If you're using 2 spaces, use 2 spa
 		...
 		.baz { ... } } }
 ```
+##### Line Breaks
+Keep related modules/component declarations together. Adding a line break to each new declaration. One CSS rule per line.
+
+```SCSS
+// Nice. Some breathing room here. 
+.module {
+  color: black;
+  width: 100%;
+
+  	.shrim {
+  		color: green;
+  		font-size: 16px;
+  	}
+
+  	.taargus {
+  		color: blue;
+  		font-size: 14px;
+  	}
+
+  	.spaghett {
+  		color: red;
+  		font-size: 12px;
+  	}
+}
+
+.next-module {
+	color: white;
+	width: 50%;
+
+		.foo {
+			color: black;
+			text-align: left;
+		}
+}
+```
+
+```SCSS
+// Meh. Rather cramped style. Longer files formatted like this become difficult to read.
+.module {
+  color: black;
+  width: 100%;
+  	.shrim {
+  		color: green;
+  		font-size: 16px;
+  	}
+  	.taargus {
+  		color: blue;
+  		font-size: 14px;
+  	}
+  	.spaghett {
+  		color: red;
+  		font-size: 12px;
+  	}
+}
+.next-module {
+	color: white;
+	width: 50%;
+		.foo {
+			color: black;
+			text-align: left;
+		}
+}
+```
 
 ##### The "Inception Rule"
 Nesting too deep is getting away from a modular approach to writing css. Thinking about context before writing your rules is a good start. See the [References](#references) section in this document for more on modular CSS and avoiding deeply nested selectors.
