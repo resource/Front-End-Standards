@@ -58,6 +58,64 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     ```
 
 ## <a name="declaration-blocks">Declaration Blocks</a>  
+- Opening brackets should start on the same line; closing bracket on a new line.
+
+   ```
+   .selector {
+       ...
+   }
+   ```
+   
+- Separte multiple selectors with a new line.
+    
+    ```
+    .selector,
+    .another-selector {
+       ...
+    }
+    ```
+
+- One declaration per line.
+
+    ```
+    /* bad */
+    .selector {
+        width: 100px; height: 100px;
+        margin: 13px; padding: 42px;
+    }
+    
+    /* bad */
+    .selector { height: 100px }
+    
+    /* good */
+    .selector {
+        width: 100px; 
+        height: 100px;
+        margin: 13px; 
+        padding: 42px;
+    }
+    ```
+    
+- Try to keep like-properties grouped together
+
+    ```
+    /* not great */
+    .selector {
+        height: 100px;
+        z-index: 2;
+        width: 100px;
+        position: relative;
+    }
+    
+    /* good */
+    .selector {
+        height: 100px;
+        width: 100px;
+        position: relative;
+        z-index: 2;
+    }
+    ```
+
 
 ## <a name="white-space">White Space</a>  
 
