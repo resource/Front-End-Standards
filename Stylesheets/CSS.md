@@ -20,7 +20,7 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
 - Use comments to divide sections and describe larger sets of rules.
    - Don't overcomment, as most CSS should be self-explanitory; too much commenting detracts from readbility.
 
-    ```
+    ```css
     /* bad */
     .media {
         height: 100px; /* set height to 100px */
@@ -40,27 +40,27 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     
     - Comment formatting:
     
-    ```
+    ```css
     /* ==========================================================================
        Section Comment
        ========================================================================== */
     ```
     
-    ```
+    ```css
     /**
      * Multiple
      * lines
      */
     ```
     
-    ```
+    ```css
     /* Single line */
     ```
 
 ## <a name="declaration-blocks">Declaration Blocks</a>  
 - Opening brackets should start on the same line; closing bracket on a new line.
 
-   ```
+   ```css
    .selector {
        ...
    }
@@ -68,7 +68,7 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
    
 - Separte multiple selectors with a new line.
     
-    ```
+    ```css
     .selector,
     .another-selector {
        ...
@@ -77,7 +77,7 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
 
 - One declaration per line.
 
-    ```
+    ```css
     /* bad */
     .selector {
         width: 100px; height: 100px;
@@ -98,7 +98,7 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     
 - Try to keep similar properties grouped together
 
-    ```
+    ```css
     /* not great */
     .selector {
         height: 100px;
@@ -120,8 +120,8 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
 ## <a name="white-space">White Space</a> 
 - One space between selector and opening bracket.
     
-    ```
- 	/* bad */
+    ```css
+    /* bad */
     .selector{
 		...
     }
@@ -134,7 +134,7 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
  
 - Use tabs set to 4 spaces/.
     
-	```
+	```css
 	/* bad */
 	.selector {
 	∙∙float: left;
@@ -148,7 +148,7 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
 	
 - No space after property; one space before property value declaration.
 
-	```
+	```css
 	/* bad */
 	.selector {
 		float:left;
