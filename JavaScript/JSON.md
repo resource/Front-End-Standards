@@ -61,7 +61,7 @@ JSON, or JavaScript Object Notation, is a text-based open standard designed for 
     	"NotableClients": [
         	"Sherwin Williams",
         	"HP",
-        	"Victoria’s Secret",
+        	"Victoria\u2019s Secret",
         	"P&G"
     	],
     	"founder": "Nancy Kramer",
@@ -74,7 +74,7 @@ JSON, or JavaScript Object Notation, is a text-based open standard designed for 
     	"notable_clients": [
        		"Sherwin Williams",
         	"HP",
-        	"Victoria’s Secret",
+        	"Victoria\u2019s Secret",
         	"P&G"
     	],
     	"founder": "Nancy Kramer",
