@@ -17,6 +17,45 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
 ***
 
 ## <a name="comments">Comments</a>  
+- Use comments to divide sections and describe larger sets of rules.
+   - Don't overcomment, as most CSS should be self-explanitory; too much commenting detracts from readbility.
+
+    ```
+    /* bad */
+    .media {
+        height: 100px; /* set height to 100px */
+        width: 100px; /* set width the same as height */
+        color: #ff0000; /* red */
+    }
+    
+    
+    /* good */
+    /* media block */
+    .media {
+    	height: 100px;
+    	width: 100px;
+    	color: #ff000;
+    }
+    ```
+    
+    - Comment formatting:
+    
+    ```
+    /* ==========================================================================
+       Section Comment
+       ========================================================================== */
+    ```
+    
+    ```
+    /**
+     * Multiple
+     * lines
+     */
+    ```
+    
+    ```
+    /* Single line */
+    ```
 
 ## <a name="declaration-blocks">Declaration Blocks</a>  
 
