@@ -96,7 +96,7 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     }
     ```
     
-- Try to keep like-properties grouped together
+- Try to keep similar properties grouped together
 
     ```
     /* not great */
