@@ -123,7 +123,7 @@ Keep related modules/component declarations together. Adding a line break to eac
 ```
 
 ```SCSS
-// Meh. Rather cramped style. Longer files formatted like this become difficult to read.
+// Meh. All cramped and such.
 .module {
   color: black;
   width: 100%;
