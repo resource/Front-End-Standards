@@ -49,7 +49,7 @@ and _somepartial.scss would be imported.
 More on @imports here [Sass Lang #directives](http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#directives)
 
 ##### Variable Naming
-Name you variables in a modular way.
+Name you variables in a modular way. Use dashes to separate multiple words in a declaration.
 
 ```SCSS
 // Too specific. Poor.
