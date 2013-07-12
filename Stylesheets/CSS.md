@@ -169,17 +169,150 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
 
 ## <a name="selectors">Selectors</a>
 ### <a name="naming">Naming</a> 
+- Selectors are always lowercase
+
+    ```css
+    TODO
+    ```
+    
+- Selectors are dash-delimited.
+
+    ```css
+    TODO
+    ```
+    
+    - Exception: underscores are OK when using BEM or any other modifier schema.
+        
+        ```css
+        TODO
+        ```
+
+- Adhere to the design language of the brand when naming elements/selectors.
+
+- Don't over-semantize class names; it reduces repurposability.
+    
+    ```css
+    TODO
+    ```
+
 ### <a name="specificity">Specificity</a> 
+- Understand how CSS specificity works.
+
+    ```css
+    TODO
+    ```
+    
+- Avoid use of `!important`.
+
+- Avoid use of #IDs.
+
+    ```css
+    TODO
+    ```
+- Use preferred-child instead of decendent selectors.
+    
+	```css
+    TODO
+    ```
+
 ### <a name="efficiency">Efficiency</a>  
+- Understand how CSS selectors are parsed.
+    
+    ```css
+    TODO
+    ```
+
+- Avoid unessesary selectors; keep them as short as possible.
+    - Adhere to the "Inception" rule.
+
+    ```css
+    TODO
+    ```
+    
+- Avoid element selectors outside of normalization.
+
+    ```css
+    TODO
+    ```
 
 ## <a name="value-formatting">Value Formatting</a>
+- Use hex or rgba.
+    - Use hex shortcut when possible. 
+  
+    ```css
+    TODO
+    ```
+
+- Avoid named shortcuts.
+
+    ```css
+    TODO
+    ```
+
+- No quotes on `url()` values.
+
+    ```css
+    TODO
+    ```
+    
 
 ## <a name="typography">Typography</a> 
+- Use pixels for `font-size`.
 
-## <a name="icons-imagery">Icons and Imagery</a> 
+    ```css
+    TODO
+    ```
+    
+- Use unit-less values for `line-height`.
+
+    ```css
+    TODO
+    ```
+    
+- Use the "bullet proof" method for `font-face` declarations.
+
+    ```css
+    TODO
+    ```
+
+## <a name="icons-imagery">Icons and Imagery</a>
+- Icon font vs. base64 vs. sprite.
+    - TODO chart
+
+- How to create icon font.
+
 
 ## <a name="browser-compatibility">Browser Compatibility</a> 
+- Use vendor prefixes for experimental (CSS3) features.
+
+- Use fallbacks when available.
+
+    ```css
+    TODO
+    ```
 
 ## <a name="accessibility">Accessibility</a>  
+- Avoid low contrast color combinations.
+    - Use [Contrast Ratio](http://leaverou.github.io/contrast-ratio/) to verify accessibilty.
+
+- Avoid `display: none` when hiding content.
+
+    ```css
+    TODO
+    ```
+    
+- Avoid `outline: none`.
 
 ## <a name="architecture">Architecture</a> 
+- Use [normalize.css](https://github.com/necolas/normalize.css) to normalize styles.
+
+- Leverage OOCSS principles.
+    - Abstract commonly used styles into separate classes.
+    - Follow the "Single Responsibility Principle".
+    - Keep things DRY.
+
+- Only use shorthand value declarations when the value will not be extended.
+
+    ```css
+    TODO
+    ```
