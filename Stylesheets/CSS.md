@@ -172,19 +172,48 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
 - Selectors are always lowercase
 
     ```css
-    TODO
+    /* bad */
+    .Larry {
+        color: #630;
+    }
+
+    /* bad */
+    .CURLY {
+        color: rgba(255, 0, 0, 0);
+    }
+
+    /* bad */
+    .curlyJoe {
+        color: rgba(0, 0, 0, 0);
+    }
+
+    /* good */
+    .moe {
+        color: #000;
+    }
     ```
     
 - Selectors are dash-delimited.
 
     ```css
-    TODO
+    /* bad */
+    /shemp_howard {
+        color: #000;
+    }
+
+    /*good*/
+    .the-three-stooges {
+        color: #000;
+    }
     ```
     
     - Exception: underscores are OK when using BEM or any other modifier schema.
         
         ```css
-        TODO
+        /* BEM delimits block, element, and modifiers with two underscores  */
+        .menu__item menu__item_state_current {
+            background-color: #fff;
+        }
         ```
 
 - Adhere to the design language of the brand when naming elements/selectors.
@@ -192,7 +221,15 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
 - Don't over-semantize class names; it reduces repurposability.
     
     ```css
-    TODO
+    /* bad */
+    .header-text-red {
+        color: #f00;
+    }
+
+    /* better */
+    .header-text-alt {
+        color: #f00;
+    }
     ```
 
 ### <a name="specificity">Specificity</a> 
@@ -212,7 +249,15 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
 - Use preferred-child instead of decendent selectors.
     
 	```css
-    TODO
+    /* bad */
+    .menu .menu-item {
+        float: left;
+    }
+
+    /* good */
+    .menu > .menu-item {
+        float: left;
+    }
     ```
 
 ### <a name="efficiency">Efficiency</a>  
@@ -240,7 +285,26 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     - Use hex shortcut when possible. 
   
     ```css
-    TODO
+    
+    /* bad */
+    .my-bad-header {
+        color: blue; 
+    }
+
+    /* better */
+    .my-better-header {
+        color: #0000ff; 
+    }
+
+    /* good */
+    .my-good-header {
+        color: #00f; 
+    }
+
+    .my-good-header-alt {
+        color: rgba(0, 0, 255, 1); 
+    }
+
     ```
 
 - Avoid named shortcuts.
