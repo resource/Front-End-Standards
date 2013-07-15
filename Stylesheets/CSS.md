@@ -172,19 +172,38 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
 - Selectors are always lowercase
 
     ```css
-    TODO
+    /* bad */
+    .Selector {
+        ...
+    }
+    .SELECTOR {
+        ...
+    }
+
+    /* good */
+    .selector {
+        ...
+    }
     ```
     
 - Selectors are dash-delimited.
 
     ```css
-    TODO
+    .main_selector {
+        ...
+    }
+    /* good */
+    .main-selector {
+        ...
+    }
     ```
     
     - Exception: underscores are OK when using BEM or any other modifier schema.
         
         ```css
-        TODO
+        .block__element {
+            
+        }
         ```
 
 - Adhere to the design language of the brand when naming elements/selectors.
@@ -192,7 +211,20 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
 - Don't over-semantize class names; it reduces repurposability.
     
     ```css
-    TODO
+    /* bad */
+    .largeText {
+        ...
+    }
+    .clearix {
+        ...
+    }
+    /* good */
+    .callout-text {
+        ...
+    }
+    .group {
+        ...
+    }
     ```
 
 ### <a name="specificity">Specificity</a> 
@@ -212,7 +244,14 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
 - Use preferred-child instead of decendent selectors.
     
 	```css
-    TODO
+    /* bad */
+    .selector p {
+        ...
+    }
+    /* good */
+    .selector > p {
+        ...
+    }
     ```
 
 ### <a name="efficiency">Efficiency</a>  
