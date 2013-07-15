@@ -32,9 +32,9 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     /* good */
     /* media block */
     .media {
-    	height: 100px;
-    	width: 100px;
-    	color: #ff000;
+        height: 100px;
+        width: 100px;
+        color: #ff000;
     }
     ```
     
@@ -123,47 +123,47 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     ```css
     /* bad */
     .selector{
-		...
+        ...
     }
 
-	/* good */
-	.selector∙{
-		...
-	}
+    /* good */
+    .selector?{
+        ...
+    }
     ```
  
 - Use tabs set to 4 spaces/.
     
-	```css
-	/* bad */
-	.selector {
-	∙∙float: left;
-	}
+    ```css
+    /* bad */
+    .selector {
+    ??float: left;
+    }
 
-	/* good */
-	.selector {
-	∙∙∙∙float: left;
-	}
-	```
-	
+    /* good */
+    .selector {
+    ????float: left;
+    }
+    ```
+    
 - No space after property; one space before property value declaration.
 
-	```css
-	/* bad */
-	.selector {
-		float:left;
-	}
-	
-	/* bad */
-	.selector {
-		float∙:∙left;
-	}
+    ```css
+    /* bad */
+    .selector {
+        float:left;
+    }
+    
+    /* bad */
+    .selector {
+        float?:?left;
+    }
 
-	/* good */
-	.selector {
-		float:∙left;
-	}
-	```
+    /* good */
+    .selector {
+        float:?left;
+    }
+    ```
 	
 - Avoid nesting declaration blocks.
 
@@ -176,7 +176,12 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     .Selector {
         ...
     }
+    
     .SELECTOR {
+        ...
+    }
+
+    .sElector {
         ...
     }
 
@@ -189,9 +194,11 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
 - Selectors are dash-delimited.
 
     ```css
+    /* bad */
     .main_selector {
         ...
     }
+    
     /* good */
     .main-selector {
         ...
@@ -201,8 +208,9 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     - Exception: underscores are OK when using BEM or any other modifier schema.
         
         ```css
-        .block__element {
-            
+        /* BEM delimits block, element, and modifiers with two underscores  */
+        .menu__item menu__item_state_current {
+            background-color: #fff;
         }
         ```
 
@@ -215,23 +223,71 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     .largeText {
         ...
     }
+
     .clearix {
         ...
     }
+
+    .header-text-red {
+        color: #f00;
+    }
+    
     /* good */
     .callout-text {
         ...
     }
+    
     .group {
         ...
+    }
+
+    .header-text-alt {
+        color: #f00;
     }
     ```
 
 ### <a name="specificity">Specificity</a> 
-- Understand how CSS specificity works.
+- Specificity is the means by which a browser decides which property values are the most relevant to an element and gets to be applied. Specificity is only based on the matching rules which are composed of selectors of different sorts.
+
+#### Calculation ####
+- Specificity is calculated based on the count of each selector type. The influence of each type, from weakest to strongest:
+    1. Universal selectors
+    2. Type selectors
+    3. Class selectors
+    4. Attributes selectors
+    5. Pseudo-classes
+    6. ID selectors
+    7. Inline style
+
+- In case of specificity equality, the latest declaration found in the CSS is applied to the element.
 
     ```css
-    TODO
+    /* green */
+    body h1 {
+        color: #0f0;
+    }
+
+    /* purple */
+    html h1 {
+        color: #f0f;
+    }
+
+    /* h1 will render as purple */
+    ```
+
+#### The :not exception ####
+- The negation pseudo-class :not _is not considered as a pseudo-class_ in the specificity calculation. However, selectors placed _inside of_ the negation pseudo-class count as normal selectors.
+
+    ```css
+    /* these two selectors have equal specificity so the last declaration takes precedence */
+    
+    div.outer p {
+        color:orange;
+    }
+
+    div:not(.outer) p {
+        color: lime;
+    }
     ```
     
 - Avoid use of `!important`.
@@ -243,11 +299,12 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     ```
 - Use preferred-child instead of decendent selectors.
     
-	```css
+    ```css
     /* bad */
     .selector p {
         ...
     }
+    
     /* good */
     .selector > p {
         ...
@@ -279,7 +336,26 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     - Use hex shortcut when possible. 
   
     ```css
-    TODO
+    
+    /* bad */
+    .my-bad-header {
+        color: blue; 
+    }
+
+    /* better */
+    .my-better-header {
+        color: #0000ff; 
+    }
+
+    /* good */
+    .my-good-header {
+        color: #00f; 
+    }
+
+    .my-good-header-alt {
+        color: rgba(0, 0, 255, 1); 
+    }
+
     ```
 
 - Avoid named shortcuts.
