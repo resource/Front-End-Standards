@@ -173,23 +173,21 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
 
     ```css
     /* bad */
-    .Larry {
-        color: #630;
+    .Selector {
+        ...
+    }
+    
+    .SELECTOR {
+        ...
     }
 
-    /* bad */
-    .CURLY {
-        color: rgba(255, 0, 0, 0);
-    }
-
-    /* bad */
-    .curlyJoe {
-        color: rgba(0, 0, 0, 0);
+    .sElector {
+        ...
     }
 
     /* good */
-    .moe {
-        color: #000;
+    .selector {
+        ...
     }
     ```
     
@@ -197,13 +195,13 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
 
     ```css
     /* bad */
-    /shemp_howard {
-        color: #000;
+    .main_selector {
+        ...
     }
-
-    /*good*/
-    .the-three-stooges {
-        color: #000;
+    
+    /* good */
+    .main-selector {
+        ...
     }
     ```
     
@@ -222,11 +220,27 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     
     ```css
     /* bad */
+    .largeText {
+        ...
+    }
+
+    .clearix {
+        ...
+    }
+
     .header-text-red {
         color: #f00;
     }
+    
+    /* good */
+    .callout-text {
+        ...
+    }
+    
+    .group {
+        ...
+    }
 
-    /* better */
     .header-text-alt {
         color: #f00;
     }
@@ -250,13 +264,13 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     
 	```css
     /* bad */
-    .menu .menu-item {
-        float: left;
+    .selector p {
+        ...
     }
-
+    
     /* good */
-    .menu > .menu-item {
-        float: left;
+    .selector > p {
+        ...
     }
     ```
 
