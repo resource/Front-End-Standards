@@ -68,7 +68,7 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
    
 - Separte multiple selectors with a new line.
     
-    ```css
+	```css
     .selector,
     .another-selector {
        ...
@@ -127,7 +127,7 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     }
 
     /* good */
-    .selector?{
+    .selector•{
         ...
     }
     ```
@@ -137,12 +137,12 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     ```css
     /* bad */
     .selector {
-    ??float: left;
+    ••float: left;
     }
 
     /* good */
     .selector {
-    ????float: left;
+    ••••float: left;
     }
     ```
     
@@ -156,9 +156,9 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     
     /* bad */
     .selector {
-        float?:?left;
+        float•:•left;
     }
-
+    
     /* good */
     .selector {
         float:?left;
@@ -181,7 +181,7 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
         ...
     }
 
-    .sElector {
+    .selectorName {
         ...
     }
 
