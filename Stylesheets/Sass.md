@@ -33,10 +33,10 @@ Any reference made to "Sass" moving forward is in respect to the .scss notation.
 - Keep @import rules at the top of your file. This makes it easier to find what is included.
 
 ```SCSS
-// Ok (you don't need to include the extension)
+// Bad
 @import "foo.scss";
 
-// Better
+// Good
 @import "foo";
 ```
 
@@ -54,14 +54,14 @@ More on @imports here [Sass Lang #directives](http://sass-lang.com/docs/yardoc/f
 Name you variables in a modular way. Use dashes to separate multiple words in a declaration.
 
 ```SCSS
-// Too specific. Poor.
+// Bad
 $blue;
 $dark-blue;
 $darkest-blue;
 $light-blue;
 
 // Instead, group variables that share relationships and commonalities.
-// Get generic. Good.
+// Good
 $blue;
 $blue-dark;
 $blue-darkest;
@@ -72,27 +72,29 @@ $blue-light;
 Keep indentation consistent to your project. If you're using 2 spaces, use 2 spaces. If you're using tabs, use tabs. End each object
 
 ```SCSS
-// Good. End each module where it starts
-.foo {
-	...
-	.bar { 
-		...
-		.baz { ... }
-	}
-}
-
-// Weird, bad bracket location
+// Bad
 .foo {
 	...
 	.bar { 
 		...
 		.baz { ... } } }
+
+// Good
+.foo {
+	...
+	.bar { 
+		...
+		.baz { 
+		    ...
+		}
+	}
+}
 ```
 ##### Line Breaks
 Keep related modules/component declarations together. Adding a line break to each new declaration. One CSS rule per line.
 
 ```SCSS
-// Nice. Some breathing room here. 
+// Good 
 .module {
   color: black;
   width: 100%;
@@ -117,15 +119,15 @@ Keep related modules/component declarations together. Adding a line break to eac
 	color: white;
 	width: 50%;
 
-		.foo {
-			color: black;
-			text-align: left;
-		}
+	.foo {
+		color: black;
+		text-align: left;
+	}
 }
 ```
 
 ```SCSS
-// Meh. All cramped and such.
+// Bad
 .module {
   color: black;
   width: 100%;
@@ -145,10 +147,10 @@ Keep related modules/component declarations together. Adding a line break to eac
 .next-module {
 	color: white;
 	width: 50%;
-		.foo {
-			color: black;
-			text-align: left;
-		}
+	.foo {
+	    color: black;
+		text-align: left;
+	}
 }
 ```
 
@@ -165,8 +167,12 @@ Nesting too deep is getting away from a modular approach to writing css. Thinkin
 
 ```SCSS
 .cart {
-  .sidebar { width: 150px; }
-  .content { width: 850px; }
+    .sidebar { 
+  	    width: 150px; 
+    }
+	.content { 
+	    width: 850px; 
+    }
 }
 ```
 
@@ -175,8 +181,13 @@ Nesting too deep is getting away from a modular approach to writing css. Thinkin
 
 ```SCSS
 .special-widget {
-	li { ... }
-	a { ... }
+	li { 
+		... 
+	}
+
+	a { 
+		... 
+	}
 }
 ```
 
