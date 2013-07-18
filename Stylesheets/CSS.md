@@ -13,6 +13,7 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
 1. [Browser Compatibility](#browser-compatibility)  
 1. [Accessibility](#accessibility)    
 1. [Architecture](#architecture)  
+1. [References](#references)  
 
 
 ***
@@ -432,3 +433,20 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     ```css
     TODO
     ```
+### <a name="references">References</a> 
+#### CSS Inception Rule ####
+- <a href="http://thesassway.com/beginner/the-inception-rule">http://thesassway.com/beginner/the-inception-rule</a>
+#### CSS Specificity Related Articles ####
+- Use of ID's in CSS Selectors (And why to avoid it)
+    - <a href="http://oli.jp/2011/ids/">http://oli.jp/2011/ids/</a>
+#### Specificity Calculation ####
+- <a href="http://coding.smashingmagazine.com/2007/07/27/css-specificity-things-you-should-know/">http://coding.smashingmagazine.com/2007/07/27/css-specificity-things-you-should-know/</a>
+- <a href="http://iamacamera.org/default.aspx?id=95">http://iamacamera.org/default.aspx?id=95</a>
+- <a href="http://www.stuffandnonsense.co.uk/archives/css_specificity_wars.html">http://www.stuffandnonsense.co.uk/archives/css_specificity_wars.html</a>
+#### CSS Architecture ####
+- BEM
+    - <a href="http://bem.info/method/">http://bem.info/method/</a>
+- OOCSS
+    - <a href="http://coding.smashingmagazine.com/2011/12/12/an-introduction-to-object-oriented-css-oocss/">http://coding.smashingmagazine.com/2011/12/12/an-introduction-to-object-oriented-css-oocss/</a>
+- DRY CSS
+    - <a href="http://www.vanseodesign.com/css/dry-principles/">http://www.vanseodesign.com/css/dry-principles/</a>
