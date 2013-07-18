@@ -3,16 +3,17 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
 
 ## Table of Contents
 
-### 1. [Comments](#comments)  
-### 2. [Declaration Blocks](#declaration-blocks)  
-### 3. [White Space](#white-space)  
-### 4. [Selectors](#selectors)    
-### 5. [Value Formatting](#value-formatting)  
-### 6. [Typography](#typography)    
-### 7. [Icons and Imagery](#icons-imagery)  
-### 8. [Browser Compatibility](#browser-compatibility)  
-### 9. [Accessibility](#accessibility)    
-### 10. [Architecture](#architecture)  
+1. [Comments](#comments)  
+1. [Declaration Blocks](#declaration-blocks)  
+1. [White Space](#white-space)  
+1. [Selectors](#selectors)    
+1. [Value Formatting](#value-formatting)  
+1. [Typography](#typography)    
+1. [Icons and Imagery](#icons-imagery)  
+1. [Browser Compatibility](#browser-compatibility)  
+1. [Accessibility](#accessibility)    
+1. [Architecture](#architecture)  
+
 
 ***
 
