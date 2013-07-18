@@ -42,16 +42,6 @@ JSON, or JavaScript Object Notation, is a text-based open standard designed for 
 
 
 ### <a name='formatting'>Formatting</a>  
-- Use double `""` quotes for property names and strings.
-
-    ```javascript      
-    // good
-    {
-    	"property_name_number": 30,
-    	"property_name_string": "Super Pumped!"
-    }
-    ```
-
 - Write underscore `_` delimited property names.
 
     ```javascript
