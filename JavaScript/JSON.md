@@ -146,7 +146,7 @@ JSON, or JavaScript Object Notation, is a text-based open standard designed for 
 	// example
 	{
 		"method": "GET",
-		"id": 08819019273097,
+		"id": "08819019273097",
 		"data": {
 			"item_count": 2,
 			"items_per_page": 2
