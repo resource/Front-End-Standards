@@ -386,55 +386,6 @@ Promoting the "Resource Way" of writing semantic, reusable, and maintainable Jav
         "us, our offices and the way we do business.";
     ```
 
-- When programatically building up a string, use Array.join() instead of string concatenation. Mostly for IE: [jsPerf](http://jsperf.com/string-vs-array-concat/2).
-
-    ```javascript
-    var items,
-        messages,
-        length, i;
-
-    messages = [{
-        state: "success",
-        message: "This one worked."
-    }, {
-        state: "success",
-        message: "This one worked as well."
-    }, {
-        state: "error",
-        message: "This one did not work."
-    }];
-
-    length = messages.length;
-
-
-    // bad
-    var inbox = function(messages) {
-      
-      items = "<ul>";
-
-      for (i = 0; i < length; i++) {
-        items += "<li>" + messages[i].message + "</li>";
-      }
-
-      return items + "</ul>";
-      
-    }
-
-    // good
-    var inbox = function(messages) {
-      
-      items = [];
-
-      for (i = 0; i < length; i++) {
-        items[i] = messages[i].message;
-      }
-
-      return "<ul><li>" + items.join("</li><li>") + "</li></ul>";
-      
-    }
-    ```
-
-
 ### <a name="booleans">Booleans</a>
 
 - Use “can”, “has” or “is” as a prefix when naming booleans.
