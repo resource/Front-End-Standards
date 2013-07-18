@@ -398,30 +398,51 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     }
     ```
 
+- Reference: ["Definitive Guide to Web Fonts"](https://insider.resource.com/groups/technology-dlt/blog/2013/02/14/definitive-guide-to-webfonts)
+
 ## <a name="icons-imagery">Icons and Imagery</a>
 - Icon font vs. base64 vs. sprite.
-    - TODO chart
+![Small Images and Iconography Decision Tree](http://www.gliffy.com/go/publish/image/4754342/L.png)
 
-- How to create icon font.
+- Use Resource's [guide for creating icon fonts](https://insider.resource.com/docs/DOC-2265).
 
 
 ## <a name="browser-compatibility">Browser Compatibility</a> 
 - Use vendor prefixes for experimental (CSS3) features.
 
-- Use fallbacks when available.
+- Use [fallbacks](http://flippinawesome.org/2013/07/08/using-css-fallback-properties-for-better-cross-browser-compatibility/) when available.
 
     ```css
-    TODO
+    /* good */
+    .future-stuff {
+        color: #ccc;
+        color: rgba(0, 0, 0, 0.5);
+    }
     ```
 
 ## <a name="accessibility">Accessibility</a>  
 - Avoid low contrast color combinations.
-    - Use [Contrast Ratio](http://leaverou.github.io/contrast-ratio/) to verify accessibilty.
+    - Use [Contrast Ratio](http://leaverou.github.io/contrast-ratio/) to verify accessibility.
 
-- Avoid `display: none` when hiding content.
+- Avoid `display: none` when [hiding content](https://github.com/h5bp/html5-boilerplate/blob/master/css/main.css#L152).
 
     ```css
-    TODO
+    /* bad */
+    .content {
+       display: none;
+    }
+
+    /* good */
+    .content {
+        border: 0;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
     ```
     
 - Avoid `outline: none`.
@@ -436,6 +457,3 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
 
 - Only use shorthand value declarations when the value will not be extended.
 
-    ```css
-    TODO
-    ```
