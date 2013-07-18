@@ -12,6 +12,8 @@ Promoting the "Resource Way" of writing JavaScript Object Notation.
 1. [Well-formed JSON API Examples](#api-examples)  
 1. [References](#references)  
 
+***
+
 All JSON should adhere to the standards defined on [JSON.org](http://json.org/). The purpose of this document is to provide guidelines for writing JSON at Resource. It assumes that all JSON conforms to the JSON.org standard, and that this document is used as a continuation of those standards.
 
 ### <a name='definitions'>Definitions</a>  
