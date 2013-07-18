@@ -142,7 +142,7 @@ JSON, or JavaScript Object Notation, is a text-based open standard designed for 
     
 - Resevere the "top-level" of your JSON object for meta data.
 - Use a `data` object to store the primary content of your JSON object.
-- Use an `items` collection to store sets of like-data.
+- Use semantic names for collection of like-data (e.g. `"employees"`).
 
 	```javascript
 	// example
@@ -153,7 +153,7 @@ JSON, or JavaScript Object Notation, is a text-based open standard designed for 
 			"item_count": 2,
 			"items_per_page": 2
 			"page": 1,
-			"items": [
+			"employees": [
 				{
 					"name": "Kramer",
 					"company": "Resource"
