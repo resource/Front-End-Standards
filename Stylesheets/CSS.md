@@ -17,7 +17,7 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
 
 ***
 
-## <a name="comments">Comments</a>  
+### <a name="comments">Comments</a>  
 - Use comments to divide sections and describe larger sets of rules.
    - Don't overcomment, as most CSS should be self-explanitory; too much commenting detracts from readbility.
 
@@ -58,7 +58,7 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     /* Single line */
     ```
 
-## <a name="declaration-blocks">Declaration Blocks</a>  
+### <a name="declaration-blocks">Declaration Blocks</a>  
 - Opening brackets should start on the same line; closing bracket on a new line.
 
    ```css
@@ -118,7 +118,7 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     ```
 
 
-## <a name="white-space">White Space</a> 
+### <a name="white-space">White Space</a> 
 - One space between selector and opening bracket.
     
     ```css
@@ -168,8 +168,8 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
 	
 - Avoid nesting declaration blocks.
 
-## <a name="selectors">Selectors</a>
-### <a name="naming">Naming</a> 
+### <a name="selectors">Selectors</a>
+#### <a name="naming">Naming</a> 
 - Selectors are always lowercase
 
     ```css
@@ -247,7 +247,7 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     }
     ```
 
-### <a name="specificity">Specificity</a> 
+#### <a name="specificity">Specificity</a> 
 - Specificity is the means by which a browser decides which property values are the most relevant to an element and gets to be applied. Specificity is only based on the matching rules which are composed of selectors of different sorts.
 
 #### Calculation ####
@@ -312,7 +312,7 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     }
     ```
 
-### <a name="efficiency">Efficiency</a>  
+#### <a name="efficiency">Efficiency</a>  
 - Understand how CSS selectors are parsed.
     
     ```css
@@ -332,7 +332,7 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     TODO
     ```
 
-## <a name="value-formatting">Value Formatting</a>
+### <a name="value-formatting">Value Formatting</a>
 - Use hex or rgba.
     - Use hex shortcut when possible. 
   
@@ -372,7 +372,7 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     ```
     
 
-## <a name="typography">Typography</a> 
+### <a name="typography">Typography</a> 
 - Use pixels for `font-size`.
 
     ```css
@@ -391,14 +391,14 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     TODO
     ```
 
-## <a name="icons-imagery">Icons and Imagery</a>
+### <a name="icons-imagery">Icons and Imagery</a>
 - Icon font vs. base64 vs. sprite.
     - TODO chart
 
 - How to create icon font.
 
 
-## <a name="browser-compatibility">Browser Compatibility</a> 
+### <a name="browser-compatibility">Browser Compatibility</a> 
 - Use vendor prefixes for experimental (CSS3) features.
 
 - Use fallbacks when available.
@@ -407,7 +407,7 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     TODO
     ```
 
-## <a name="accessibility">Accessibility</a>  
+### <a name="accessibility">Accessibility</a>  
 - Avoid low contrast color combinations.
     - Use [Contrast Ratio](http://leaverou.github.io/contrast-ratio/) to verify accessibilty.
 
@@ -419,7 +419,7 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     
 - Avoid `outline: none`.
 
-## <a name="architecture">Architecture</a> 
+### <a name="architecture">Architecture</a> 
 - Use [normalize.css](https://github.com/necolas/normalize.css) to normalize styles.
 
 - Leverage OOCSS principles.
