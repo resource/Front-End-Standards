@@ -9,7 +9,7 @@ Promoting the "Resource Way" of writing awesome SASS. "Stay SASSy, Resource"
 1. [References](#references)
 
 ### <a name='definitions'>Definitions</a>  
-The semantics in this document build off of the [CSS](https://github.com/LukeAskew/Front-End-Standards/blob/master/Stylesheets/CSS.md) standards for this project.
+The semantics in this document build off of the [Css](https://github.com/LukeAskew/Front-End-Standards/blob/master/Stylesheets/CSS.md) standards for this project.
 
 There are two styles of syntax: .SASS and .scss. The .SASS style is a "looser" style that omits brackets {} and semi-colons. This document outlines usage of the .scss style. For more on why .scss is our preferred style check out the following articles - [SASS-lang docs](http://SASS-lang.com/docs/yardoc/file.SASS_REFERENCE.html#syntax) [SASS vs Scss](http://theSASSway.com/articles/SASS-vs-scss-which-syntax-is-better)
 
@@ -21,12 +21,14 @@ Any reference made to "SASS" moving forward is in respect to the .scss notation.
 - // and /**/
 
 ```SCSS      
-// Single line comment. Will not be output to the compiled CSS file.
 
+// Good
+// This comment will not be output to the compiled Css file.
+
+// Good
 /**
- * Multiple
- * lines. And will be output
- * to the CSS file
+ * Multiple Lines. And will be output
+ * to the Css file
  */
 
 ```
@@ -34,29 +36,30 @@ Any reference made to "SASS" moving forward is in respect to the .scss notation.
 
 ##### Imports and Partials
 - Keep @import rules at the top of your file. This makes it easier to find what is included.
+- @import partials as you need for styling resuable components.
+- More on @imports here [SASS Lang #directives](http://SASS-lang.com/docs/yardoc/file.SASS_REFERENCE.html#directives)
 
 ```SCSS
 // Bad
-@import "foo.scss";
+@import "base.scss";
 
 // Good
-@import "foo";
+@import "base";
 ```
 
-- Use an underscore at the beginning of a filename for partials you don't want to compile to css. You can then import these files without using the underscore.
+- Adding an underscore at the beginning of a filename creates a partial. Partials can then be imported.
 
 Example file name:
-_somepartial.scss
+_buttons.scss
 
 ```SCSS
-@import "somepartial";
+@import "buttons";
+@import "base";
 ```
-
-More on @imports here [SASS Lang #directives](http://SASS-lang.com/docs/yardoc/file.SASS_REFERENCE.html#directives)
 
 
 ##### Variable Naming
-Name you variables in a modular way. Use dashes to separate multiple words in a declaration.
+- Name you variables in a modular way. Use dashes to separate multiple words in a declaration.
 
 ```SCSS
 // Bad
@@ -75,7 +78,7 @@ $blue-light;
 
 
 ##### SASS Script Functions
-Use of SASS Script Functions (functions native to SASS) is a great way to make your SASS more DRY. 
+- Use of SASS Script Functions (functions native to SASS) is a great way to make your SASS more DRY. 
 
 [SASS Script Functions Reference](http://SASS-lang.com/docs/yardoc/SASS/Script/Functions.html)
 
@@ -94,8 +97,107 @@ $blue-light; = lighten($blue, 25%); // [Lighten instance method](http://SASS-lan
 ```
 
 
+##### Mixin
+- Mixins allow you to define styles that can be re-used throughout the stylesheet. 
+- Be sure your Mixin block comes before the @include statement. 
+- Use camelCase to define them. 
+- Comment code that may be unfamiliar to other developers.
+
+```SCSS
+// Good
+$blue = #054dc3;
+
+// lightens an object. uses SASS Script core function
+// @params - a color and the percentage
+@mixin lightenIt($color, $p) {
+	background-color: lighten($color, $p);	
+	color: ligten($color, $p);
+}
+
+.callout-light {
+	@include lightenIt($blue, 25%);
+}
+```
+
+- Be careful when calling a Mixin with multiple arguments.
+
+```SCSS
+// Bad
+@mixin button($radius, $color) {
+	border-radius: $radius;
+	color: $color;
+}
+
+.btn-a {
+	@include button(4px);	// Syntax error: Mixin button is missing argument $color
+}
+```
+
+- Define a value for optional arguments to avoid errors.
+
+```SCSS
+// Good. Optional $color param is defined here as black.
+@mixin button($radius, $color: #000) {
+	border-radius: $radius;
+	color: $color;
+}
+
+.btn-a {
+	@include button(4px);	
+}
+
+// Css output
+.btn-a {
+	border-radius: 4px;
+	color: #000;
+}
+```
+- Avoid unecessary duplication with @mixin
+
+```SCSS
+// Bad
+@mixin pinkBox {
+	float: left;
+	display: block;
+	color: pink;
+	width: 100px;
+	height: 100px;
+}
+
+.foo {
+	@include pinkBox;
+}
+ 
+.bar {
+	@include pinkBox;
+	font-size: 2em;
+}
+
+// Css output
+// Bad. Unecessary duplication.
+.foo {
+	float: left; 
+	display: block; 
+	color: pink; 
+	width: 100px; 
+	height: 100px;
+}
+
+.bar {
+	float: left; 
+	display: block; 
+	color: pink; 
+	font-size: 2em;
+	width: 100px; 
+	height: 100px;
+}
+```
+
+
 ##### @extend
-Use the @extend directive for lumping shared styles together. 
+- Use the @extend directive for lumping shared styles together. 
+- @extend adds the properties of an existing class to where you're extending. 
+- Use @extend to avoid unecessary duplication.
 
 ```SCSS
 // Good
@@ -111,8 +213,8 @@ Use the @extend directive for lumping shared styles together.
 	background: #ff0;
 }
 
-// Compiled CSS below:
-// SASS will track and automatically combine selectors for us.
+// Css output
+// Sass will track and automatically combine selectors for us.
 .btn-a,
 .btn-b {
 	background: #777;
@@ -127,7 +229,7 @@ Use the @extend directive for lumping shared styles together.
 ```
 
 #### @extend Pitfalls
-Since .btn-b extends .btn-a, every instance that modifies .btn-a also modifies .btn-b. This creates stylesheet bloat, if these styles aren't needed.
+- Since .btn-b extends .btn-a, every instance that modifies .btn-a also modifies .btn-b. This creates stylesheet bloat, if these styles aren't needed.
 
 ```SCSS
 .btn-a {
@@ -146,7 +248,7 @@ Since .btn-b extends .btn-a, every instance that modifies .btn-a also modifies .
 	text-transform: lowercase;
 }
 
-// Compiled CSS below:
+// Compiled Css below:
 .btn-a,
 .btn-b {
 	background: #777;
@@ -154,6 +256,7 @@ Since .btn-b extends .btn-a, every instance that modifies .btn-a also modifies .
 	font-size: 1em;
 	text-transform: uppercase;
 }
+
 .btn-b {
 	background: #ff0;
 }
@@ -165,59 +268,6 @@ Since .btn-b extends .btn-a, every instance that modifies .btn-a also modifies .
 }
 ```
 
-
-##### Mixin
-Use Mixins for resuse. Be sure your Mixin block comes before the @include statement. Use camelCase to define them. Comment code that may be unfamiliar to other developers.
-
-```SCSS
-// Good
-$blue = #054dc3;
-
-// lightens an object. uses SASS Script core function
-// @params - a color and the percentage
-@mixin lightenIt($color, $p) {
-	background-color: lighten($color, $p);	
-	color: ligten($color, $p);
-}
-
-.callout-light {
-	@include lightenIt($blue, 25%);
-}
-```
-
-Be careful when calling a Mixin with multiple arguments.
-
-```SCSS
-// Bad
-@mixin button($radius, $color) {
-	border-radius: $radius;
-	color: $color;
-}
-
-.btn-a {
-	@include button(4px);	// Syntax error: Mixin button is missing argument $color
-}
-```
-
-Be sure to define a value for optional arguments to avoid errors.
-
-```SCSS
-// Good. Optional $color param is defined here as black.
-@mixin button($radius, $color: #000) {
-	border-radius: $radius;
-	color: $color;
-}
-
-.btn-a {
-	@include button(4px);	
-}
-
-// Compiled CSS
-.btn-a {
-	border-radius: 4px;
-	color: #000;
-}
-```
 
 ##### Indentation and Bracket location
 Keep indentation consistent to your project. If you're using 2 spaces, use 2 spaces. If you're using tabs, use tabs. End each object
@@ -242,7 +292,7 @@ Keep indentation consistent to your project. If you're using 2 spaces, use 2 spa
 }
 ```
 ##### Line Breaks
-Keep related modules/component declarations together. Adding a line break to each new declaration. One CSS rule per line.
+Keep related modules/component declarations together. Adding a line break to each new declaration. One Css rule per line.
 
 ```SCSS
 // Good 
@@ -297,7 +347,7 @@ Keep related modules/component declarations together. Adding a line break to eac
 ```
 
 ##### The "Inception Rule"
-Nesting too deep is getting away from a modular approach to writing css. Thinking about context before writing your rules is a good start. See the [References](#references) section in this document for more on modular CSS and avoiding deeply nested selectors.
+Nesting too deep is getting away from a modular approach to writing Css. Thinking about context before writing your rules is a good start. See the [References](#references) section in this document for more on modular Css and avoiding deeply nested selectors.
 
 **Four contextual examples to keep in mind to avoid over-nesting:**
 
@@ -352,10 +402,12 @@ Nesting too deep is getting away from a modular approach to writing css. Thinkin
 ```
 
 ### <a name='references'>References</a>
-- [SASS Reference Docs](http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html)
-- [The SASS Way](http://thesassway.com/)
+- [Sass Reference Docs](http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html)
+- [The Sass Way](http://thesassway.com/)
+- [Assembling Sass Course](http://www.codeschool.com/courses/assembling-sass)
+- [SASS @extend Intro](http://awardwinningfjords.com/2010/07/27/sass-extend-introduction.html)
 - [The Inception Rule](http://thesassway.com/beginner/the-inception-rule)
-- [More Modular CSS](http://thesassway.com/intermediate/avoid-nested-selectors-for-more-modular-css)
+- [More Modular Css](http://thesassway.com/intermediate/avoid-nested-selectors-for-more-modular-css)
 - [Modular Variables](http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-name-your-sass-variables-modularly/)
-- [SASS Style Guide](http://css-tricks.com/sass-style-guide/)
-- [Boost SASS/Compass Efficiency](http://www.netmagazine.com/tutorials/boost-sass-compass-efficiency)
+- [Sass Style Guide](http://css-tricks.com/sass-style-guide/)
+- [Boost Sass/Compass Efficiency](http://www.netmagazine.com/tutorials/boost-sass-compass-efficiency)
