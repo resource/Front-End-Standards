@@ -1,6 +1,6 @@
-# SASS (Syntactically Awesome StyleSheets)
+# Sass
 
-Promoting the "Resource Way" of writing awesome SASS. "Stay SASSy, Resource"
+Promoting the "Resource Way" of writing awesome Sass. "Stay Sassy, Resource"
 
 ## Table of Contents
 
@@ -334,7 +334,6 @@ $blue = #054dc3;
 ```
 
 ##### Functions
-- Functions are very similar to Mixins. However, the output from a function is a single value.
 - Use functions when you need to calculate a value that may be reused somewhere else.
 - Use camelCase for longer function names.
 
@@ -353,6 +352,67 @@ $blue = #054dc3;
 	width: 35%;
 }
 ```
+
+##### If/Else
+- Use @if and @else to conditionally output code.
+
+```SCSS
+// Good
+$pink = #f09ccd;
+$pink-light = #fbe6f3;
+$pink-dark = #8b1459;
+
+$theme: $pink;
+
+header {
+	@if $theme == $pink-dark {
+		background: $pink-dark;
+	} @else if $theme == $pink {
+		background: $pink;
+	} @else {
+		background: $pink-light;
+	}
+} 
+
+// Css output
+header {
+	background: #f09ccd;
+}
+
+```
+
+- Example @if with @mixin
+
+```SCSS
+@mixin button($color, $rounded: false {
+	color: $color;
+
+	@if $rounded {
+		border-radius: $rounded;
+	}
+}
+
+// $rounded false
+.btn-a {
+	@include button(#000);
+}
+
+// $rounded true
+.btn-b {
+	@include button(#333, 4px);
+}
+
+// Css output
+.btn-a {
+	color: #000;
+}
+
+.btn-b {
+	color: #333;
+	border-radius: 4px;
+}
+```
+
 
 ##### Indentation and Bracket location
 Keep indentation consistent to your project. If you're using 2 spaces, use 2 spaces. If you're using tabs, use tabs. End each object
@@ -376,6 +436,8 @@ Keep indentation consistent to your project. If you're using 2 spaces, use 2 spa
 	}
 }
 ```
+
+
 ##### Line Breaks
 Keep related modules/component declarations together. Adding a line break to each new declaration. One Css rule per line.
 
