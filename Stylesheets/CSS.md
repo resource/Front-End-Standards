@@ -129,7 +129,7 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     }
 
     /* good */
-    .selector?{
+    .selector•{
         ...
     }
     ```
@@ -139,12 +139,12 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     ```css
     /* bad */
     .selector {
-    ??float: left;
+    ••float: left;
     }
 
     /* good */
     .selector {
-    ????float: left;
+    ••••float: left;
     }
     ```
     
@@ -158,12 +158,12 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     
     /* bad */
     .selector {
-        float?:?left;
+        float•:•left;
     }
-
+    
     /* good */
     .selector {
-        float:?left;
+        float:•left;
     }
     ```
 	
@@ -183,7 +183,7 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
         ...
     }
 
-    .sElector {
+    .selectorName {
         ...
     }
 
@@ -226,7 +226,7 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
         ...
     }
 
-    .clearix {
+    .clearfix {
         ...
     }
 
@@ -248,58 +248,25 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     }
     ```
 
-#### <a name="specificity">Specificity</a> 
-- Specificity is the means by which a browser decides which property values are the most relevant to an element and gets to be applied. Specificity is only based on the matching rules which are composed of selectors of different sorts.
-
-#### Calculation ####
-- Specificity is calculated based on the count of each selector type. The influence of each type, from weakest to strongest:
-    1. Universal selectors
-    2. Type selectors
-    3. Class selectors
-    4. Attributes selectors
-    5. Pseudo-classes
-    6. ID selectors
-    7. Inline style
-
-- In case of specificity equality, the latest declaration found in the CSS is applied to the element.
-
-    ```css
-    /* green */
-    body h1 {
-        color: #0f0;
-    }
-
-    /* purple */
-    html h1 {
-        color: #f0f;
-    }
-
-    /* h1 will render as purple */
-    ```
-
-#### The :not exception ####
-- The negation pseudo-class :not _is not considered as a pseudo-class_ in the specificity calculation. However, selectors placed _inside of_ the negation pseudo-class count as normal selectors.
-
-    ```css
-    /* these two selectors have equal specificity so the last declaration takes precedence */
-    
-    div.outer p {
-        color:orange;
-    }
-
-    div:not(.outer) p {
-        color: lime;
-    }
-    ```
+### <a name="specificity">Specificity</a> 
+- Avoid using overly-specific selectors by understanding [specificity](http://coding.smashingmagazine.com/2007/07/27/css-specificity-things-you-should-know/) and [how it works](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity#How_is_it_calculated.3F).
     
 - Avoid use of `!important`.
 
 - Avoid use of #IDs.
 
     ```css
-    TODO
+    /* bad */
+    #my-selector {
+        ...
+    }    
+
+    /* good */
+    .my-selector {
+        ...
+    } 
     ```
-- Use preferred-child instead of decendent selectors.
+- Use preferred-child instead of descendent selectors.
     
     ```css
     /* bad */
@@ -313,32 +280,44 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     }
     ```
 
-#### <a name="efficiency">Efficiency</a>  
-- Understand how CSS selectors are parsed.
+### <a name="efficiency">Efficiency</a>  
+- Avoid inefficient selectors by [understanding](http://css-tricks.com/efficiently-rendering-css/) how selectors are parsed.
     
     ```css
-    TODO
+    /* bad */
+    html body ul li a {
+        ...
+    }
+
+    /* good */
+    .my-anchor {
+        ...
+    }
     ```
 
-- Avoid unessesary selectors; keep them as short as possible.
+- Avoid unnecessary selectors; keep them as short as possible.
     - Adhere to the "Inception" rule.
 
     ```css
-    TODO
+    /* bad */
+   .one.too .many .levels {
+        ...
+    }
+
+    /* good */
+   .too .levels {
+        ...
+    }
     ```
     
 - Avoid element selectors outside of normalization.
 
-    ```css
-    TODO
-    ```
 
 ### <a name="value-formatting">Value Formatting</a>
 - Use hex or rgba.
     - Use hex shortcut when possible. 
   
     ```css
-    
     /* bad */
     .my-bad-header {
         color: blue; 
@@ -363,59 +342,109 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
 - Avoid named shortcuts.
 
     ```css
-    TODO
+   /* bad */ 
+   .my-font {
+      font-weight: bold;
+   }
+
+    /* good */ 
+   .my-font {
+      font-weight: 700;
+   }
     ```
 
 - No quotes on `url()` values.
 
     ```css
-    TODO
+    /* bad */
+    .my-container {
+      background-image: url('../img/frown.png');
+   }
+
+    /* good */
+    .my-container {
+      background-image: url(../img/rainbow.png);
+   }
     ```
     
 
-### <a name="typography">Typography</a> 
-- Use pixels for `font-size`.
+## <a name="typography">Typography</a> 
+- Use `em` for `font-size`.
+
+- Use [unit-less values](http://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights/) for `line-height`.
 
     ```css
-    TODO
+    /* bad */
+    .my-paragraph {
+        font-size: 1em;
+        line-height: 1.3em;
+    }
+ 
+    /* good */
+    .my-paragraph {
+        font-size: 1em;
+        line-height: 1.3;
+    }
     ```
     
-- Use unit-less values for `line-height`.
+- Use the ["bullet proof"](https://github.com/stubbornella/csslint/wiki/Bulletproof-font-face) method for `font-face` declarations.
 
     ```css
-    TODO
+    /* example */
+    @font-face {
+        font-family: "MyFontFamily";
+        src: url(myfont-webfont.eot?#iefix) format("embedded-opentype"), 
+            url(myfont-webfont.woff) format("woff"), 
+            url(myfont-webfont.ttf)  format("truetype"),
+            url(myfont-webfont.svg#svgFontName) format("svg");
+    }
     ```
-    
-- Use the "bullet proof" method for `font-face` declarations.
 
-    ```css
-    TODO
-    ```
+- Reference: ["Definitive Guide to Web Fonts"](https://insider.resource.com/groups/technology-dlt/blog/2013/02/14/definitive-guide-to-webfonts)
 
-### <a name="icons-imagery">Icons and Imagery</a>
+## <a name="icons-imagery">Icons and Imagery</a>
 - Icon font vs. base64 vs. sprite.
-    - TODO chart
+![Small Images and Iconography Decision Tree](http://www.gliffy.com/go/publish/image/4754342/L.png)
 
-- How to create icon font.
+- Use Resource's [guide for creating icon fonts](https://insider.resource.com/docs/DOC-2265).
 
 
 ### <a name="browser-compatibility">Browser Compatibility</a> 
 - Use vendor prefixes for experimental (CSS3) features.
 
-- Use fallbacks when available.
+- Use [fallbacks](http://flippinawesome.org/2013/07/08/using-css-fallback-properties-for-better-cross-browser-compatibility/) when available.
 
     ```css
-    TODO
+    /* good */
+    .future-stuff {
+        color: #ccc;
+        color: rgba(0, 0, 0, 0.5);
+    }
     ```
 
 ### <a name="accessibility">Accessibility</a>  
 - Avoid low contrast color combinations.
-    - Use [Contrast Ratio](http://leaverou.github.io/contrast-ratio/) to verify accessibilty.
+    - Use [Contrast Ratio](http://leaverou.github.io/contrast-ratio/) to verify accessibility.
 
-- Avoid `display: none` when hiding content.
+- Avoid `display: none` when [hiding content](https://github.com/h5bp/html5-boilerplate/blob/master/css/main.css#L152).
 
     ```css
-    TODO
+    /* bad */
+    .content {
+       display: none;
+    }
+
+    /* good */
+    .content {
+        border: 0;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
     ```
     
 - Avoid `outline: none`.
