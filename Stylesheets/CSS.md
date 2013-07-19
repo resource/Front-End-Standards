@@ -296,7 +296,7 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     ```
 
 - Avoid unnecessary selectors; keep them as short as possible.
-    - Adhere to the "Inception" rule.
+    - Adhere to the "[Inception](http://thesassway.com/beginner/the-inception-rule)" rule.
 
     ```css
     /* bad */
