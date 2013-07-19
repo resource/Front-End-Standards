@@ -300,7 +300,7 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
 
     ```css
     /* bad */
-   .one.too .many .levels {
+   .one.too .many .levels .here {
         ...
     }
 
