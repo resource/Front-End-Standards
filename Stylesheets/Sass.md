@@ -1,6 +1,6 @@
-# Sass (Syntactically Awesome StyleSheets)
+# SASS (Syntactically Awesome StyleSheets)
 
-Promoting the "Resource Way" of writing awesome Sass. "Stay Sassy, Resource"
+Promoting the "Resource Way" of writing awesome SASS. "Stay SASSy, Resource"
 
 ## Table of Contents
 
@@ -11,9 +11,9 @@ Promoting the "Resource Way" of writing awesome Sass. "Stay Sassy, Resource"
 ### <a name='definitions'>Definitions</a>  
 The semantics in this document build off of the [CSS](https://github.com/LukeAskew/Front-End-Standards/blob/master/Stylesheets/CSS.md) standards for this project.
 
-There are two styles of syntax: .sass and .scss. The .sass style is a "looser" style that omits brackets {} and semi-colons. This document outlines usage of the .scss style. For more on why .scss is our preferred style check out the following articles - [sass-lang docs](http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#syntax) [Sass vs Scss](http://thesassway.com/articles/sass-vs-scss-which-syntax-is-better)
+There are two styles of syntax: .SASS and .scss. The .SASS style is a "looser" style that omits brackets {} and semi-colons. This document outlines usage of the .scss style. For more on why .scss is our preferred style check out the following articles - [SASS-lang docs](http://SASS-lang.com/docs/yardoc/file.SASS_REFERENCE.html#syntax) [SASS vs Scss](http://theSASSway.com/articles/SASS-vs-scss-which-syntax-is-better)
 
-Any reference made to "Sass" moving forward is in respect to the .scss notation. This is because saying "Sass" out loud is easier than "Scss", which just sounds like a snake hissing. Just want to make sure we're all on the same page :)
+Any reference made to "SASS" moving forward is in respect to the .scss notation. This is because saying "SASS" out loud is easier than "Scss", which just sounds like a snake hissing. Just want to make sure we're all on the same page :)
 
 
 ### <a name='formatting'>Formatting</a>
@@ -52,7 +52,7 @@ _somepartial.scss
 @import "somepartial";
 ```
 
-More on @imports here [Sass Lang #directives](http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#directives)
+More on @imports here [SASS Lang #directives](http://SASS-lang.com/docs/yardoc/file.SASS_REFERENCE.html#directives)
 
 
 ##### Variable Naming
@@ -74,15 +74,15 @@ $blue-light;
 ```
 
 
-##### Sass Script Functions
-Use of Sass Script Functions (functions native to Sass) is a great way to make your Sass more DRY. 
+##### SASS Script Functions
+Use of SASS Script Functions (functions native to SASS) is a great way to make your SASS more DRY. 
 
-[Sass Script Functions Reference](http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html)
+[SASS Script Functions Reference](http://SASS-lang.com/docs/yardoc/SASS/Script/Functions.html)
 
 ```SCSS
 // Good
 $blue = #054dc3;
-$blue-light; = lighten($blue, 25%); // [Lighten instance method](http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html#lighten-instance_method)
+$blue-light; = lighten($blue, 25%); // [Lighten instance method](http://SASS-lang.com/docs/yardoc/SASS/Script/Functions.html#lighten-instance_method)
 
 .blue {
 	background-color: $blue;
@@ -95,7 +95,7 @@ $blue-light; = lighten($blue, 25%); // [Lighten instance method](http://sass-lan
 
 
 ##### @extend
-Use the @extend directive. 
+Use the @extend directive for lumping shared styles together. 
 
 ```SCSS
 // Good
@@ -112,8 +112,7 @@ Use the @extend directive.
 }
 
 // Compiled CSS below:
-// Sass will track and automatically combine selectors for us:
-
+// SASS will track and automatically combine selectors for us.
 .btn-a,
 .btn-b {
 	background: #777;
@@ -126,8 +125,9 @@ Use the @extend directive.
 	background: #ff0;
 }
 ```
+
 #### @extend Pitfalls
-Since .btn-b extends .btn-a, every instance that modifies .btn-a also modifies .btn-b. This creates stylesheet bloat, if these styles aren't needed
+Since .btn-b extends .btn-a, every instance that modifies .btn-a also modifies .btn-b. This creates stylesheet bloat, if these styles aren't needed.
 
 ```SCSS
 .btn-a {
@@ -165,6 +165,7 @@ Since .btn-b extends .btn-a, every instance that modifies .btn-a also modifies .
 }
 ```
 
+
 ##### Mixin
 Use Mixins for resuse. Be sure your Mixin block comes before the @include statement. Use camelCase to define them. Comment code that may be unfamiliar to other developers.
 
@@ -172,7 +173,7 @@ Use Mixins for resuse. Be sure your Mixin block comes before the @include statem
 // Good
 $blue = #054dc3;
 
-// lightens an object. uses Sass Script core function
+// lightens an object. uses SASS Script core function
 // @params - a color and the percentage
 @mixin lightenIt($color, $p) {
 	background-color: lighten($color, $p);	
@@ -195,6 +196,26 @@ Be careful when calling a Mixin with multiple arguments.
 
 .btn-a {
 	@include button(4px);	// Syntax error: Mixin button is missing argument $color
+}
+```
+
+Be sure to define a value for optional arguments to avoid errors.
+
+```SCSS
+// Good. Optional $color param is defined here as black.
+@mixin button($radius, $color: #000) {
+	border-radius: $radius;
+	color: $color;
+}
+
+.btn-a {
+	@include button(4px);	
+}
+
+// Compiled CSS
+.btn-a {
+	border-radius: 4px;
+	color: #000;
 }
 ```
 
@@ -234,11 +255,6 @@ Keep related modules/component declarations together. Adding a line break to eac
   		font-size: 16px;
   	}
 
-  	.taargus {
-  		color: blue;
-  		font-size: 14px;
-  	}
-
   	.spaghett {
   		color: red;
   		font-size: 12px;
@@ -264,10 +280,6 @@ Keep related modules/component declarations together. Adding a line break to eac
   	.shrim {
   		color: green;
   		font-size: 16px;
-  	}
-  	.taargus {
-  		color: blue;
-  		font-size: 14px;
   	}
   	.spaghett {
   		color: red;
@@ -340,10 +352,10 @@ Nesting too deep is getting away from a modular approach to writing css. Thinkin
 ```
 
 ### <a name='references'>References</a>
-- [Sass Reference Docs](http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html)
-- [The Sass Way](http://thesassway.com/)
+- [SASS Reference Docs](http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html)
+- [The SASS Way](http://thesassway.com/)
 - [The Inception Rule](http://thesassway.com/beginner/the-inception-rule)
 - [More Modular CSS](http://thesassway.com/intermediate/avoid-nested-selectors-for-more-modular-css)
 - [Modular Variables](http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-name-your-sass-variables-modularly/)
-- [Sass Style Guide](http://css-tricks.com/sass-style-guide/)
-- [Boost Sass/Compass Efficiency](http://www.netmagazine.com/tutorials/boost-sass-compass-efficiency)
+- [SASS Style Guide](http://css-tricks.com/sass-style-guide/)
+- [Boost SASS/Compass Efficiency](http://www.netmagazine.com/tutorials/boost-sass-compass-efficiency)
