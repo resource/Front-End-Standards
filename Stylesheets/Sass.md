@@ -6,14 +6,15 @@ Promoting the "Resource Way" of writing awesome SASS. "Stay SASSy, Resource"
 
 1. [Definitions](#definitions)
 1. [Formatting](#formatting)
+
 1. [References](#references)
 
 ### <a name='definitions'>Definitions</a>  
 The semantics in this document build off of the [Css](https://github.com/LukeAskew/Front-End-Standards/blob/master/Stylesheets/CSS.md) standards for this project.
 
-There are two styles of syntax: .SASS and .scss. The .SASS style is a "looser" style that omits brackets {} and semi-colons. This document outlines usage of the .scss style. For more on why .scss is our preferred style check out the following articles - [SASS-lang docs](http://SASS-lang.com/docs/yardoc/file.SASS_REFERENCE.html#syntax) [SASS vs Scss](http://theSASSway.com/articles/SASS-vs-scss-which-syntax-is-better)
+There are two styles of syntax: .sass and .scss. The .sass style is a "looser" style that omits brackets {} and semi-colons. This document outlines usage of the .scss style. For more on why .scss is our preferred style check out the following articles - [SASS-lang docs](http://SASS-lang.com/docs/yardoc/file.SASS_REFERENCE.html#syntax) [Sass vs Scss](http://thesassway.com/articles/SASS-vs-scss-which-syntax-is-better)
 
-Any reference made to "SASS" moving forward is in respect to the .scss notation. This is because saying "SASS" out loud is easier than "Scss", which just sounds like a snake hissing. Just want to make sure we're all on the same page :)
+Any reference made to "SASS" moving forward is in respect to the .scss notation. This is because saying "Sass" out loud is easier than "Scss", which just sounds like a snake hissing.
 
 
 ### <a name='formatting'>Formatting</a>
@@ -58,7 +59,7 @@ _buttons.scss
 ```
 
 
-##### Variable Naming
+##### Variables
 - Name you variables in a modular way. Use dashes to separate multiple words in a declaration.
 
 ```SCSS
@@ -76,6 +77,24 @@ $blue-darkest;
 $blue-light;
 ```
 
+
+#### Variable Interpolation
+- Use the Ruby-esque #{} to "shim" variables into your rules.
+
+```SCSS
+@mixin highlight($color, $side) {
+	border-#{$side}-color: $color;
+}
+
+.btn-a {
+	@include highlight(#f00, right);
+}
+
+// Css output
+.btn-a {
+	border-right-color: #ff0;
+}
+```
 
 ##### SASS Script Functions
 - Use of SASS Script Functions (functions native to SASS) is a great way to make your SASS more DRY. 
@@ -97,8 +116,8 @@ $blue-light; = lighten($blue, 25%); // [Lighten instance method](http://SASS-lan
 ```
 
 
-##### Mixin
-- Mixins allow you to define styles that can be re-used throughout the stylesheet. 
+##### @mixin
+- @mixin's allow you to define styles that can be re-used throughout the stylesheet. 
 - Be sure your Mixin block comes before the @include statement. 
 - Use camelCase to define them. 
 - Comment code that may be unfamiliar to other developers.
@@ -119,6 +138,7 @@ $blue = #054dc3;
 }
 ```
 
+#### @mixin Pitfalls
 - Be careful when calling a Mixin with multiple arguments.
 
 ```SCSS
@@ -405,7 +425,8 @@ Nesting too deep is getting away from a modular approach to writing Css. Thinkin
 - [Sass Reference Docs](http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html)
 - [The Sass Way](http://thesassway.com/)
 - [Assembling Sass Course](http://www.codeschool.com/courses/assembling-sass)
-- [SASS @extend Intro](http://awardwinningfjords.com/2010/07/27/sass-extend-introduction.html)
+- [Sass @extend Intro](http://awardwinningfjords.com/2010/07/27/sass-extend-introduction.html)
+- [@extend your Sass](http://blog.kiskolabs.com/post/5445752361/extend-your-sass)
 - [The Inception Rule](http://thesassway.com/beginner/the-inception-rule)
 - [More Modular Css](http://thesassway.com/intermediate/avoid-nested-selectors-for-more-modular-css)
 - [Modular Variables](http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-name-your-sass-variables-modularly/)
