@@ -6,7 +6,7 @@ Promoting the "Resource Way" of writing awesome Sass. "Stay Sassy, Resource"
 
 1. [Definitions](#definitions)
 1. [Commenting](#Commenting)
-1. [Imports](#Imports and Partials)
+1. [Imports and Partials](#Imports)
 1. [Variables](#Variables)
 1. [Sass Script Functions](#Sass Script Functions)
 1. [Mixin](#Mixin)
