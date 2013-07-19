@@ -5,8 +5,21 @@ Promoting the "Resource Way" of writing awesome Sass. "Stay Sassy, Resource"
 ## Table of Contents
 
 1. [Definitions](#definitions)
-1. [Formatting](#formatting)
-
+1. [Commenting](#Commenting)
+1. [Imports](#Imports and Partials)
+1. [Variables](#Variables)
+1. [Sass Script Functions](#Sass Script Functions)
+1. [Mixin](#Mixin)
+1. [Mixin Pitfalls](#Mixin Pitfalls)
+1. [Interpolation](#Interpolation)
+1. [Extend](#Extend)
+1. [Extend Pitfalls](#Extend Pitfalls)
+1. [Placeholder selectors](#Placeholder selectors)
+1. [Functions](#Functions)
+1. [If/Else](#If/Else)
+1. [Formatting](#Formatting)
+1. [Line Breaks](#Line Breaks)
+1. [The Inception Rule](#Inception)
 1. [References](#references)
 
 ### <a name='definitions'>Definitions</a>  
@@ -17,8 +30,7 @@ There are two styles of syntax: .sass and .scss. The .sass style is a "looser" s
 Any reference made to "SASS" moving forward is in respect to the .scss notation. This is because saying "Sass" out loud is easier than "Scss", which just sounds like a snake hissing.
 
 
-### <a name='formatting'>Formatting</a>
-##### Commenting
+##### <a name='Commenting'>Commenting</a>
 - // and /**/
 
 ```SCSS      
@@ -35,7 +47,7 @@ Any reference made to "SASS" moving forward is in respect to the .scss notation.
 ```
 
 
-##### Imports and Partials
+##### <a name='Imports'>Imports and Partials</a>
 - Keep @import rules at the top of your file. This makes it easier to find what is included.
 - @import partials as you need for styling resuable components.
 - More on @imports here [SASS Lang #directives](http://SASS-lang.com/docs/yardoc/file.SASS_REFERENCE.html#directives)
@@ -59,7 +71,7 @@ _buttons.scss
 ```
 
 
-##### Variables
+##### <a name='Variables'>Variables</a>
 - Name you variables in a modular way. Use dashes to separate multiple words in a declaration.
 
 ```SCSS
@@ -78,33 +90,16 @@ $blue-light;
 ```
 
 
-#### Variable Interpolation
-- Use the Ruby-esque #{} to "shim" variables into your rules.
 
-```SCSS
-@mixin highlight($color, $side) {
-	border-#{$side}-color: $color;
-}
-
-.btn-a {
-	@include highlight(#f00, right);
-}
-
-// Css output
-.btn-a {
-	border-right-color: #ff0;
-}
-```
-
-##### SASS Script Functions
-- Use of SASS Script Functions (functions native to SASS) is a great way to make your SASS more DRY. 
+##### <a name='Sass Script Functions'>Sass Script Functions</a>
+- Use of Sass Script Functions (functions native to SASS) is a great way to make your SASS more DRY. 
 
 [SASS Script Functions Reference](http://SASS-lang.com/docs/yardoc/SASS/Script/Functions.html)
 
 ```SCSS
 // Good
 $blue = #054dc3;
-$blue-light; = lighten($blue, 25%); // [Lighten instance method](http://SASS-lang.com/docs/yardoc/SASS/Script/Functions.html#lighten-instance_method)
+$blue-light; = lighten($blue, 25%);
 
 .blue {
 	background-color: $blue;
@@ -116,7 +111,7 @@ $blue-light; = lighten($blue, 25%); // [Lighten instance method](http://SASS-lan
 ```
 
 
-##### @mixin
+##### <a name='Mixin'>Mixin<a/>
 - @mixin's allow you to define styles that can be re-used throughout the stylesheet. 
 - Be sure your Mixin block comes before the @include statement. 
 - Use camelCase to define them. 
@@ -138,7 +133,7 @@ $blue = #054dc3;
 }
 ```
 
-#### @mixin Pitfalls
+##### <a name='Mixin Pitfalls'>Mixin Pitfalls</a>
 - Be careful when calling a Mixin with multiple arguments.
 
 ```SCSS
@@ -214,7 +209,26 @@ $blue = #054dc3;
 ```
 
 
-##### @extend
+##### <a name='Interpolation'>Interpolation</a>
+- Use the Ruby-esque #{} to "shim" variables into your rules.
+
+```SCSS
+@mixin highlight($color, $side) {
+	border-#{$side}-color: $color;
+}
+
+.btn-a {
+	@include highlight(#f00, right);
+}
+
+// Css output
+.btn-a {
+	border-right-color: #ff0;
+}
+```
+
+
+##### <a name='Extend'>Extend</a>
 - Use the @extend directive for lumping shared styles together. 
 - @extend adds the properties of an existing class to where you're extending. 
 - Use @extend to avoid unecessary duplication.
@@ -248,7 +262,7 @@ $blue = #054dc3;
 }
 ```
 
-#### @extend Pitfalls
+##### <a name='Extend Pitfalls'>Extend Pitfalls</a>
 - Since .btn-b extends .btn-a, every instance that modifies .btn-a also modifies .btn-b. This creates stylesheet bloat, if these styles aren't needed.
 
 ```SCSS
@@ -289,7 +303,7 @@ $blue = #054dc3;
 ```
 
 
-##### Placeholder selectors
+##### <a name='Placeholder selectors'>Placeholder selectors</a>
 - Counteract stylesheet bloat with %placeholder selectors.
 - Extend common blocks to avoid extra Html classes
 
@@ -333,7 +347,7 @@ $blue = #054dc3;
 }
 ```
 
-##### Functions
+##### <a name='Functions'>Functions</a>
 - Use functions when you need to calculate a value that may be reused somewhere else.
 - Use camelCase for longer function names.
 
@@ -353,7 +367,7 @@ $blue = #054dc3;
 }
 ```
 
-##### If/Else
+##### <a name='If/Else'>If/Else</a>
 - Use @if and @else to conditionally output code.
 
 ```SCSS
@@ -384,7 +398,7 @@ header {
 - Example @if with @mixin
 
 ```SCSS
-@mixin button($color, $rounded: false {
+@mixin button($color, $rounded: false) {
 	color: $color;
 
 	@if $rounded {
@@ -414,7 +428,7 @@ header {
 ```
 
 
-##### Indentation and Bracket location
+##### <a name='Formatting'>Formatting</a>
 Keep indentation consistent to your project. If you're using 2 spaces, use 2 spaces. If you're using tabs, use tabs. End each object
 
 ```SCSS
@@ -438,7 +452,7 @@ Keep indentation consistent to your project. If you're using 2 spaces, use 2 spa
 ```
 
 
-##### Line Breaks
+##### <a name='Line Breaks'>Line Breaks</a>
 Keep related modules/component declarations together. Adding a line break to each new declaration. One Css rule per line.
 
 ```SCSS
@@ -493,7 +507,7 @@ Keep related modules/component declarations together. Adding a line break to eac
 }
 ```
 
-##### The "Inception Rule"
+##### <a name='Inception'>The "Inception Rule"</a>
 Nesting too deep is getting away from a modular approach to writing Css. Thinking about context before writing your rules is a good start. See the [References](#references) section in this document for more on modular Css and avoiding deeply nested selectors.
 
 **Four contextual examples to keep in mind to avoid over-nesting:**
