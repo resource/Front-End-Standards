@@ -1,4 +1,4 @@
-# Resource jQuery Style Guide and Best Practices
+# Resource jQuery Style Guide and Best Practices [WORKING DRAFT]
 
 Promoting the "Resource Way" of writing performant and maintainable jQuery.
 
