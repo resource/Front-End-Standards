@@ -289,6 +289,50 @@ $blue = #054dc3;
 ```
 
 
+##### Placeholder selectors
+- Counteract stylesheet bloat with %placeholder selectors.
+- Extend common blocks to avoid extra Html classes
+
+```SCSS
+// Good
+%btn {
+	background: #777;
+	border: 1px solid #ccc;
+	font-size: 1em;
+	text-transform: uppercase;
+}
+
+.btn-a {
+	@extend %btn;
+}
+
+.btn-b {
+	@extend %btn;
+	background: #ff0;
+}
+
+.sidebar .btn-a {
+	text-transform: lowercase;
+}
+
+// Css output
+.btn-a,
+.btn-b {
+	background: #777;
+	border: 1px solid #ccc;
+	font-size: 1em;
+	text-transform: uppercase;
+}
+
+.btn-b {
+	background: #ff0;
+}
+
+.sidebar .btn-a {
+	text-transform: lowercase;
+}
+```
+
 ##### Indentation and Bracket location
 Keep indentation consistent to your project. If you're using 2 spaces, use 2 spaces. If you're using tabs, use tabs. End each object
 
