@@ -333,6 +333,27 @@ $blue = #054dc3;
 }
 ```
 
+##### Functions
+- Functions are very similar to Mixins. However, the output from a function is a single value.
+- Use functions when you need to calculate a value that may be reused somewhere else.
+- Use camelCase for longer function names.
+
+```SCSS
+// Good
+@function fluidize($target, $context) {
+	@return ($target / $context) * 100%;
+}
+
+.sidebar {
+	width: fluidize(350px, 1000px);
+}
+
+// Css output
+.sidebar {
+	width: 35%;
+}
+```
+
 ##### Indentation and Bracket location
 Keep indentation consistent to your project. If you're using 2 spaces, use 2 spaces. If you're using tabs, use tabs. End each object
 
@@ -471,6 +492,7 @@ Nesting too deep is getting away from a modular approach to writing Css. Thinkin
 - [Assembling Sass Course](http://www.codeschool.com/courses/assembling-sass)
 - [Sass @extend Intro](http://awardwinningfjords.com/2010/07/27/sass-extend-introduction.html)
 - [@extend your Sass](http://blog.kiskolabs.com/post/5445752361/extend-your-sass)
+- [Pure Sass Functions](http://thesassway.com/advanced/pure-sass-functions)
 - [The Inception Rule](http://thesassway.com/beginner/the-inception-rule)
 - [More Modular Css](http://thesassway.com/intermediate/avoid-nested-selectors-for-more-modular-css)
 - [Modular Variables](http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-name-your-sass-variables-modularly/)
