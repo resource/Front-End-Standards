@@ -1,4 +1,4 @@
-# Resource Client-side Security Best Practices
+# Resource Client-side Security Best Practices [WORKING DRAFT]
 
 Promoting the "Resource Way" of secure client-side websites and applications.
 
