@@ -17,6 +17,8 @@ Promoting the "Resource Way" of writing awesome Sass. "Stay Sassy, Resource"
 1. [Placeholder selectors](#Placeholder selectors)
 1. [Functions](#Functions)
 1. [If/Else](#If/Else)
+1. [Each](#Each)
+1. [For/While](#For/While)
 1. [Formatting](#Formatting)
 1. [Line Breaks](#Line Breaks)
 1. [The Inception Rule](#Inception)
@@ -426,6 +428,14 @@ header {
 	border-radius: 4px;
 }
 ```
+
+
+##### <a name='Each'>Each</a>
+- Use @if and @else to conditionally output code.
+
+
+##### <a name='For/While'>For/While</a>
+- Use @if and @else to conditionally output code.
 
 
 ##### <a name='Formatting'>Formatting</a>
