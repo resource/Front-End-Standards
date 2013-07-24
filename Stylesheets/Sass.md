@@ -431,11 +431,43 @@ header {
 
 
 ##### <a name='Each'>Each</a>
-- Use @if and @else to conditionally output code.
+- Use @each to loop through items in a list
+
+```SCSS
+// Good
+$authors = kevin luke mark alex adam;
+
+@each $author in $authors {
+	.author-#{$author} {
+		background-image: url(author-#{$author}.jpg);
+	}
+}
+
+// Css output
+.author-kevin {
+	background-image: url(author-kevin.jpg);
+}
+
+.author-luke {
+	background-image: url(author-luke.jpg);
+}
+
+.author-mark {
+	background-image: url(author-mark.jpg);
+}
+
+.author-alex {
+	background-image: url(author-alex.jpg);
+}
+
+.author-adam {
+	background-image: url(author-adam.jpg);
+}
+```
 
 
 ##### <a name='For/While'>For/While</a>
-- Use @if and @else to conditionally output code.
+- 
 
 
 ##### <a name='Formatting'>Formatting</a>
@@ -582,5 +614,6 @@ Nesting too deep is getting away from a modular approach to writing Css. Thinkin
 - [The Inception Rule](http://thesassway.com/beginner/the-inception-rule)
 - [More Modular Css](http://thesassway.com/intermediate/avoid-nested-selectors-for-more-modular-css)
 - [Modular Variables](http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-name-your-sass-variables-modularly/)
+- [Unlease the power of @each](http://shoogledesigns.com/blog/blog/2012/10/01/unleash-the-power-of-each-within-sass/)
 - [Sass Style Guide](http://css-tricks.com/sass-style-guide/)
 - [Boost Sass/Compass Efficiency](http://www.netmagazine.com/tutorials/boost-sass-compass-efficiency)
