@@ -15,6 +15,7 @@ Promoting the "Resource Way" of writing awesome Sass. "Stay Sassy, Resource"
 1. [Extend](#Extend)
 1. [Extend Pitfalls](#Extend Pitfalls)
 1. [Placeholder selectors](#Placeholder selectors)
+1. [Content Directive](#Content Directive)
 1. [Functions](#Functions)
 1. [If/Else](#If/Else)
 1. [Each](#Each)
@@ -342,6 +343,54 @@ $blue = #054dc3;
 
 .sidebar .btn-a {
 	text-transform: lowercase;
+}
+```
+
+
+##### <a name='Content Directive'>Content directive</a>
+- Use the @content directive to pass a block of styles to a mixin for placement within the styles included by the mixin.
+
+```SCSS
+// Good
+@mixin media($type) {
+
+	@if $type == tablet {
+		@media all and (min-width: 768px) and (max-width: 991px) {
+		  @content;
+		}
+	}
+
+	@else if $type == mobile {
+		@media all and (max-width: 767px) {
+		  @content;
+		}
+	}
+
+}
+
+.content {
+	width:960px;
+
+	@include media(tablet) {
+		width: 720px;
+	}
+
+	@include media(mobile) {
+		width: 90%;
+	}
+}
+
+// Css output
+.content {
+	width: 960px;
+
+	@media all and (min-width: 768px) and (max-width: 991px) {
+		width: 720px;
+	}
+
+	@media all and (max-width: 767px) {
+		width: 90%;
+	}
 }
 ```
 
@@ -677,3 +726,5 @@ Nesting too deep is getting away from a modular approach to writing Css. Thinkin
 - [Unlease the power of @each](http://shoogledesigns.com/blog/blog/2012/10/01/unleash-the-power-of-each-within-sass/)
 - [Sass Style Guide](http://css-tricks.com/sass-style-guide/)
 - [Boost Sass/Compass Efficiency](http://www.netmagazine.com/tutorials/boost-sass-compass-efficiency)
+- [Passing Content To Mixins](http://mikefowler.me/thoughts/passing-content-to-mixins-in-sass/)
+- [Gist: passing content blocks to mixin](https://gist.github.com/chriseppstein/1215856)
