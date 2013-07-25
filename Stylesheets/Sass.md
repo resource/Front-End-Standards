@@ -191,40 +191,37 @@ $blue = #054dc3;
 
 ```SCSS
 // Bad
-@mixin pinkBox {
-	float: left;
-	display: block;
-	color: pink;
-	width: 100px;
-	height: 100px;
+@mixin button {
+	background: #777;
+	border: 1px solid #ccc;
+	font-size: 1em;
+	text-transform: uppercase;
 }
 
 .foo {
-	@include pinkBox;
+	@include button;
 }
  
 .bar {
-	@include pinkBox;
-	font-size: 2em;
+	@include button;
+	color: #000;
 }
 
 // Css output
 // Bad. Unecessary duplication.
 .foo {
-	float: left; 
-	display: block; 
-	color: pink; 
-	width: 100px; 
-	height: 100px;
+	background: #777;
+	border: 1px solid #ccc;
+	font-size: 1em;
+	text-transform: uppercase;
 }
 
 .bar {
-	float: left; 
-	display: block; 
-	color: pink; 
-	font-size: 2em;
-	width: 100px; 
-	height: 100px;
+	background: #777;
+	color: #000;
+	border: 1px solid #ccc;
+	font-size: 1em;
+	text-transform: uppercase;
 }
 ```
 
