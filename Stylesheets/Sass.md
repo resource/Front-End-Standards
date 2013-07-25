@@ -8,10 +8,10 @@ Promoting the "Resource Way" of writing awesome Sass. "Stay Sassy, Resource"
 1. [Commenting](#Commenting)
 1. [Imports and Partials](#Imports)
 1. [Variables](#Variables)
+1. [Interpolation](#Interpolation)
 1. [Sass Script Functions](#Sass Script Functions)
 1. [Mixin](#Mixin)
 1. [Mixin Pitfalls](#Mixin Pitfalls)
-1. [Interpolation](#Interpolation)
 1. [Extend](#Extend)
 1. [Extend Pitfalls](#Extend Pitfalls)
 1. [Placeholder selectors](#Placeholder selectors)
@@ -91,6 +91,24 @@ $blue-darkest;
 $blue-light;
 ```
 
+
+##### <a name='Interpolation'>Interpolation</a>
+- Use the Ruby-esque #{} to "shim" variables into your rules.
+
+```SCSS
+@mixin highlight($color, $side) {
+	border-#{$side}-color: $color;
+}
+
+.btn-a {
+	@include highlight(#f00, right);
+}
+
+// Css output
+.btn-a {
+	border-right-color: #ff0;
+}
+```
 
 
 ##### <a name='Sass Script Functions'>Sass Script Functions</a>
@@ -207,25 +225,6 @@ $blue = #054dc3;
 	font-size: 2em;
 	width: 100px; 
 	height: 100px;
-}
-```
-
-
-##### <a name='Interpolation'>Interpolation</a>
-- Use the Ruby-esque #{} to "shim" variables into your rules.
-
-```SCSS
-@mixin highlight($color, $side) {
-	border-#{$side}-color: $color;
-}
-
-.btn-a {
-	@include highlight(#f00, right);
-}
-
-// Css output
-.btn-a {
-	border-right-color: #ff0;
 }
 ```
 
@@ -348,6 +347,7 @@ $blue = #054dc3;
 	text-transform: lowercase;
 }
 ```
+
 
 ##### <a name='Functions'>Functions</a>
 - Use functions when you need to calculate a value that may be reused somewhere else.
