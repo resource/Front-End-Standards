@@ -230,9 +230,8 @@ $blue = #054dc3;
 
 
 ##### <a name='Extend'>Extend</a>
-- Use the @extend directive for lumping shared styles together. 
-- @extend adds the properties of an existing class to where you're extending. 
-- Use @extend to avoid unecessary duplication.
+- Avoid duplication by using the @extend directive for lumping shared styles together. 
+- @extend adds the properties of an existing class to where you're extending.
 
 ```SCSS
 // Good
@@ -262,6 +261,7 @@ $blue = #054dc3;
 	background: #ff0;
 }
 ```
+
 
 ##### <a name='Extend Pitfalls'>Extend Pitfalls</a>
 - Since .btn-b extends .btn-a, every instance that modifies .btn-a also modifies .btn-b. This creates stylesheet bloat, if these styles aren't needed.
@@ -369,6 +369,7 @@ $blue = #054dc3;
 }
 ```
 
+
 ##### <a name='If/Else'>If/Else</a>
 - Use @if and @else to conditionally output code.
 
@@ -431,7 +432,7 @@ header {
 
 
 ##### <a name='Each'>Each</a>
-- Use @each to loop through items in a list
+- Use the @each directive to loop through items in a list
 
 ```SCSS
 // Good
@@ -467,7 +468,68 @@ $authors = kevin luke mark alex adam;
 
 
 ##### <a name='For/While'>For/While</a>
-- TODO
+- Use the @for or @while directive to save yourself manual work of repeating similar Css rules;
+
+```SCSS
+// @for example
+// Good
+$columns: 4;
+
+@for $i from 1 through $columns {
+	.cols-#{$i} {
+    	width: ((100 / $columns) * $i) * 1%;
+  	}
+}
+
+// Css output
+.cols-1 {
+	width: 25%;
+}
+
+.cols-2 {
+	width: 50%;
+}
+
+.cols-3 {
+	width: 75%;
+}
+
+.cols-4 {
+	width: 100%;
+}
+
+
+// @while example
+// Good
+$i: 1;
+
+.item {
+	position: absolute;
+	right: 0;
+
+	@while $i < 4 {
+		&.item-#{$i} {
+			top: $i * 30px;
+		}
+		i$: $i + 1;	// @while requires manually updating the index
+	}
+}
+
+// Css output
+.item {
+	position: absolute;
+	right: 0;
+}
+.item.item-1 {
+	top: 30px;
+}
+.item.item-2 {
+	top: 60px;
+}
+.item.item-3 {
+	top: 90px;
+}
+```
 
 
 ##### <a name='Formatting'>Formatting</a>
@@ -610,6 +672,7 @@ Nesting too deep is getting away from a modular approach to writing Css. Thinkin
 - [Assembling Sass Course](http://www.codeschool.com/courses/assembling-sass)
 - [Sass @extend Intro](http://awardwinningfjords.com/2010/07/27/sass-extend-introduction.html)
 - [@extend your Sass](http://blog.kiskolabs.com/post/5445752361/extend-your-sass)
+- [Handy Advanced Sass](http://12devs.co.uk/articles/handy-advanced-sass/)
 - [Pure Sass Functions](http://thesassway.com/advanced/pure-sass-functions)
 - [The Inception Rule](http://thesassway.com/beginner/the-inception-rule)
 - [More Modular Css](http://thesassway.com/intermediate/avoid-nested-selectors-for-more-modular-css)
