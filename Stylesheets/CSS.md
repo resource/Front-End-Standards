@@ -352,6 +352,20 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
       font-weight: 700;
    }
     ```
+    
+- Avoid using units when declaring `0` as a value.
+
+    ```css
+    /* bad */
+    .no-margin-left {
+        margin-left: 0px;
+    }
+
+    /* good */
+    .no-margin-left {
+        margin-left: 0;
+    }
+    ```
 
 - No quotes on `url()` values.
 
