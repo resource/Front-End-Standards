@@ -353,28 +353,23 @@ $blue = #054dc3;
 ```SCSS
 // Good
 @mixin media($type) {
-
 	@if $type == tablet {
 		@media all and (min-width: 768px) and (max-width: 991px) {
 		  @content;
 		}
 	}
-
 	@else if $type == mobile {
 		@media all and (max-width: 767px) {
 		  @content;
 		}
 	}
-
 }
 
 .content {
 	width:960px;
-
 	@include media(tablet) {
 		width: 720px;
 	}
-
 	@include media(mobile) {
 		width: 90%;
 	}
@@ -383,11 +378,9 @@ $blue = #054dc3;
 // Css output
 .content {
 	width: 960px;
-
 	@media all and (min-width: 768px) and (max-width: 991px) {
 		width: 720px;
 	}
-
 	@media all and (max-width: 767px) {
 		width: 90%;
 	}
@@ -449,7 +442,6 @@ header {
 ```SCSS
 @mixin button($color, $rounded: false) {
 	color: $color;
-
 	@if $rounded {
 		border-radius: $rounded;
 	}
@@ -552,7 +544,6 @@ $i: 1;
 .item {
 	position: absolute;
 	right: 0;
-
 	@while $i < 4 {
 		&.item-#{$i} {
 			top: $i * 30px;
@@ -609,10 +600,12 @@ Keep related modules/component declarations together. Adding a line break to eac
 .module {
   color: black;
   width: 100%;
+  	
   	.shrim {
   		color: green;
   		font-size: 16px;
   	}
+  	
   	.spaghett {
   		color: red;
   		font-size: 12px;
@@ -621,6 +614,7 @@ Keep related modules/component declarations together. Adding a line break to eac
 .next-module {
 	color: white;
 	width: 50%;
+	
 	.foo {
 	    color: black;
 		text-align: left;
@@ -631,12 +625,10 @@ Keep related modules/component declarations together. Adding a line break to eac
 .module {
   color: black;
   width: 100%;
-
   	.shrim {
   		color: green;
   		font-size: 16px;
   	}
-
   	.spaghett {
   		color: red;
   		font-size: 12px;
@@ -646,7 +638,6 @@ Keep related modules/component declarations together. Adding a line break to eac
 .next-module {
 	color: white;
 	width: 50%;
-
 	.foo {
 		color: black;
 		text-align: left;
@@ -671,7 +662,6 @@ Nesting too deep is getting away from a modular approach to writing Css. Thinkin
     .sidebar { 
   	    width: 150px; 
     }
-    
 	.content { 
 	    width: 850px; 
     }
@@ -686,7 +676,6 @@ Nesting too deep is getting away from a modular approach to writing Css. Thinkin
 	li { 
 		... 
 	}
-
 	a { 
 		... 
 	}
