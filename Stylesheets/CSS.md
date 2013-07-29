@@ -516,16 +516,20 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
 ### <a name="references">References</a> 
 #### CSS Inception Rule ####
 - <a href="http://thesassway.com/beginner/the-inception-rule">http://thesassway.com/beginner/the-inception-rule</a>
+
 #### CSS Specificity Related Articles ####
 - Use of ID's in CSS Selectors (And why to avoid it)
     - <a href="http://oli.jp/2011/ids/">http://oli.jp/2011/ids/</a>
+
 #### Specificity Calculation ####
 - <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity#How_is_it_calculated.3F">https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity#How_is_it_calculated.3F</a>
 - <a href="http://coding.smashingmagazine.com/2007/07/27/css-specificity-things-you-should-know/">http://coding.smashingmagazine.com/2007/07/27/css-specificity-things-you-should-know/</a>
 - <a href="http://iamacamera.org/default.aspx?id=95">http://iamacamera.org/default.aspx?id=95</a>
 - <a href="http://www.stuffandnonsense.co.uk/archives/css_specificity_wars.html">http://www.stuffandnonsense.co.uk/archives/css_specificity_wars.html</a>
+
 #### Efficiency ####
 - <a href="http://css-tricks.com/efficiently-rendering-css/">http://css-tricks.com/efficiently-rendering-css/</a>
+
 #### CSS Architecture ####
 - BEM
     - <a href="http://bem.info/method/">http://bem.info/method/</a>
@@ -534,6 +538,7 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     - <a href="http://churchm.ag/object-oriented-css-separating-skin-from-structure/">http://churchm.ag/object-oriented-css-separating-skin-from-structure/</a>
 - DRY CSS
     - <a href="http://www.vanseodesign.com/css/dry-principles/">http://www.vanseodesign.com/css/dry-principles/</a>
+
 #### Typography ####
 - <a href="http://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights/">http://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights/</a>
 - <a href="https://github.com/stubbornella/csslint/wiki/Bulletproof-font-face">https://github.com/stubbornella/csslint/wiki/Bulletproof-font-face</a>
