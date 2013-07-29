@@ -473,9 +473,45 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
 
 - Only use shorthand value declarations when the value will not be extended.
 
+- Separate [structure from skin](http://churchm.ag/object-oriented-css-separating-skin-from-structure/). Define repeating visual features as separate "skins"
+   
     ```css
-    TODO
+    /* bad */
+    #button {
+        width: 200px;
+        height: 50px;
+        padding: 10px;
+        border: solid 1px #ccc;
+        background: linear-gradient(#ccc, #222);
+        box-shadow: rgba(0, 0, 0, .5) 2px 2px 5px;
+    }
+
+    #box {
+        width: 400px;
+        overflow: hidden;
+        border: solid 1px #ccc;
+        background: linear-gradient(#ccc, #222);
+        box-shadow: rgba(0, 0, 0, .5) 2px 2px 5px;
+    }
+
+    /* good */
+    .button {
+        width: 200px;
+        height: 50px;
+    }
+
+    .box {
+        width: 400px;
+        overflow: hidden;
+    }
+    
+    .skin {
+        border: solid 1px #ccc;
+        background: linear-gradient(#ccc, #222);
+        box-shadow: rgba(0, 0, 0, .5) 2px 2px 5px;
+    }
     ```
+
 ### <a name="references">References</a> 
 #### CSS Inception Rule ####
 - <a href="http://thesassway.com/beginner/the-inception-rule">http://thesassway.com/beginner/the-inception-rule</a>
@@ -491,5 +527,8 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     - <a href="http://bem.info/method/">http://bem.info/method/</a>
 - OOCSS
     - <a href="http://coding.smashingmagazine.com/2011/12/12/an-introduction-to-object-oriented-css-oocss/">http://coding.smashingmagazine.com/2011/12/12/an-introduction-to-object-oriented-css-oocss/</a>
+    - <a href="http://churchm.ag/object-oriented-css-separating-skin-from-structure/">http://churchm.ag/object-oriented-css-separating-skin-from-structure/</a>
 - DRY CSS
     - <a href="http://www.vanseodesign.com/css/dry-principles/">http://www.vanseodesign.com/css/dry-principles/</a>
+
+### <a name="resources">Resources</a>
