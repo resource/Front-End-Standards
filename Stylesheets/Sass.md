@@ -671,6 +671,7 @@ Nesting too deep is getting away from a modular approach to writing Css. Thinkin
     .sidebar { 
   	    width: 150px; 
     }
+    
 	.content { 
 	    width: 850px; 
     }
