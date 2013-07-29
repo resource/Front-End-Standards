@@ -142,8 +142,12 @@ $blue-light; = lighten($blue, 25%);
 // Good
 $blue = #054dc3;
 
-// lightens an object. uses SASS Script core function
-// @params - a color and the percentage
+/**
+ * lightenIt()
+ * lightens the color of an object. uses SASS Script core function
+	* $color: a hex value
+	* $percentage: the percent to lighten the color
+*/
 @mixin lightenIt($color, $p) {
 	background-color: lighten($color, $p);	
 	color: ligten($color, $p);
