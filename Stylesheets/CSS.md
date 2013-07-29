@@ -14,6 +14,7 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
 1. [Accessibility](#accessibility)    
 1. [Architecture](#architecture)  
 1. [References](#references)  
+1. [Resources](#resources)  
 
 
 ***
@@ -504,7 +505,7 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
         width: 400px;
         overflow: hidden;
     }
-    
+
     .skin {
         border: solid 1px #ccc;
         background: linear-gradient(#ccc, #222);
@@ -519,9 +520,12 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
 - Use of ID's in CSS Selectors (And why to avoid it)
     - <a href="http://oli.jp/2011/ids/">http://oli.jp/2011/ids/</a>
 #### Specificity Calculation ####
+- <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity#How_is_it_calculated.3F">https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity#How_is_it_calculated.3F</a>
 - <a href="http://coding.smashingmagazine.com/2007/07/27/css-specificity-things-you-should-know/">http://coding.smashingmagazine.com/2007/07/27/css-specificity-things-you-should-know/</a>
 - <a href="http://iamacamera.org/default.aspx?id=95">http://iamacamera.org/default.aspx?id=95</a>
 - <a href="http://www.stuffandnonsense.co.uk/archives/css_specificity_wars.html">http://www.stuffandnonsense.co.uk/archives/css_specificity_wars.html</a>
+#### Efficiency ####
+- <a href="http://css-tricks.com/efficiently-rendering-css/">http://css-tricks.com/efficiently-rendering-css/</a>
 #### CSS Architecture ####
 - BEM
     - <a href="http://bem.info/method/">http://bem.info/method/</a>
@@ -530,5 +534,16 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     - <a href="http://churchm.ag/object-oriented-css-separating-skin-from-structure/">http://churchm.ag/object-oriented-css-separating-skin-from-structure/</a>
 - DRY CSS
     - <a href="http://www.vanseodesign.com/css/dry-principles/">http://www.vanseodesign.com/css/dry-principles/</a>
+<<<<<<< HEAD
 
 ### <a name="resources">Resources</a>
+=======
+#### Typography ####
+- <a href="http://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights/">http://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights/</a>
+- <a href="https://github.com/stubbornella/csslint/wiki/Bulletproof-font-face">https://github.com/stubbornella/csslint/wiki/Bulletproof-font-face</a>
+- <a href="https://insider.resource.com/groups/technology-dlt/blog/2013/02/14/definitive-guide-to-webfonts">https://insider.resource.com/groups/technology-dlt/blog/2013/02/14/definitive-guide-to-webfonts</a>
+- <a href="https://insider.resource.com/docs/DOC-2265">Resource's guide for creating icon fonts</a>
+
+### <a name="resources">Resources</a>
+TODO - Cleanup References & Resources sections. Resources are outbound urls not necessarily in this document. References are urls linked in the documentation.
+>>>>>>> Cleaning up references section
