@@ -134,7 +134,7 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     }
     ```
  
-- Use tabs set to 4 spaces/.
+- Use tabs set to 4 spaces.
     
     ```css
     /* bad */
