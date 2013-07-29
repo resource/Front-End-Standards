@@ -146,11 +146,11 @@ $blue = #054dc3;
  * lightenIt()
  * lightens the color of an object. uses SASS Script core function
 	* $color: a hex value
-	* $percentage: the percent to lighten the color
+	* $percent: the percent to lighten the color
 */
-@mixin lightenIt($color, $p) {
+@mixin lightenIt($color, $percent) {
 	background-color: lighten($color, $p);	
-	color: ligten($color, $p);
+	color: ligten($color, $percent);
 }
 
 .callout-light {
