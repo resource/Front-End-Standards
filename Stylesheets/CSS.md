@@ -534,10 +534,6 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     - <a href="http://churchm.ag/object-oriented-css-separating-skin-from-structure/">http://churchm.ag/object-oriented-css-separating-skin-from-structure/</a>
 - DRY CSS
     - <a href="http://www.vanseodesign.com/css/dry-principles/">http://www.vanseodesign.com/css/dry-principles/</a>
-<<<<<<< HEAD
-
-### <a name="resources">Resources</a>
-=======
 #### Typography ####
 - <a href="http://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights/">http://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights/</a>
 - <a href="https://github.com/stubbornella/csslint/wiki/Bulletproof-font-face">https://github.com/stubbornella/csslint/wiki/Bulletproof-font-face</a>
@@ -546,4 +542,3 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
 
 ### <a name="resources">Resources</a>
 TODO - Cleanup References & Resources sections. Resources are outbound urls not necessarily in this document. References are urls linked in the documentation.
->>>>>>> Cleaning up references section
