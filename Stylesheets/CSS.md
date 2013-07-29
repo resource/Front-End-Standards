@@ -69,7 +69,7 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
    }
    ```
    
-- Separte multiple selectors with a new line.
+- Separate multiple selectors with a new line.
     
     ```css
     .selector,
