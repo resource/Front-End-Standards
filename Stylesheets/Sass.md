@@ -604,8 +604,29 @@ Keep indentation consistent to your project. If you're using 2 spaces, use 2 spa
 
 ##### <a name='Line Breaks'>Line Breaks</a>
 Keep related modules/component declarations together. Adding a line break to each new declaration. One Css rule per line.
-
 ```SCSS
+// Bad
+.module {
+  color: black;
+  width: 100%;
+  	.shrim {
+  		color: green;
+  		font-size: 16px;
+  	}
+  	.spaghett {
+  		color: red;
+  		font-size: 12px;
+  	}
+}
+.next-module {
+	color: white;
+	width: 50%;
+	.foo {
+	    color: black;
+		text-align: left;
+	}
+}
+
 // Good 
 .module {
   color: black;
@@ -633,29 +654,6 @@ Keep related modules/component declarations together. Adding a line break to eac
 }
 ```
 
-```SCSS
-// Bad
-.module {
-  color: black;
-  width: 100%;
-  	.shrim {
-  		color: green;
-  		font-size: 16px;
-  	}
-  	.spaghett {
-  		color: red;
-  		font-size: 12px;
-  	}
-}
-.next-module {
-	color: white;
-	width: 50%;
-	.foo {
-	    color: black;
-		text-align: left;
-	}
-}
-```
 
 ##### <a name='Inception'>The "Inception Rule"</a>
 Nesting too deep is getting away from a modular approach to writing Css. Thinking about context before writing your rules is a good start. See the [References](#references) section in this document for more on modular Css and avoiding deeply nested selectors.
