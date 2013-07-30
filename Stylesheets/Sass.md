@@ -59,7 +59,7 @@ Any reference made to "SASS" moving forward is in respect to the .scss notation.
 Example partial file names:
 
 ```SCSS
-/ Bad
+// Bad
 _myCoolPartial.scss
 
 // Good
