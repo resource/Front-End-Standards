@@ -602,8 +602,8 @@ Keep related modules/component declarations together. Adding a line break to eac
 ```SCSS
 // Bad
 .module {
-  color: black;
-  width: 100%;
+	color: black;
+	width: 100%;
   	
   	.shrim {
   		color: green;
@@ -627,8 +627,8 @@ Keep related modules/component declarations together. Adding a line break to eac
 
 // Good 
 .module {
-  color: black;
-  width: 100%;
+	color: black;
+	width: 100%;
   	.shrim {
   		color: green;
   		font-size: 16px;
