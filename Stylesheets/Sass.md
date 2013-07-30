@@ -52,25 +52,31 @@ Any reference made to "SASS" moving forward is in respect to the .scss notation.
 
 ##### <a name='Imports'>Imports and Partials</a>
 - Keep @import rules at the top of your file. This makes it easier to find what is included.
-- @import partials as you need for styling resuable components.
-- More on @imports here [SASS Lang #directives](http://SASS-lang.com/docs/yardoc/file.SASS_REFERENCE.html#directives)
+- Use an underscore at the beginning of a filename.
+- Use dashes and lowercase when naming.
+- Do not add ".scss" extension to the @import declaration.
+
+Example partial file names:
+
+// Bad
+_myCoolPartial.scss
+
+// Good
+_buttons.scss
+_my-cool-partial.scss
+
 
 ```SCSS
 // Bad
-@import "base.scss";
+@import "base.scss"
+@import "_buttons.scss";
+@import "_myCoolPartial.scss"
+
 
 // Good
 @import "base";
-```
-
-- Adding an underscore at the beginning of a filename creates a partial. Partials can then be imported.
-
-Example file name:
-_buttons.scss
-
-```SCSS
 @import "buttons";
-@import "base";
+@import "my-cool-partial";
 ```
 
 
@@ -546,6 +552,7 @@ $columns: 4;
 // Good
 $i: 1;
 
+// @while requires manually updating the index
 .item {
 	position: absolute;
 	right: 0;
@@ -553,7 +560,7 @@ $i: 1;
 		&.item-#{$i} {
 			top: $i * 30px;
 		}
-		i$: $i + 1;	// @while requires manually updating the index
+		i$: $i + 1;
 	}
 }
 
@@ -710,6 +717,7 @@ Nesting too deep is getting away from a modular approach to writing Css. Thinkin
 - [The Sass Way](http://thesassway.com/)
 - [Assembling Sass Course](http://www.codeschool.com/courses/assembling-sass)
 - [Sass @extend Intro](http://awardwinningfjords.com/2010/07/27/sass-extend-introduction.html)
+- [SASS @imports](http://SASS-lang.com/docs/yardoc/file.SASS_REFERENCE.html#directives)
 - [@extend your Sass](http://blog.kiskolabs.com/post/5445752361/extend-your-sass)
 - [Handy Advanced Sass](http://12devs.co.uk/articles/handy-advanced-sass/)
 - [Pure Sass Functions](http://thesassway.com/advanced/pure-sass-functions)
