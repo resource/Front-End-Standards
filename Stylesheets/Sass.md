@@ -58,7 +58,8 @@ Any reference made to "SASS" moving forward is in respect to the .scss notation.
 
 Example partial file names:
 
-// Bad
+```SCSS
+/ Bad
 _myCoolPartial.scss
 
 // Good
@@ -66,12 +67,10 @@ _buttons.scss
 _my-cool-partial.scss
 
 
-```SCSS
 // Bad
 @import "base.scss"
 @import "_buttons.scss";
 @import "_myCoolPartial.scss"
-
 
 // Good
 @import "base";
