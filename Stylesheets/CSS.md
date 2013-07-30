@@ -13,8 +13,7 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
 1. [Browser Compatibility](#browser-compatibility)  
 1. [Accessibility](#accessibility)    
 1. [Architecture](#architecture)  
-1. [References](#references)  
-1. [Resources](#resources)  
+1. [References](#references)
 
 
 ***
@@ -538,12 +537,22 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     - <a href="http://churchm.ag/object-oriented-css-separating-skin-from-structure/">http://churchm.ag/object-oriented-css-separating-skin-from-structure/</a>
 - DRY CSS
     - <a href="http://www.vanseodesign.com/css/dry-principles/">http://www.vanseodesign.com/css/dry-principles/</a>
+- Normalize.css
+    - <a href="https://github.com/necolas/normalize.css">https://github.com/necolas/normalize.css</a>
+- Separate structure from skin
+    - <a href="http://churchm.ag/object-oriented-css-separating-skin-from-structure/">http://churchm.ag/object-oriented-css-separating-skin-from-structure/</a>
 
 #### Typography ####
 - <a href="http://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights/">http://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights/</a>
 - <a href="https://github.com/stubbornella/csslint/wiki/Bulletproof-font-face">https://github.com/stubbornella/csslint/wiki/Bulletproof-font-face</a>
 - <a href="https://insider.resource.com/groups/technology-dlt/blog/2013/02/14/definitive-guide-to-webfonts">https://insider.resource.com/groups/technology-dlt/blog/2013/02/14/definitive-guide-to-webfonts</a>
+
+#### Icons and Imagery ####
 - <a href="https://insider.resource.com/docs/DOC-2265">Resource's guide for creating icon fonts</a>
 
-### <a name="resources">Resources</a>
-TODO - Cleanup References & Resources sections. Resources are outbound urls not necessarily in this document. References are urls linked in the documentation.
+#### Browser Compatibility ####
+- <a href="http://flippinawesome.org/2013/07/08/using-css-fallback-properties-for-better-cross-browser-compatibility/">CSS Fallback Properties for Better Cross-browser Compatibility</a>
+
+#### Accessibility ####
+- <a href="http://leaverou.github.io/contrast-ratio/">Verifying accessibility with contrast ratio</a>
+- <a href="https://github.com/h5bp/html5-boilerplate/blob/master/css/main.css#L152">Avoid display: none when hiding content</a>
