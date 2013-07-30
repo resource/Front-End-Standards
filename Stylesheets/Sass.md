@@ -79,17 +79,17 @@ _buttons.scss
 
 ```SCSS
 // Bad
-$blue;
-$dark-blue;
-$darkest-blue;
-$light-blue;
+$blue = #3d7fdf;
+$dark-blue = #18488d;
+$darkest-blue = #0b2345;
+$light-blue = #b2ccf2;
 
 // Instead, group variables that share relationships and commonalities.
 // Good
-$blue;
-$blue-dark;
-$blue-darkest;
-$blue-light;
+$blue = #3d7fdf;
+$blue-dark = #18488d;
+$blue-darkest = #0b2345;
+$blue-light = #b2ccf2;
 ```
 
 
