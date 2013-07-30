@@ -168,8 +168,9 @@ $blue = #054dc3;
 	color: $color;
 }
 
+// Syntax error: Mixin button is missing argument $color
 .btn-a {
-	@include button(4px);	// Syntax error: Mixin button is missing argument $color
+	@include button(4px);
 }
 ```
 
