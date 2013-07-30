@@ -124,8 +124,8 @@ $blue-light: #b2ccf2;
 
 ```SCSS
 // Good
-$blue = #054dc3;
-$blue-light; = lighten($blue, 25%);
+$blue: #054dc3;
+$blue-light: lighten($blue, 25%);
 
 .blue {
 	background-color: $blue;
@@ -145,7 +145,7 @@ $blue-light; = lighten($blue, 25%);
 
 ```SCSS
 // Good
-$blue = #054dc3;
+$blue: #054dc3;
 
 /**
  * lightenIt()
@@ -424,9 +424,9 @@ $blue = #054dc3;
 
 ```SCSS
 // Good
-$pink = #f09ccd;
-$pink-light = #fbe6f3;
-$pink-dark = #8b1459;
+$pink: #f09ccd;
+$pink-light: #fbe6f3;
+$pink-dark: #8b1459;
 
 $theme: $pink;
 
@@ -484,7 +484,7 @@ header {
 
 ```SCSS
 // Good
-$authors = kevin luke mark alex adam;
+$authors: kevin luke mark alex adam;
 
 @each $author in $authors {
 	.author-#{$author} {
