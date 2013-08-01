@@ -339,6 +339,24 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
 
     ```
 
+- Use lowercase for hex values
+    ```css
+    /* bad */
+    .selector {
+        color: #CCC;
+    }
+
+    /* terrible */
+    .selector {
+        color: #Ccc;
+    }
+
+    /* good */
+    .selector {
+        color: #ccc;
+    }
+    ```
+
 - Avoid named shortcuts.
 
     ```css
