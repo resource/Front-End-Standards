@@ -55,7 +55,7 @@ Promoting the "Resource Way" of writing performant and maintainable jQuery.
 
     ```javascript
     // bad
-    $('.sidebar', 'ul').hide();
+    $('ul', '.sidebar').hide();
 
     // bad
     $('.sidebar').find('ul').hide();
