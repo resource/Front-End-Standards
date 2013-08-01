@@ -141,15 +141,17 @@ Promoting the "Resource Way" of writing semantic, reusable, and maintainable Jav
 
 - Use liberal whitespace to enhance legibility.
 
-- Use tabs set to 4 spaces.
+- Use tabs, not spaces.
+
+- Tabs set to 4 spaces is preferred, but 2 spaces is ok too.
 
     ```javascript
-    // bad
+    // ok
     function() {
     ∙∙var name;
     }
     
-    // good
+    // ok 
     function() {
     ∙∙∙∙var name;
     }
@@ -230,16 +232,16 @@ Promoting the "Resource Way" of writing semantic, reusable, and maintainable Jav
 
 - Pad concatenation points with one space when building strings.
 
-```javascript
-// bad
-var coolString = "Resource is a "+words.adjective+" company.";
+    ```javascript
+    // bad
+    var coolString = "Resource is a "+words.adjective+" company.";
 
-// bad
-var coolString = "Resource is a "+•words.adjective•+" company.";
+    // bad
+    var coolString = "Resource is a "+•words.adjective•+" company.";
 
-// good
-var coolString = "Resource is a "•+•words.adjective•+•" company.";
-```
+    // good
+    var coolString = "Resource is a "•+•words.adjective•+•" company.";
+    ```
 
 ### <a name="commas-and-semicolons">Commas & Semicolons</a> 
 - Place commas end of line.
