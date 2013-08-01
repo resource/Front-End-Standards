@@ -228,6 +228,18 @@ Promoting the "Resource Way" of writing semantic, reusable, and maintainable Jav
     });
     ```
 
+- Pad concatenation points with one space when building strings.
+
+```javascript
+// bad
+var coolString = "Resource is a "+words.adjective+" company.";
+
+// bad
+var coolString = "Resource is a "+•words.adjective•+" company.";
+
+// good
+var coolString = "Resource is a "•+•words.adjective•+•" company.";
+```
 
 ### <a name="commas-and-semicolons">Commas & Semicolons</a> 
 - Place commas end of line.
