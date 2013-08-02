@@ -167,88 +167,89 @@ Keep similar properties grouped together. Use **[CSSComb](http://csscomb.com/)**
 ## <a name="white-space">White Space</a>
 Use one space between selector and opening bracket.
 
-    ```css
-    /* bad */
-    .selector{
-        ...
-    }
+```css
+/* bad */
+.selector{
+    ...
+}
 
-    /* good */
-    .selector•{
-        ...
-    }
-    ```
+/* good */
+.selector•{
+    ...
+}
+```
 
 Use tabs set to 4 spaces.
 
-    ```css
-    /* bad */
-    .selector {
-    ••float: left;
-    }
+```css
+/* bad */
+.selector {
+••float: left;
+}
 
-    /* good */
-    .selector {
-    ••••float: left;
-    }
-    ```
+/* good */
+.selector {
+••••float: left;
+}
+```
 
 No spaces between the key and 1 single space before the value declaration.
 
-    ```css
-    /* bad */
-    .selector {
-        float:left;
-    }
+```css
+/* bad */
+.selector {
+    float:left;
+}
 
-    /* bad */
-    .selector {
-        float•:•left;
-    }
+/* bad */
+.selector {
+    float•:•left;
+}
 
-    /* good */
-    .selector {
-        float:•left;
-    }
-    ```
+/* good */
+.selector {
+    float:•left;
+}
+```
 
 Avoid nesting declaration blocks.
 
-    ```css
-    /* bad */
-    .selector {
-        ...
-    }
-        .selector-2 {
-           ...
-        }
-
-    /* good */
-    .selector {
-        ...
-    }
+```css
+/* bad */
+.selector {
+    ...
+}
     .selector-2 {
        ...
     }
-    ```
+
+/* good */
+.selector {
+    ...
+}
+.selector-2 {
+   ...
+}
+```
+
 Selectors should not start with a space or tab
 
-    ```css
-    /* bad */
-        .selector-2 {
-           ...
-        }
-
-    /* bad */
-    •.selector-2 {
-        ...
-    •}
-
-    /* good */
-    .selector {
-        ...
+```css
+/* bad */
+    .selector-2 {
+       ...
     }
-    ```
+
+/* bad */
+•.selector-2 {
+    ...
+•}
+
+/* good */
+.selector {
+    ...
+}
+```
 
 ## <a name="selectors">Selectors</a>
 
