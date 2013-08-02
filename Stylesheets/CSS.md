@@ -21,9 +21,7 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
 ## <a name="comments">Comments</a>
 
 ### Avoid Over Commenting
-Use comments to divide sections and describe larger sets of rules.
-
-Don't over comment, as most CSS should be self-explanatory; too much commenting detracts from readability.
+Use comments to divide sections and describe larger sets of rules. Don't over comment, as most CSS should be self-explanatory; too much commenting detracts from readability.
 
 ```css
 /* bad */
@@ -51,13 +49,13 @@ Don't over comment, as most CSS should be self-explanatory; too much commenting 
    ========================================================================== */
 ```
 
-* Suggested Section Setup for a CSS file:
-  * *Base* or *Master Base Template - Structure*
-  * *Typography*
-  * *Links*
-  * *Forms*
-  * *Containers & Holders*
-  * *Tables*
+Suggested Section Setup for a CSS file:
+    * *Base* or *Master Base Template - Structure*
+    * *Typography*
+    * *Links*
+    * *Forms*
+    * *Containers & Holders*
+    * *Tables*
 
 ### Types of Comments
 
@@ -83,7 +81,8 @@ This is useful for adding Copyright notices to your generated CSS.
 
 
 
-### <a name="declaration-blocks">Declaration Blocks</a>
+## <a name="declaration-blocks">Declaration Blocks</a>
+
 Opening brackets should start on the same line; closing bracket on a new line.
 
 ```css
@@ -136,8 +135,7 @@ One declaration per line.
 }
 ```
 
-Keep similar properties grouped together.
- * Use **[CSSComb](http://csscomb.com/)** default setting
+Keep similar properties grouped together. Use **[CSSComb](http://csscomb.com/)** default setting
 
 ```css
 /* bad */
@@ -166,9 +164,8 @@ Keep similar properties grouped together.
 ```
 
 
-### <a name="white-space">White Space</a>
-- Use one space between selector and opening bracket.
-
+## <a name="white-space">White Space</a>
+Use one space between selector and opening bracket.
     ```css
     /* bad */
     .selector{
@@ -181,8 +178,7 @@ Keep similar properties grouped together.
     }
     ```
 
-- Use tabs set to 4 spaces.
-
+Use tabs set to 4 spaces.
     ```css
     /* bad */
     .selector {
@@ -195,8 +191,7 @@ Keep similar properties grouped together.
     }
     ```
 
-- No spaces between the key and 1 single space before the value declaration.
-
+No spaces between the key and 1 single space before the value declaration.
     ```css
     /* bad */
     .selector {
@@ -214,7 +209,7 @@ Keep similar properties grouped together.
     }
     ```
 
-- Avoid nesting declaration blocks.
+Avoid nesting declaration blocks.
     ```css
     /* bad */
     .selector {
@@ -232,7 +227,7 @@ Keep similar properties grouped together.
        ...
     }
     ```
-- Selectors should not start with a space or tab
+Selectors should not start with a space or tab
     ```css
     /* bad */
         .selector-2 {
@@ -250,10 +245,10 @@ Keep similar properties grouped together.
     }
     ```
 
-### <a name="selectors">Selectors</a>
-#### <a name="naming">Naming</a>
-- Selectors are always lowercase
+## <a name="selectors">Selectors</a>
 
+### <a name="naming">Naming</a>
+Selectors are always lowercase
     ```css
     /* bad */
     .Selector {
@@ -276,8 +271,7 @@ Keep similar properties grouped together.
     }
     ```
 
-- Selectors are dash-delimited.
-
+Selectors are dash-delimited.
     ```css
     /* bad */
     .main_selector {
@@ -299,12 +293,11 @@ Keep similar properties grouped together.
         }
         ```
 
-- Adhere to the design language of the brand when naming elements/selectors.
+Adhere to the design language of the brand when naming elements/selectors.
 
 
 ##### <a name="specificity">Specificity</a>
-  - Avoid using overly-specific selectors by understanding [specificity](http://coding.smashingmagazine.com/2007/07/27/css-specificity-things-you-should-know/) and [how it works](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity#How_is_it_calculated.3F).
-  - Avoid selector names that are too semantic for scalability and reuse.
+Avoid using overly-specific selectors by understanding [specificity](http://coding.smashingmagazine.com/2007/07/27/css-specificity-things-you-should-know/) and [how it works](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity#How_is_it_calculated.3F). Avoid selector names that are too semantic for scalability and reuse.
 
     ```css
     /* bad */
@@ -334,12 +327,7 @@ Keep similar properties grouped together.
     }
     ```
 
-
-
-- Avoid use of `!important`.
-
-- Avoid use of #IDs.
-
+Avoid use of `!important`. Avoid use of #IDs.
     ```css
     /* bad */
     #my-selector {
@@ -351,8 +339,8 @@ Keep similar properties grouped together.
         ...
     }
     ```
-- Use preferred-child instead of descendant selectors.
 
+Use preferred-child instead of descendant selectors.
     ```css
     /* bad */
     .selector p {
@@ -366,8 +354,7 @@ Keep similar properties grouped together.
     ```
 
 ### <a name="efficiency">Efficiency</a>
-- Avoid inefficient selectors by [understanding](http://css-tricks.com/efficiently-rendering-css/) how selectors are parsed.
-
+Avoid inefficient selectors by [understanding](http://css-tricks.com/efficiently-rendering-css/) how selectors are parsed.
     ```css
     /* bad */
     html body ul li a {
@@ -380,8 +367,7 @@ Keep similar properties grouped together.
     }
     ```
 
-- Avoid unnecessary selectors; keep them as short as possible.
-    - Adhere to the "[Inception](http://thesassway.com/beginner/the-inception-rule)" rule.
+Avoid unnecessary selectors; keep them as short as possible. Adhere to the "[Inception](http://thesassway.com/beginner/the-inception-rule)" rule.
 
     ```css
     /* bad */
@@ -395,8 +381,7 @@ Keep similar properties grouped together.
     }
     ```
 
-- Avoid element selectors outside of normalization.
-
+Avoid element selectors outside of normalization.
 ```css
 /* bad */
 div {
@@ -409,9 +394,8 @@ div {
 }
 ```
 
-### <a name="value-formatting">Value Formatting</a>
-- Use hex or rgba.
-    - Use hex shortcut when possible.
+## <a name="value-formatting">Value Formatting</a>
+Use hex or rgba. Use hex shortcut when possible.
 
     ```css
     /* bad */
@@ -434,7 +418,7 @@ div {
     }
     ```
 
-- Use lowercase for hex values
+Use lowercase for hex values
     ```css
     /* terrible */
     .selector {
@@ -452,8 +436,7 @@ div {
     }
     ```
 
-- Avoid named shortcuts.
-
+Avoid named shortcuts.
     ```css
    /* bad */
    .my-font {
@@ -466,8 +449,7 @@ div {
    }
     ```
 
-- Avoid using units when declaring `0` as a value.
-
+ Avoid using units when declaring `0` as a value.
     ```css
     /* bad */
     .no-margin-left {
@@ -480,8 +462,7 @@ div {
     }
     ```
 
-- No quotes on `url()` values.
-
+No quotes on `url()` values.
     ```css
     /* bad */
     .my-container {
@@ -496,11 +477,10 @@ div {
 
 
 ## <a name="typography">Typography</a>
-- Use `em` for `font-size`.
+Use `em` for `font-size`.
     - [PXtoEM](http://pxtoem.com/) can help with the conversion.
 
-- Use [unit-less values](http://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights/) for `line-height`.
-
+Use [unit-less values](http://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights/) for `line-height`.
     ```css
     /* bad */
     .my-paragraph {
@@ -515,7 +495,7 @@ div {
     }
     ```
 
-- Use the ["bullet proof"](https://github.com/stubbornella/csslint/wiki/Bulletproof-font-face) method for `font-face` declarations.
+Use the ["bullet proof"](https://github.com/stubbornella/csslint/wiki/Bulletproof-font-face) method for `font-face` declarations.
     ```css
     /* example */
     @font-face {
@@ -542,7 +522,7 @@ div {
     }
     ```
 
-- Reference: ["Definitive Guide to Web Fonts"](https://insider.resource.com/groups/technology-dlt/blog/2013/02/14/definitive-guide-to-webfonts)
+Reference: ["Definitive Guide to Web Fonts"](https://insider.resource.com/groups/technology-dlt/blog/2013/02/14/definitive-guide-to-webfonts)
 
 ## <a name="icons-imagery">Icons and Imagery</a>
 - Icon font vs. base64 vs. sprite.
@@ -551,8 +531,8 @@ div {
 - Use Resource's [guide for creating icon fonts](https://insider.resource.com/docs/DOC-2265).
 
 
-### <a name="browser-compatibility">Browser Compatibility</a>
-- Use vendor prefixes for experimental or non-spec properties.
+## <a name="browser-compatibility">Browser Compatibility</a>
+Use vendor prefixes for experimental or non-spec properties.
     ```css
     .container {
         -webkit-box-shadow: 20px;
@@ -579,7 +559,8 @@ div {
     }
 
     ```
-- Use [fallbacks](http://flippinawesome.org/2013/07/08/using-css-fallback-properties-for-better-cross-browser-compatibility/) when available.
+
+Use [fallbacks](http://flippinawesome.org/2013/07/08/using-css-fallback-properties-for-better-cross-browser-compatibility/) when available.
 
     ```css
     /* good */
@@ -589,11 +570,11 @@ div {
     }
     ```
 
-### <a name="accessibility">Accessibility</a>
-- Avoid low contrast color combinations.
+## <a name="accessibility">Accessibility</a>
+Avoid low contrast color combinations.
     - Use [Contrast Ratio](http://leaverou.github.io/contrast-ratio/) to verify accessibility.
 
-- Avoid `display: none` when [hiding content](https://github.com/h5bp/html5-boilerplate/blob/master/css/main.css#L152).
+Avoid `display: none` when [hiding content](https://github.com/h5bp/html5-boilerplate/blob/master/css/main.css#L152).
 
     ```css
     /* bad */
@@ -614,19 +595,19 @@ div {
     }
     ```
 
-- Avoid `outline: none`.
+Avoid `outline: none`.
 
-### <a name="architecture">Architecture</a>
-- Use [normalize.css](https://github.com/necolas/normalize.css) to normalize styles.
+## <a name="architecture">Architecture</a>
+Use [normalize.css](https://github.com/necolas/normalize.css) to normalize styles.
 
-- Leverage OOCSS principles.
+Leverage OOCSS principles.
     - Abstract commonly used styles into separate classes.
     - Follow the "Single Responsibility Principle".
     - Keep things DRY.
 
-- Only use shorthand value declarations when the value will not be extended.
+Only use shorthand value declarations when the value will not be extended.
 
-- Separate [structure from skin](http://churchm.ag/object-oriented-css-separating-skin-from-structure/). Define repeating visual features as separate "skins"
+Separate [structure from skin](http://churchm.ag/object-oriented-css-separating-skin-from-structure/). Define repeating visual features as separate "skins"
 
     ```css
     /* bad */
@@ -665,7 +646,7 @@ div {
     }
     ```
 
-### <a name="references">References</a>
+## <a name="references">References</a>
 #### CSS Inception Rule ####
 - <a href="http://thesassway.com/beginner/the-inception-rule">http://thesassway.com/beginner/the-inception-rule</a>
 
