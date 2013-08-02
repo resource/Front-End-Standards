@@ -25,7 +25,7 @@ Promoting the "Resource Way" of writing awesome Sass. "Stay Sassy, Resource"
 1. [The Inception Rule](#Inception)
 1. [References](#references)
 
-### <a name='definitions'>Definitions</a>  
+## <a name='definitions'>Definitions</a>  
 The semantics in this document build off of the [Css](https://github.com/LukeAskew/Front-End-Standards/blob/master/Stylesheets/CSS.md) standards for this project.
 
 There are two styles of syntax: .sass and .scss. The .sass style is a "looser" style that omits brackets {} and semi-colons. This document outlines usage of the .scss style. For more on why .scss is our preferred style check out the following articles - [SASS-lang docs](http://SASS-lang.com/docs/yardoc/file.SASS_REFERENCE.html#syntax) [Sass vs Scss](http://thesassway.com/articles/SASS-vs-scss-which-syntax-is-better)
@@ -33,7 +33,7 @@ There are two styles of syntax: .sass and .scss. The .sass style is a "looser" s
 Any reference made to "SASS" moving forward is in respect to the .scss notation. This is because saying "Sass" out loud is easier than "Scss", which just sounds like a snake hissing.
 
 
-##### <a name='Commenting'>Commenting</a>
+## <a name='Commenting'>Commenting</a>
 - // and /**/
 
 ```SCSS      
@@ -50,7 +50,7 @@ Any reference made to "SASS" moving forward is in respect to the .scss notation.
 ```
 
 
-##### <a name='Imports'>Imports and Partials</a>
+## <a name='Imports'>Imports and Partials</a>
 - Keep @import rules at the top of your file. This makes it easier to find what is included.
 - Use an underscore at the beginning of a filename.
 - Use dashes and lowercase when naming.
@@ -79,7 +79,7 @@ _my-cool-partial.scss
 ```
 
 
-##### <a name='Variables'>Variables</a>
+## <a name='Variables'>Variables</a>
 - Name you variables in a modular way. Use dashes to separate multiple words in a declaration.
 
 ```SCSS
@@ -98,7 +98,7 @@ $blue-light: #b2ccf2;
 ```
 
 
-##### <a name='Interpolation'>Interpolation</a>
+## <a name='Interpolation'>Interpolation</a>
 - Use the Ruby-esque #{} to "shim" variables into your rules.
 
 ```SCSS
@@ -117,7 +117,7 @@ $blue-light: #b2ccf2;
 ```
 
 
-##### <a name='Sass Script Functions'>Sass Script Functions</a>
+## <a name='Sass Script Functions'>Sass Script Functions</a>
 - Use of Sass Script Functions (functions native to SASS) is a great way to make your SASS more DRY. 
 
 [SASS Script Functions Reference](http://SASS-lang.com/docs/yardoc/SASS/Script/Functions.html)
@@ -137,7 +137,7 @@ $blue-light: lighten($blue, 25%);
 ```
 
 
-##### <a name='Mixin'>Mixin<a/>
+## <a name='Mixin'>Mixin<a/>
 - @mixin's allow you to define styles that can be re-used throughout the stylesheet. 
 - Be sure your Mixin block comes before the @include statement. 
 - Use camelCase to define them. 
@@ -165,7 +165,7 @@ $blue: #054dc3;
 }
 ```
 
-##### <a name='Mixin Pitfalls'>Mixin Pitfalls</a>
+## <a name='Mixin Pitfalls'>Mixin Pitfalls</a>
 - Be careful when calling a Mixin with multiple arguments.
 
 ```SCSS
@@ -239,7 +239,7 @@ $blue: #054dc3;
 ```
 
 
-##### <a name='Extend'>Extend</a>
+## <a name='Extend'>Extend</a>
 - Avoid duplication by using the @extend directive for lumping shared styles together. 
 - @extend adds the properties of an existing class to where you're extending.
 - It is preferred that you place @extend rules as the first declaration in your modules.
@@ -274,7 +274,7 @@ $blue: #054dc3;
 ```
 
 
-##### <a name='Extend Pitfalls'>Extend Pitfalls</a>
+## <a name='Extend Pitfalls'>Extend Pitfalls</a>
 - Since .btn-b extends .btn-a, every instance that modifies .btn-a also modifies .btn-b. This creates stylesheet bloat, if these styles aren't needed.
 
 ```SCSS
@@ -315,7 +315,7 @@ $blue: #054dc3;
 ```
 
 
-##### <a name='Placeholder selectors'>Placeholder selectors</a>
+## <a name='Placeholder selectors'>Placeholder selectors</a>
 - Counteract stylesheet bloat with %placeholder selectors.
 - Extend common blocks to avoid extra Html classes
 
@@ -360,7 +360,7 @@ $blue: #054dc3;
 ```
 
 
-##### <a name='Content Directive'>Content directive</a>
+## <a name='Content Directive'>Content directive</a>
 - Use the @content directive to pass a block of styles to a mixin for placement within the styles included by the mixin.
 
 ```SCSS
@@ -401,7 +401,7 @@ $blue: #054dc3;
 ```
 
 
-##### <a name='Functions'>Functions</a>
+## <a name='Functions'>Functions</a>
 - Use functions when you need to calculate a value that may be reused somewhere else.
 - Use camelCase for longer function names.
 
@@ -422,7 +422,7 @@ $blue: #054dc3;
 ```
 
 
-##### <a name='If/Else'>If/Else</a>
+## <a name='If/Else'>If/Else</a>
 - Use @if and @else to conditionally output code.
 
 ```SCSS
@@ -482,7 +482,7 @@ header {
 ```
 
 
-##### <a name='Each'>Each</a>
+## <a name='Each'>Each</a>
 - Use the @each directive to loop through items in a list
 
 ```SCSS
@@ -518,7 +518,7 @@ $authors: kevin luke mark alex adam;
 ```
 
 
-##### <a name='For/While'>For/While</a>
+## <a name='For/While'>For/While</a>
 - Use the @for or @while directive to save yourself manual work of repeating similar Css rules;
 
 ```SCSS
@@ -583,7 +583,7 @@ $i: 1;
 ```
 
 
-##### <a name='Formatting'>Formatting</a>
+## <a name='Formatting'>Formatting</a>
 Keep indentation consistent to your project. If you're using 2 spaces, use 2 spaces. If you're using tabs, use tabs. End each object
 
 ```SCSS
@@ -607,7 +607,7 @@ Keep indentation consistent to your project. If you're using 2 spaces, use 2 spa
 ```
 
 
-##### <a name='Line Breaks'>Line Breaks</a>
+## <a name='Line Breaks'>Line Breaks</a>
 Keep related modules/component declarations together. Adding a line break to each new declaration. One Css rule per line.
 ```SCSS
 // Bad
@@ -660,7 +660,7 @@ Keep related modules/component declarations together. Adding a line break to eac
 ```
 
 
-##### <a name='Inception'>The "Inception Rule"</a>
+## <a name='Inception'>The "Inception Rule"</a>
 Nesting too deep is getting away from a modular approach to writing Css. Thinking about context before writing your rules is a good start. See the [References](#references) section in this document for more on modular Css and avoiding deeply nested selectors.
 
 **Four contextual examples to keep in mind to avoid over-nesting:**
@@ -714,7 +714,7 @@ Nesting too deep is getting away from a modular approach to writing Css. Thinkin
 }
 ```
 
-### <a name='references'>References</a>
+## <a name='references'>References</a>
 - [Sass Reference Docs](http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html)
 - [The Sass Way](http://thesassway.com/)
 - [Assembling Sass Course](http://www.codeschool.com/courses/assembling-sass)
