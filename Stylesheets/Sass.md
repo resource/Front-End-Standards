@@ -142,6 +142,7 @@ $blue-light: lighten($blue, 25%);
 - Be sure your Mixin block comes before the @include statement. 
 - Use camelCase to define them. 
 - Comment code that may be unfamiliar to other developers.
+- It is preferred that you place @mixin rules as the first declaration in your modules.
 
 ```SCSS
 // Good
@@ -240,6 +241,7 @@ $blue: #054dc3;
 ##### <a name='Extend'>Extend</a>
 - Avoid duplication by using the @extend directive for lumping shared styles together. 
 - @extend adds the properties of an existing class to where you're extending.
+- It is preferred that you place @extend rules as the first declaration in your modules.
 
 ```SCSS
 // Good
