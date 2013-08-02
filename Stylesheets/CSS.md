@@ -3,125 +3,172 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
 
 ## Table of Contents
 
-1. [Comments](#comments)  
-1. [Declaration Blocks](#declaration-blocks)  
-1. [White Space](#white-space)  
-1. [Selectors](#selectors)    
-1. [Value Formatting](#value-formatting)  
-1. [Typography](#typography)    
-1. [Icons and Imagery](#icons-imagery)  
-1. [Browser Compatibility](#browser-compatibility)  
-1. [Accessibility](#accessibility)    
-1. [Architecture](#architecture)  
+1. [Comments](#comments)
+1. [Declaration Blocks](#declaration-blocks)
+1. [White Space](#white-space)
+1. [Selectors](#selectors)
+1. [Value Formatting](#value-formatting)
+1. [Typography](#typography)
+1. [Icons and Imagery](#icons-imagery)
+1. [Browser Compatibility](#browser-compatibility)
+1. [Accessibility](#accessibility)
+1. [Architecture](#architecture)
 1. [References](#references)
 
 
 ***
 
-### <a name="comments">Comments</a>  
-- Use comments to divide sections and describe larger sets of rules.
-   - Don't overcomment, as most CSS should be self-explanitory; too much commenting detracts from readbility.
+## <a name="comments">Comments</a>
 
-    ```css
-    /* bad */
-    .media {
-        height: 100px; /* set height to 100px */
-        width: 100px; /* set width the same as height */
-        color: #ff0000; /* red */
-    }
-    
-    
-    /* good */
-    /* media block */
-    .media {
-        height: 100px;
-        width: 100px;
-        color: #ff000;
-    }
-    ```
-    
-    - Comment formatting:
-    
-    ```css
-    /* ==========================================================================
-       Section Comment
-       ========================================================================== */
-    ```
-    
-    ```css
-    /**
-     * Multiple
-     * lines
-     */
-    ```
-    
-    ```css
-    /* Single line */
-    ```
+### Avoid Over Commenting
+Use comments to divide sections and describe larger sets of rules.
 
-### <a name="declaration-blocks">Declaration Blocks</a>  
-- Opening brackets should start on the same line; closing bracket on a new line.
+Don't over comment, as most CSS should be self-explanatory; too much commenting detracts from readability.
 
-   ```css
-   .selector {
-       ...
-   }
-   ```
-   
-- Separate multiple selectors with a new line.
-    
-    ```css
-    .selector,
-    .another-selector {
-       ...
-    }
-    ```
-
-- One declaration per line.
-
-    ```css
-    /* bad */
-    .selector {
-        width: 100px; height: 100px;
-        margin: 13px; padding: 42px;
-    }
-    
-    /* bad */
-    .selector { height: 100px }
-    
-    /* good */
-    .selector {
-        width: 100px; 
-        height: 100px;
-        margin: 13px; 
-        padding: 42px;
-    }
-    ```
-    
-- Try to keep similar properties grouped together
-
-    ```css
-    /* not great */
-    .selector {
-        height: 100px;
-        z-index: 2;
-        width: 100px;
-        position: relative;
-    }
-    
-    /* good */
-    .selector {
-        height: 100px;
-        width: 100px;
-        position: relative;
-        z-index: 2;
-    }
-    ```
+```css
+/* bad */
+.media {
+    height: 100px; /* set height to 100px */
+    width: 100px; /* set width the same as height */
+    color: #ff0000; /* red */
+}
 
 
-### <a name="white-space">White Space</a> 
-- One space between selector and opening bracket.
-    
+/* good */
+/* media block */
+.media {
+    height: 100px;
+    width: 100px;
+    color: #ff000;
+}
+```
+
+### Declaring New Section of CSS Document:
+
+```css
+/* ==========================================================================
+   Section Header
+   ========================================================================== */
+```
+
+* Suggested Section Setup for a CSS file:
+  * *Base* or *Master Base Template - Structure*
+  * *Typography*
+  * *Links*
+  * *Forms*
+  * *Containers & Holders*
+  * *Tables*
+
+### Types of Comments
+
+#### Multiple Line
+```css
+/**
+ * Multiple
+ * lines
+ */
+```
+
+#### Single Line
+```css
+/* Single line */
+```
+
+#### Preserve Comments
+This is useful for adding Copyright notices to your generated CSS.
+
+```css
+/*! Single line */
+```
+
+
+
+### <a name="declaration-blocks">Declaration Blocks</a>
+Opening brackets should start on the same line; closing bracket on a new line.
+
+```css
+/* bad */
+.selector { ... }
+
+/* bad */
+.selector {
+... }
+
+/* good */
+.selector {
+   ...
+}
+```
+
+Separate multiple selectors with a new line.
+
+```css
+/* bad */
+.selector, .another-selector {
+   ...
+}
+
+/* good */
+.selector,
+.another-selector {
+   ...
+}
+```
+
+One declaration per line.
+
+```css
+/* bad */
+.selector {
+    width: 100px; height: 100px;
+    margin: 13px; padding: 42px;
+}
+
+/* bad */
+.selector { height: 100px; }
+
+/* good */
+.selector {
+    width: 100px;
+    height: 100px;
+    margin: 13px;
+    padding: 42px;
+}
+```
+
+Keep similar properties grouped together.
+ * Use **[CSSComb](http://csscomb.com/)** default setting
+
+```css
+/* bad */
+.selector {
+    height: 100px;
+    z-index: 2;
+    width: 100px;
+    position: relative;
+}
+
+/* bad */
+.selector {
+    height: 100px;
+    position: relative;
+    width: 100px;
+    z-index: 2;
+}
+
+/* good */
+.selector {
+    height: 100px;
+    width: 100px;
+    position: relative;
+    z-index: 2;
+}
+```
+
+
+### <a name="white-space">White Space</a>
+- Use one space between selector and opening bracket.
+
     ```css
     /* bad */
     .selector{
@@ -133,9 +180,9 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
         ...
     }
     ```
- 
+
 - Use tabs set to 4 spaces.
-    
+
     ```css
     /* bad */
     .selector {
@@ -147,30 +194,64 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     ••••float: left;
     }
     ```
-    
-- No space after property; one space before property value declaration.
+
+- No spaces between the key and 1 single space before the value declaration.
 
     ```css
     /* bad */
     .selector {
         float:left;
     }
-    
+
     /* bad */
     .selector {
         float•:•left;
     }
-    
+
     /* good */
     .selector {
         float:•left;
     }
     ```
-	
+
 - Avoid nesting declaration blocks.
+    ```css
+    /* bad */
+    .selector {
+        ...
+    }
+        .selector-2 {
+           ...
+        }
+
+    /* good */
+    .selector {
+        ...
+    }
+    .selector-2 {
+       ...
+    }
+    ```
+- Selectors should not start with a space or tab
+    ```css
+    /* bad */
+        .selector-2 {
+           ...
+        }
+
+    /* bad */
+    •.selector-2 {
+        ...
+    •}
+
+    /* good */
+    .selector {
+        ...
+    }
+    ```
 
 ### <a name="selectors">Selectors</a>
-#### <a name="naming">Naming</a> 
+#### <a name="naming">Naming</a>
 - Selectors are always lowercase
 
     ```css
@@ -178,11 +259,13 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     .Selector {
         ...
     }
-    
+
+    /* bad */
     .SELECTOR {
         ...
     }
 
+    /* bad */
     .selectorName {
         ...
     }
@@ -192,7 +275,7 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
         ...
     }
     ```
-    
+
 - Selectors are dash-delimited.
 
     ```css
@@ -200,15 +283,15 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     .main_selector {
         ...
     }
-    
+
     /* good */
     .main-selector {
         ...
     }
     ```
-    
+
     - Exception: underscores are OK when using BEM or any other modifier schema.
-        
+
         ```css
         /* BEM delimits block, element, and modifiers with two underscores  */
         .menu__item menu__item_state_current {
@@ -218,8 +301,11 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
 
 - Adhere to the design language of the brand when naming elements/selectors.
 
-- Don't over-semantize class names; it reduces repurposability.
-    
+
+##### <a name="specificity">Specificity</a>
+  - Avoid using overly-specific selectors by understanding [specificity](http://coding.smashingmagazine.com/2007/07/27/css-specificity-things-you-should-know/) and [how it works](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity#How_is_it_calculated.3F).
+  - Avoid selector names that are too semantic for scalability and reuse.
+
     ```css
     /* bad */
     .largeText {
@@ -233,12 +319,12 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     .header-text-red {
         color: #f00;
     }
-    
+
     /* good */
     .callout-text {
         ...
     }
-    
+
     .group {
         ...
     }
@@ -248,9 +334,8 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     }
     ```
 
-### <a name="specificity">Specificity</a> 
-- Avoid using overly-specific selectors by understanding [specificity](http://coding.smashingmagazine.com/2007/07/27/css-specificity-things-you-should-know/) and [how it works](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity#How_is_it_calculated.3F).
-    
+
+
 - Avoid use of `!important`.
 
 - Avoid use of #IDs.
@@ -259,30 +344,30 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     /* bad */
     #my-selector {
         ...
-    }    
+    }
 
     /* good */
     .my-selector {
         ...
-    } 
+    }
     ```
-- Use preferred-child instead of descendent selectors.
-    
+- Use preferred-child instead of descendant selectors.
+
     ```css
     /* bad */
     .selector p {
         ...
     }
-    
+
     /* good */
     .selector > p {
         ...
     }
     ```
 
-### <a name="efficiency">Efficiency</a>  
+### <a name="efficiency">Efficiency</a>
 - Avoid inefficient selectors by [understanding](http://css-tricks.com/efficiently-rendering-css/) how selectors are parsed.
-    
+
     ```css
     /* bad */
     html body ul li a {
@@ -309,46 +394,56 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
         ...
     }
     ```
-    
+
 - Avoid element selectors outside of normalization.
 
+```css
+/* bad */
+div {
+    background-color: #000;
+}
+
+/* good */
+.selector {
+    background-color: #000;
+}
+```
 
 ### <a name="value-formatting">Value Formatting</a>
 - Use hex or rgba.
-    - Use hex shortcut when possible. 
-  
+    - Use hex shortcut when possible.
+
     ```css
     /* bad */
     .my-bad-header {
-        color: blue; 
+        color: blue;
     }
 
     /* better */
     .my-better-header {
-        color: #0000ff; 
+        color: #0000ff;
     }
 
     /* good */
     .my-good-header {
-        color: #00f; 
+        color: #00f;
     }
 
     .my-good-header-alt {
-        color: rgba(0, 0, 255, 1); 
+        color: rgba(0, 0, 255, 1);
     }
-
     ```
 
 - Use lowercase for hex values
     ```css
-    /* bad */
-    .selector {
-        color: #CCC;
-    }
-
     /* terrible */
     .selector {
         color: #Ccc;
+    }
+
+    /* bad */
+    .selector {
+        color: #CCC;
     }
 
     /* good */
@@ -360,17 +455,17 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
 - Avoid named shortcuts.
 
     ```css
-   /* bad */ 
+   /* bad */
    .my-font {
       font-weight: bold;
    }
 
-    /* good */ 
+    /* good */
    .my-font {
       font-weight: 700;
    }
     ```
-    
+
 - Avoid using units when declaring `0` as a value.
 
     ```css
@@ -398,9 +493,9 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
       background-image: url(../img/rainbow.png);
    }
     ```
-    
 
-## <a name="typography">Typography</a> 
+
+## <a name="typography">Typography</a>
 - Use `em` for `font-size`.
     - [PXtoEM](http://pxtoem.com/) can help with the conversion.
 
@@ -412,24 +507,38 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
         font-size: 1em;
         line-height: 1.3em;
     }
- 
+
     /* good */
     .my-paragraph {
         font-size: 1em;
         line-height: 1.3;
     }
     ```
-    
-- Use the ["bullet proof"](https://github.com/stubbornella/csslint/wiki/Bulletproof-font-face) method for `font-face` declarations.
 
+- Use the ["bullet proof"](https://github.com/stubbornella/csslint/wiki/Bulletproof-font-face) method for `font-face` declarations.
     ```css
     /* example */
     @font-face {
-        font-family: "MyFontFamily";
-        src: url(myfont-webfont.eot?#iefix) format("embedded-opentype"), 
-            url(myfont-webfont.woff) format("woff"), 
-            url(myfont-webfont.ttf)  format("truetype"),
-            url(myfont-webfont.svg#svgFontName) format("svg");
+        font-family: "My-Font-Family";
+        src: url(../fonts/custom-webfont.eot);
+        src: url(../fonts/custom-webfont.eot?#iefix) format("embedded-opentype"),
+             url(../fonts/custom-webfont.woff) format("woff"),
+             url(../fonts/custom-webfont.ttf) format("truetype"),
+             url(../fonts/custom-webfont.svg#My-Font-Family) format("svg");
+        /* you should declare a weight value that aligns with the custom font, default to `normal` */
+        font-weight: normal;
+        /* you should declare a style value that aligns with the custom font, default to `normal` */
+        font-style: normal;
+    }
+
+    .custom-font {
+        font-family: "My-Font-Family";
+        font-weight: normal;
+        font-size: inherit;
+        font-style: normal;
+        line-height: .9;
+        *line-height: 1;
+        -webkit-font-smoothing: antialiased;
     }
     ```
 
@@ -442,9 +551,34 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
 - Use Resource's [guide for creating icon fonts](https://insider.resource.com/docs/DOC-2265).
 
 
-### <a name="browser-compatibility">Browser Compatibility</a> 
-- Use vendor prefixes for experimental (CSS3) features.
+### <a name="browser-compatibility">Browser Compatibility</a>
+- Use vendor prefixes for experimental or non-spec properties.
+    ```css
+    .container {
+        -webkit-box-shadow: 20px;
+        box-shadow: 20px;
+        -webkit-transition: -webkit-box-shadow 2s;
+        -moz-transition: -moz-box-shadow 2s;
+        -o-transition: box-shadow 2s;
+        -ms-transition: box-shadow 2s;
+        transition: box-shadow 2s;
+        border-radius: 4px;
+        -webkit-animation: slide 1s alternate;
+        -moz-animation: slide 1s alternate;
+        -ms-animation: slide 1s alternate;
+        -o-animation: slide 1s alternate;
+        animation: slide 1s alternate;
+        background: -webkit-linear-gradient(top, #ccc 10%, #fff);
+        background: -moz-linear-gradient(top, #ccc 10%, #fff);
+        background: -o-linear-gradient(top, #ccc 10%, #fff);
+        background: -ms-linear-gradient(top, #ccc 10%, #fff);
+        background: linear-gradient(top, #ccc 10%, #fff);
+        display: -webkit-box;
+        display: -moz-box;
+        display: box;
+    }
 
+    ```
 - Use [fallbacks](http://flippinawesome.org/2013/07/08/using-css-fallback-properties-for-better-cross-browser-compatibility/) when available.
 
     ```css
@@ -455,7 +589,7 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     }
     ```
 
-### <a name="accessibility">Accessibility</a>  
+### <a name="accessibility">Accessibility</a>
 - Avoid low contrast color combinations.
     - Use [Contrast Ratio](http://leaverou.github.io/contrast-ratio/) to verify accessibility.
 
@@ -479,10 +613,10 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
         width: 1px;
     }
     ```
-    
+
 - Avoid `outline: none`.
 
-### <a name="architecture">Architecture</a> 
+### <a name="architecture">Architecture</a>
 - Use [normalize.css](https://github.com/necolas/normalize.css) to normalize styles.
 
 - Leverage OOCSS principles.
@@ -493,7 +627,7 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
 - Only use shorthand value declarations when the value will not be extended.
 
 - Separate [structure from skin](http://churchm.ag/object-oriented-css-separating-skin-from-structure/). Define repeating visual features as separate "skins"
-   
+
     ```css
     /* bad */
     #button {
@@ -531,13 +665,15 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     }
     ```
 
-### <a name="references">References</a> 
+### <a name="references">References</a>
 #### CSS Inception Rule ####
 - <a href="http://thesassway.com/beginner/the-inception-rule">http://thesassway.com/beginner/the-inception-rule</a>
 
 #### CSS Specificity Related Articles ####
 - Use of ID's in CSS Selectors (And why to avoid it)
     - <a href="http://oli.jp/2011/ids/">http://oli.jp/2011/ids/</a>
+- Sorting and grouping of CSS properties
+    - Use [CSSComb](http://csscomb.com/)
 
 #### Specificity Calculation ####
 - <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity#How_is_it_calculated.3F">https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity#How_is_it_calculated.3F</a>
