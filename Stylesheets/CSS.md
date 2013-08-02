@@ -546,7 +546,7 @@ div {
 
 ## <a name="icons-imagery">Icons and Imagery</a>
 - Icon font vs. base64 vs. sprite.
-![Small Images and Iconography Decision Tree](http://www.gliffy.com/go/publish/image/4754342/L.png)
+![Small Images and Iconography Decision Tree](http://nicetransition.com/decision-tree.png)
 
 - Use Resource's [guide for creating icon fonts](https://insider.resource.com/docs/DOC-2265).
 
