@@ -161,6 +161,7 @@ $blue: #054dc3;
 
 .callout-light {
 	@include lightenIt($blue, 25%);
+	font-style: italic;
 }
 ```
 
