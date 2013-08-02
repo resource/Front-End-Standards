@@ -207,7 +207,7 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     }
     ```
     
-    - Exception: underscores are OK when using BEM or any other modifier schema.
+    - Exception: underscores are OK when using [BEM](http://bem.info/method/) or any other modifier schema.
         
         ```css
         /* BEM delimits block, element, and modifiers with two underscores  */
