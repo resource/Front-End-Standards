@@ -34,12 +34,11 @@ Any reference made to "SASS" moving forward is in respect to the .scss notation.
 
 
 ## <a name='Commenting'>Commenting</a>
-- // and /**/
+Follow the conventions for comments set forth in the [CSS standards doc](https://github.com/LukeAskew/Front-End-Standards/blob/master/Stylesheets/CSS.md#comments)
 
 ```SCSS      
-
 // Good
-// This comment will not be output to the compiled Css file.
+// This single line comment will not be output to the compiled Css file.
 
 // Good
 /**
@@ -55,8 +54,6 @@ Any reference made to "SASS" moving forward is in respect to the .scss notation.
 - Use an underscore at the beginning of a filename.
 - Use dashes and lowercase when naming.
 - Do not add ".scss" extension to the @import declaration.
-
-Example partial file names:
 
 ```SCSS
 // Bad
@@ -80,7 +77,7 @@ _my-cool-partial.scss
 
 
 ## <a name='Variables'>Variables</a>
-- Name you variables in a modular way. Use dashes to separate multiple words in a declaration.
+Name you variables in a modular way. Use dashes to separate multiple words in a declaration.
 
 ```SCSS
 // Bad
@@ -99,7 +96,7 @@ $blue-light: #b2ccf2;
 
 
 ## <a name='Interpolation'>Interpolation</a>
-- Use the Ruby-esque #{} to "shim" variables into your rules.
+Use the Ruby-esque #{} to "shim" variables into your rules.
 
 ```SCSS
 @mixin highlight($color, $side) {
@@ -118,9 +115,7 @@ $blue-light: #b2ccf2;
 
 
 ## <a name='Sass Script Functions'>Sass Script Functions</a>
-- Use of Sass Script Functions (functions native to SASS) is a great way to make your SASS more DRY. 
-
-[SASS Script Functions Reference](http://SASS-lang.com/docs/yardoc/SASS/Script/Functions.html)
+Use of Sass Script Functions (functions native to SASS) is a great way to make your SASS more DRY. [SASS Script Functions Reference](http://SASS-lang.com/docs/yardoc/SASS/Script/Functions.html)
 
 ```SCSS
 // Good
@@ -138,7 +133,6 @@ $blue-light: lighten($blue, 25%);
 
 
 ## <a name='Mixin'>Mixin<a/>
-- @mixin's allow you to define styles that can be re-used throughout the stylesheet. 
 - Be sure your Mixin block comes before the @include statement. 
 - Use camelCase to define them. 
 - Comment code that may be unfamiliar to other developers.
@@ -166,7 +160,7 @@ $blue: #054dc3;
 ```
 
 ## <a name='Mixin Pitfalls'>Mixin Pitfalls</a>
-- Be careful when calling a Mixin with multiple arguments.
+Be careful when calling a Mixin with multiple arguments.
 
 ```SCSS
 // Bad
@@ -181,7 +175,7 @@ $blue: #054dc3;
 }
 ```
 
-- Define a value for optional arguments to avoid errors.
+Define a value for optional arguments to avoid errors.
 
 ```SCSS
 // Good. Optional $color param is defined here as black.
@@ -200,7 +194,8 @@ $blue: #054dc3;
 	color: #000;
 }
 ```
-- Avoid unecessary duplication with @mixin
+
+Avoid unecessary duplication with @mixin
 
 ```SCSS
 // Bad
@@ -240,9 +235,7 @@ $blue: #054dc3;
 
 
 ## <a name='Extend'>Extend</a>
-- Avoid duplication by using the @extend directive for lumping shared styles together. 
-- @extend adds the properties of an existing class to where you're extending.
-- It is preferred that you place @extend rules as the first declaration in your modules.
+Avoid duplication by using the @extend directive for lumping shared styles together. It is preferred that you place @extend rules as the first declaration in your modules.
 
 ```SCSS
 // Good
@@ -275,7 +268,7 @@ $blue: #054dc3;
 
 
 ## <a name='Extend Pitfalls'>Extend Pitfalls</a>
-- Since .btn-b extends .btn-a, every instance that modifies .btn-a also modifies .btn-b. This creates stylesheet bloat, if these styles aren't needed.
+Since .btn-b extends .btn-a, every instance that modifies .btn-a also modifies .btn-b. This creates stylesheet bloat, if these styles aren't needed.
 
 ```SCSS
 .btn-a {
@@ -316,8 +309,7 @@ $blue: #054dc3;
 
 
 ## <a name='Placeholder selectors'>Placeholder selectors</a>
-- Counteract stylesheet bloat with %placeholder selectors.
-- Extend common blocks to avoid extra Html classes
+Counteract stylesheet bloat with %placeholder selectors. Extend common blocks to avoid extra Html classes
 
 ```SCSS
 // Good
@@ -361,7 +353,7 @@ $blue: #054dc3;
 
 
 ## <a name='Content Directive'>Content directive</a>
-- Use the @content directive to pass a block of styles to a mixin for placement within the styles included by the mixin.
+Use the @content directive to pass a block of styles to a mixin for placement within the styles included by the mixin.
 
 ```SCSS
 // Good
@@ -402,8 +394,7 @@ $blue: #054dc3;
 
 
 ## <a name='Functions'>Functions</a>
-- Use functions when you need to calculate a value that may be reused somewhere else.
-- Use camelCase for longer function names.
+Use functions when you need to calculate a value that may be reused somewhere else. Use camelCase for longer function names.
 
 ```SCSS
 // Good
@@ -423,7 +414,7 @@ $blue: #054dc3;
 
 
 ## <a name='If/Else'>If/Else</a>
-- Use @if and @else to conditionally output code.
+Use @if and @else to conditionally output code.
 
 ```SCSS
 // Good
@@ -450,7 +441,7 @@ header {
 
 ```
 
-- Example @if with @mixin
+Example @if with @mixin
 
 ```SCSS
 @mixin button($color, $rounded: false) {
@@ -483,7 +474,7 @@ header {
 
 
 ## <a name='Each'>Each</a>
-- Use the @each directive to loop through items in a list
+Use the @each directive to loop through items in a list
 
 ```SCSS
 // Good
@@ -519,7 +510,7 @@ $authors: kevin luke mark alex adam;
 
 
 ## <a name='For/While'>For/While</a>
-- Use the @for or @while directive to save yourself manual work of repeating similar Css rules;
+Use the @for or @while directive to save yourself manual work of repeating similar Css rules;
 
 ```SCSS
 // @for example
@@ -609,6 +600,7 @@ Keep indentation consistent to your project. If you're using 2 spaces, use 2 spa
 
 ## <a name='Line Breaks'>Line Breaks</a>
 Keep related modules/component declarations together. Adding a line break to each new declaration. One Css rule per line.
+
 ```SCSS
 // Bad
 .module {
