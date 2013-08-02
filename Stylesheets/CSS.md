@@ -292,7 +292,7 @@ Selectors are dash-delimited. Adhere to the design language of the brand when na
 }
 ```
 
-Exception: underscores are OK when using BEM or any other modifier schema.
+Exception: underscores are OK when using [BEM](http://bem.info/method/) or any other modifier schema.
 
 ```css
 /* BEM delimits block, element, and modifiers with two underscores  */
