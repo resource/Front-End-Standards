@@ -166,6 +166,7 @@ Keep similar properties grouped together. Use **[CSSComb](http://csscomb.com/)**
 
 ## <a name="white-space">White Space</a>
 Use one space between selector and opening bracket.
+
     ```css
     /* bad */
     .selector{
@@ -179,6 +180,7 @@ Use one space between selector and opening bracket.
     ```
 
 Use tabs set to 4 spaces.
+
     ```css
     /* bad */
     .selector {
@@ -192,6 +194,7 @@ Use tabs set to 4 spaces.
     ```
 
 No spaces between the key and 1 single space before the value declaration.
+
     ```css
     /* bad */
     .selector {
@@ -210,6 +213,7 @@ No spaces between the key and 1 single space before the value declaration.
     ```
 
 Avoid nesting declaration blocks.
+
     ```css
     /* bad */
     .selector {
@@ -228,6 +232,7 @@ Avoid nesting declaration blocks.
     }
     ```
 Selectors should not start with a space or tab
+
     ```css
     /* bad */
         .selector-2 {
@@ -249,6 +254,7 @@ Selectors should not start with a space or tab
 
 ### <a name="naming">Naming</a>
 Selectors are always lowercase
+
     ```css
     /* bad */
     .Selector {
@@ -271,7 +277,8 @@ Selectors are always lowercase
     }
     ```
 
-Selectors are dash-delimited.
+Selectors are dash-delimited. Adhere to the design language of the brand when naming elements/selectors.
+
     ```css
     /* bad */
     .main_selector {
@@ -292,9 +299,6 @@ Selectors are dash-delimited.
             background-color: #fff;
         }
         ```
-
-Adhere to the design language of the brand when naming elements/selectors.
-
 
 ##### <a name="specificity">Specificity</a>
 Avoid using overly-specific selectors by understanding [specificity](http://coding.smashingmagazine.com/2007/07/27/css-specificity-things-you-should-know/) and [how it works](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity#How_is_it_calculated.3F). Avoid selector names that are too semantic for scalability and reuse.
@@ -328,6 +332,7 @@ Avoid using overly-specific selectors by understanding [specificity](http://codi
     ```
 
 Avoid use of `!important`. Avoid use of #IDs.
+
     ```css
     /* bad */
     #my-selector {
@@ -341,6 +346,7 @@ Avoid use of `!important`. Avoid use of #IDs.
     ```
 
 Use preferred-child instead of descendant selectors.
+
     ```css
     /* bad */
     .selector p {
@@ -355,6 +361,7 @@ Use preferred-child instead of descendant selectors.
 
 ### <a name="efficiency">Efficiency</a>
 Avoid inefficient selectors by [understanding](http://css-tricks.com/efficiently-rendering-css/) how selectors are parsed.
+
     ```css
     /* bad */
     html body ul li a {
@@ -382,6 +389,7 @@ Avoid unnecessary selectors; keep them as short as possible. Adhere to the "[Inc
     ```
 
 Avoid element selectors outside of normalization.
+
 ```css
 /* bad */
 div {
@@ -419,6 +427,7 @@ Use hex or rgba. Use hex shortcut when possible.
     ```
 
 Use lowercase for hex values
+
     ```css
     /* terrible */
     .selector {
@@ -437,6 +446,7 @@ Use lowercase for hex values
     ```
 
 Avoid named shortcuts.
+
     ```css
    /* bad */
    .my-font {
@@ -450,6 +460,7 @@ Avoid named shortcuts.
     ```
 
  Avoid using units when declaring `0` as a value.
+
     ```css
     /* bad */
     .no-margin-left {
@@ -463,6 +474,7 @@ Avoid named shortcuts.
     ```
 
 No quotes on `url()` values.
+
     ```css
     /* bad */
     .my-container {
@@ -481,6 +493,7 @@ Use `em` for `font-size`.
     - [PXtoEM](http://pxtoem.com/) can help with the conversion.
 
 Use [unit-less values](http://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights/) for `line-height`.
+
     ```css
     /* bad */
     .my-paragraph {
@@ -496,6 +509,7 @@ Use [unit-less values](http://meyerweb.com/eric/thoughts/2006/02/08/unitless-lin
     ```
 
 Use the ["bullet proof"](https://github.com/stubbornella/csslint/wiki/Bulletproof-font-face) method for `font-face` declarations.
+
     ```css
     /* example */
     @font-face {
@@ -533,6 +547,7 @@ Reference: ["Definitive Guide to Web Fonts"](https://insider.resource.com/groups
 
 ## <a name="browser-compatibility">Browser Compatibility</a>
 Use vendor prefixes for experimental or non-spec properties.
+
     ```css
     .container {
         -webkit-box-shadow: 20px;
