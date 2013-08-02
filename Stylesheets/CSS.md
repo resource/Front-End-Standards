@@ -256,138 +256,138 @@ Selectors should not start with a space or tab
 ### <a name="naming">Naming</a>
 Selectors are always lowercase
 
-    ```css
-    /* bad */
-    .Selector {
-        ...
-    }
+```css
+/* bad */
+.Selector {
+    ...
+}
 
-    /* bad */
-    .SELECTOR {
-        ...
-    }
+/* bad */
+.SELECTOR {
+    ...
+}
 
-    /* bad */
-    .selectorName {
-        ...
-    }
+/* bad */
+.selectorName {
+    ...
+}
 
-    /* good */
-    .selector {
-        ...
-    }
+/* good */
+.selector {
+    ...
+}
     ```
 
 Selectors are dash-delimited. Adhere to the design language of the brand when naming elements/selectors.
 
-    ```css
-    /* bad */
-    .main_selector {
-        ...
-    }
+```css
+/* bad */
+.main_selector {
+    ...
+}
 
-    /* good */
-    .main-selector {
-        ...
+/* good */
+.main-selector {
+    ...
+}
+```
+
+- Exception: underscores are OK when using BEM or any other modifier schema.
+
+    ```css
+    /* BEM delimits block, element, and modifiers with two underscores  */
+    .menu__item menu__item_state_current {
+        background-color: #fff;
     }
     ```
-
-    - Exception: underscores are OK when using BEM or any other modifier schema.
-
-        ```css
-        /* BEM delimits block, element, and modifiers with two underscores  */
-        .menu__item menu__item_state_current {
-            background-color: #fff;
-        }
-        ```
 
 ##### <a name="specificity">Specificity</a>
 Avoid using overly-specific selectors by understanding [specificity](http://coding.smashingmagazine.com/2007/07/27/css-specificity-things-you-should-know/) and [how it works](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity#How_is_it_calculated.3F). Avoid selector names that are too semantic for scalability and reuse.
 
-    ```css
-    /* bad */
-    .largeText {
-        ...
-    }
+```css
+/* bad */
+.largeText {
+    ...
+}
 
-    .clearfix {
-        ...
-    }
+.clearfix {
+    ...
+}
 
-    .header-text-red {
-        color: #f00;
-    }
+.header-text-red {
+    color: #f00;
+}
 
-    /* good */
-    .callout-text {
-        ...
-    }
+/* good */
+.callout-text {
+    ...
+}
 
-    .group {
-        ...
-    }
+.group {
+    ...
+}
 
-    .header-text-alt {
-        color: #f00;
-    }
-    ```
+.header-text-alt {
+    color: #f00;
+}
+```
 
 Avoid use of `!important`. Avoid use of #IDs.
 
-    ```css
-    /* bad */
-    #my-selector {
-        ...
-    }
+```css
+/* bad */
+#my-selector {
+    ...
+}
 
-    /* good */
-    .my-selector {
-        ...
-    }
-    ```
+/* good */
+.my-selector {
+    ...
+}
+```
 
 Use preferred-child instead of descendant selectors.
 
-    ```css
-    /* bad */
-    .selector p {
-        ...
-    }
+```css
+/* bad */
+.selector p {
+    ...
+}
 
-    /* good */
-    .selector > p {
-        ...
-    }
-    ```
+/* good */
+.selector > p {
+    ...
+}
+```
 
 ### <a name="efficiency">Efficiency</a>
 Avoid inefficient selectors by [understanding](http://css-tricks.com/efficiently-rendering-css/) how selectors are parsed.
 
-    ```css
-    /* bad */
-    html body ul li a {
-        ...
-    }
+```css
+/* bad */
+html body ul li a {
+    ...
+}
 
-    /* good */
-    .my-anchor {
-        ...
-    }
-    ```
+/* good */
+.my-anchor {
+    ...
+}
+```
 
 Avoid unnecessary selectors; keep them as short as possible. Adhere to the "[Inception](http://thesassway.com/beginner/the-inception-rule)" rule.
 
-    ```css
-    /* bad */
-   .one.too .many .levels .here {
-        ...
-    }
+```css
+/* bad */
+.one.too .many .levels .here {
+    ...
+}
 
-    /* good */
-   .too .levels {
-        ...
-    }
-    ```
+/* good */
+.too .levels {
+    ...
+}
+```
 
 Avoid element selectors outside of normalization.
 
@@ -406,136 +406,133 @@ div {
 ## <a name="value-formatting">Value Formatting</a>
 Use hex or rgba. Use hex shortcut when possible.
 
-    ```css
-    /* bad */
-    .my-bad-header {
-        color: blue;
-    }
+```css
+/* bad */
+.my-bad-header {
+    color: blue;
+}
 
-    /* better */
-    .my-better-header {
-        color: #0000ff;
-    }
+/* better */
+.my-better-header {
+    color: #0000ff;
+}
 
-    /* good */
-    .my-good-header {
-        color: #00f;
-    }
+/* good */
+.my-good-header {
+    color: #00f;
+}
 
-    .my-good-header-alt {
-        color: rgba(0, 0, 255, 1);
-    }
-    ```
+.my-good-header-alt {
+    color: rgba(0, 0, 255, 1);
+}
+```
 
 Use lowercase for hex values
 
-    ```css
-    /* terrible */
-    .selector {
-        color: #Ccc;
-    }
+```css
+/* terrible */
+.selector {
+    color: #Ccc;
+}
 
-    /* bad */
-    .selector {
-        color: #CCC;
-    }
+/* bad */
+.selector {
+    color: #CCC;
+}
 
-    /* good */
-    .selector {
-        color: #ccc;
-    }
-    ```
+/* good */
+.selector {
+    color: #ccc;
+}
+```
 
 Avoid named shortcuts.
 
-    ```css
-   /* bad */
-   .my-font {
-      font-weight: bold;
-   }
+```css
+/* bad */
+.my-font {
+  font-weight: bold;
+}
 
-    /* good */
-   .my-font {
-      font-weight: 700;
-   }
-    ```
+/* good */
+.my-font {
+  font-weight: 700;
+}
+```
 
- Avoid using units when declaring `0` as a value.
+Avoid using units when declaring `0` as a value.
 
-    ```css
-    /* bad */
-    .no-margin-left {
-        margin-left: 0px;
-    }
+```css
+/* bad */
+.no-margin-left {
+    margin-left: 0px;
+}
 
-    /* good */
-    .no-margin-left {
-        margin-left: 0;
-    }
-    ```
+/* good */
+.no-margin-left {
+    margin-left: 0;
+}
+```
 
 No quotes on `url()` values.
 
-    ```css
-    /* bad */
-    .my-container {
-      background-image: url('../img/frown.png');
-   }
+```css
+/* bad */
+.my-container {
+  background-image: url('../img/frown.png');
+}
 
-    /* good */
-    .my-container {
-      background-image: url(../img/rainbow.png);
-   }
-    ```
+/* good */
+.my-container {
+  background-image: url(../img/rainbow.png);
+}
+```
 
 
 ## <a name="typography">Typography</a>
-Use `em` for `font-size`.
-    - [PXtoEM](http://pxtoem.com/) can help with the conversion.
+Use `em` for `font-size`. [PXtoEM](http://pxtoem.com/) can help with the conversion. Use [unit-less values](http://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights/) for `line-height`.
 
-Use [unit-less values](http://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights/) for `line-height`.
+```css
+/* bad */
+.my-paragraph {
+    font-size: 1em;
+    line-height: 1.3em;
+}
 
-    ```css
-    /* bad */
-    .my-paragraph {
-        font-size: 1em;
-        line-height: 1.3em;
-    }
-
-    /* good */
-    .my-paragraph {
-        font-size: 1em;
-        line-height: 1.3;
-    }
-    ```
+/* good */
+.my-paragraph {
+    font-size: 1em;
+    line-height: 1.3;
+}
+```
 
 Use the ["bullet proof"](https://github.com/stubbornella/csslint/wiki/Bulletproof-font-face) method for `font-face` declarations.
 
-    ```css
-    /* example */
-    @font-face {
-        font-family: "My-Font-Family";
-        src: url(../fonts/custom-webfont.eot);
-        src: url(../fonts/custom-webfont.eot?#iefix) format("embedded-opentype"),
-             url(../fonts/custom-webfont.woff) format("woff"),
-             url(../fonts/custom-webfont.ttf) format("truetype"),
-             url(../fonts/custom-webfont.svg#My-Font-Family) format("svg");
-        /* you should declare a weight value that aligns with the custom font, default to `normal` */
-        font-weight: normal;
-        /* you should declare a style value that aligns with the custom font, default to `normal` */
-        font-style: normal;
-    }
+```css
+/* example */
+@font-face {
+    font-family: "My-Font-Family";
+    src: url(../fonts/custom-webfont.eot);
+    src: url(../fonts/custom-webfont.eot?#iefix) format("embedded-opentype"),
+         url(../fonts/custom-webfont.woff) format("woff"),
+         url(../fonts/custom-webfont.ttf) format("truetype"),
+         url(../fonts/custom-webfont.svg#My-Font-Family) format("svg");
+    /* you should declare a weight value that aligns with the custom font, default to `normal` */
+    font-weight: normal;
+    /* you should declare a style value that aligns with the custom font, default to `normal` */
+    font-style: normal;
+}
 
-    .custom-font {
-        font-family: "My-Font-Family";
-        font-weight: normal;
-        font-size: inherit;
-        font-style: normal;
-        line-height: .9;
-        *line-height: 1;
-        -webkit-font-smoothing: antialiased;
-    }
-    ```
+.custom-font {
+    font-family: "My-Font-Family";
+    font-weight: normal;
+    font-size: inherit;
+    font-style: normal;
+    line-height: .9;
+    *line-height: 1;
+    -webkit-font-smoothing: antialiased;
+}
+```
 
 Reference: ["Definitive Guide to Web Fonts"](https://insider.resource.com/groups/technology-dlt/blog/2013/02/14/definitive-guide-to-webfonts)
 
@@ -549,42 +546,41 @@ Reference: ["Definitive Guide to Web Fonts"](https://insider.resource.com/groups
 ## <a name="browser-compatibility">Browser Compatibility</a>
 Use vendor prefixes for experimental or non-spec properties.
 
-    ```css
-    .container {
-        -webkit-box-shadow: 20px;
-        box-shadow: 20px;
-        -webkit-transition: -webkit-box-shadow 2s;
-        -moz-transition: -moz-box-shadow 2s;
-        -o-transition: box-shadow 2s;
-        -ms-transition: box-shadow 2s;
-        transition: box-shadow 2s;
-        border-radius: 4px;
-        -webkit-animation: slide 1s alternate;
-        -moz-animation: slide 1s alternate;
-        -ms-animation: slide 1s alternate;
-        -o-animation: slide 1s alternate;
-        animation: slide 1s alternate;
-        background: -webkit-linear-gradient(top, #ccc 10%, #fff);
-        background: -moz-linear-gradient(top, #ccc 10%, #fff);
-        background: -o-linear-gradient(top, #ccc 10%, #fff);
-        background: -ms-linear-gradient(top, #ccc 10%, #fff);
-        background: linear-gradient(top, #ccc 10%, #fff);
-        display: -webkit-box;
-        display: -moz-box;
-        display: box;
-    }
-
-    ```
+```css
+.container {
+    -webkit-box-shadow: 20px;
+    box-shadow: 20px;
+    -webkit-transition: -webkit-box-shadow 2s;
+    -moz-transition: -moz-box-shadow 2s;
+    -o-transition: box-shadow 2s;
+    -ms-transition: box-shadow 2s;
+    transition: box-shadow 2s;
+    border-radius: 4px;
+    -webkit-animation: slide 1s alternate;
+    -moz-animation: slide 1s alternate;
+    -ms-animation: slide 1s alternate;
+    -o-animation: slide 1s alternate;
+    animation: slide 1s alternate;
+    background: -webkit-linear-gradient(top, #ccc 10%, #fff);
+    background: -moz-linear-gradient(top, #ccc 10%, #fff);
+    background: -o-linear-gradient(top, #ccc 10%, #fff);
+    background: -ms-linear-gradient(top, #ccc 10%, #fff);
+    background: linear-gradient(top, #ccc 10%, #fff);
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+}
+```
 
 Use [fallbacks](http://flippinawesome.org/2013/07/08/using-css-fallback-properties-for-better-cross-browser-compatibility/) when available.
 
-    ```css
-    /* good */
-    .future-stuff {
-        color: #ccc;
-        color: rgba(0, 0, 0, 0.5);
-    }
-    ```
+```css
+/* good */
+.future-stuff {
+    color: #ccc;
+    color: rgba(0, 0, 0, 0.5);
+}
+```
 
 ## <a name="accessibility">Accessibility</a>
 Avoid low contrast color combinations.
@@ -592,24 +588,24 @@ Avoid low contrast color combinations.
 
 Avoid `display: none` when [hiding content](https://github.com/h5bp/html5-boilerplate/blob/master/css/main.css#L152).
 
-    ```css
-    /* bad */
-    .content {
-       display: none;
-    }
+```css
+/* bad */
+.content {
+   display: none;
+}
 
-    /* good */
-    .content {
-        border: 0;
-        clip: rect(0 0 0 0);
-        height: 1px;
-        margin: -1px;
-        overflow: hidden;
-        padding: 0;
-        position: absolute;
-        width: 1px;
-    }
-    ```
+/* good */
+.content {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+```
 
 Avoid `outline: none`.
 
@@ -625,42 +621,42 @@ Only use shorthand value declarations when the value will not be extended.
 
 Separate [structure from skin](http://churchm.ag/object-oriented-css-separating-skin-from-structure/). Define repeating visual features as separate "skins"
 
-    ```css
-    /* bad */
-    #button {
-        width: 200px;
-        height: 50px;
-        padding: 10px;
-        border: solid 1px #ccc;
-        background: linear-gradient(#ccc, #222);
-        box-shadow: rgba(0, 0, 0, .5) 2px 2px 5px;
-    }
+```css
+/* bad */
+#button {
+    width: 200px;
+    height: 50px;
+    padding: 10px;
+    border: solid 1px #ccc;
+    background: linear-gradient(#ccc, #222);
+    box-shadow: rgba(0, 0, 0, .5) 2px 2px 5px;
+}
 
-    #box {
-        width: 400px;
-        overflow: hidden;
-        border: solid 1px #ccc;
-        background: linear-gradient(#ccc, #222);
-        box-shadow: rgba(0, 0, 0, .5) 2px 2px 5px;
-    }
+#box {
+    width: 400px;
+    overflow: hidden;
+    border: solid 1px #ccc;
+    background: linear-gradient(#ccc, #222);
+    box-shadow: rgba(0, 0, 0, .5) 2px 2px 5px;
+}
 
-    /* good */
-    .button {
-        width: 200px;
-        height: 50px;
-    }
+/* good */
+.button {
+    width: 200px;
+    height: 50px;
+}
 
-    .box {
-        width: 400px;
-        overflow: hidden;
-    }
+.box {
+    width: 400px;
+    overflow: hidden;
+}
 
-    .skin {
-        border: solid 1px #ccc;
-        background: linear-gradient(#ccc, #222);
-        box-shadow: rgba(0, 0, 0, .5) 2px 2px 5px;
-    }
-    ```
+.skin {
+    border: solid 1px #ccc;
+    background: linear-gradient(#ccc, #222);
+    box-shadow: rgba(0, 0, 0, .5) 2px 2px 5px;
+}
+```
 
 ## <a name="references">References</a>
 #### CSS Inception Rule ####
