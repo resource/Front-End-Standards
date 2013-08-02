@@ -25,18 +25,18 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     ```css
     /* bad */
     .media {
+        color: #ff0000; /* red */
         height: 100px; /* set height to 100px */
         width: 100px; /* set width the same as height */
-        color: #ff0000; /* red */
     }
     
     
     /* good */
     /* media block */
     .media {
+        color: #ff000;
         height: 100px;
         width: 100px;
-        color: #ff000;
     }
     ```
     
@@ -82,8 +82,8 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     ```css
     /* bad */
     .selector {
-        width: 100px; height: 100px;
-        margin: 13px; padding: 42px;
+        margin: 13px; height: 100px; 
+        padding: 42px; width: 100px;
     }
     
     /* bad */
@@ -91,10 +91,10 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     
     /* good */
     .selector {
-        width: 100px; 
         height: 100px;
         margin: 13px; 
         padding: 42px;
+        width: 100px; 
     }
     ```
     
@@ -104,16 +104,16 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
     /* not great */
     .selector {
         height: 100px;
-        z-index: 2;
-        width: 100px;
         position: relative;
+        width: 100px;
+        z-index: 2;
     }
     
     /* good */
     .selector {
-        height: 100px;
-        width: 100px;
+        height: 100px;        
         position: relative;
+        width: 100px;
         z-index: 2;
     }
     ```
@@ -496,37 +496,37 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
    
     ```css
     /* bad */
-    #button {
-        width: 200px;
+    #button {        
+        background: linear-gradient(#ccc, #222);        
+        border: solid 1px #ccc;
+        box-shadow: rgba(0, 0, 0, .5) 2px 2px 5px;
         height: 50px;
         padding: 10px;
-        border: solid 1px #ccc;
-        background: linear-gradient(#ccc, #222);
-        box-shadow: rgba(0, 0, 0, .5) 2px 2px 5px;
+        width: 200px;
     }
 
     #box {
-        width: 400px;
-        overflow: hidden;
-        border: solid 1px #ccc;
         background: linear-gradient(#ccc, #222);
+        border: solid 1px #ccc;        
         box-shadow: rgba(0, 0, 0, .5) 2px 2px 5px;
+        overflow: hidden;
+        width: 400px;
     }
 
     /* good */
-    .button {
-        width: 200px;
+    .button {    
         height: 50px;
+        width: 200px;
     }
 
-    .box {
-        width: 400px;
+    .box {    
         overflow: hidden;
+        width: 400px;
     }
 
     .skin {
-        border: solid 1px #ccc;
         background: linear-gradient(#ccc, #222);
+        border: solid 1px #ccc;        
         box-shadow: rgba(0, 0, 0, .5) 2px 2px 5px;
     }
     ```
