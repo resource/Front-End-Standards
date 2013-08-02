@@ -301,7 +301,7 @@ Exception: underscores are OK when using BEM or any other modifier schema.
 }
 ```
 
-##### <a name="specificity">Specificity</a>
+### <a name="specificity">Specificity</a>
 Avoid using overly-specific selectors by understanding [specificity](http://coding.smashingmagazine.com/2007/07/27/css-specificity-things-you-should-know/) and [how it works](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity#How_is_it_calculated.3F). Avoid selector names that are too semantic for scalability and reuse.
 
 ```css
@@ -506,7 +506,7 @@ Use `em` for `font-size`. [PXtoEM](http://pxtoem.com/) can help with the convers
 }
 ```
 
-Use the ["bullet proof"](https://github.com/stubbornella/csslint/wiki/Bulletproof-font-face) method for `font-face` declarations.
+Use the ["bullet proof"](https://github.com/stubbornella/csslint/wiki/Bulletproof-font-face) method for `font-face` declarations. Reference: ["Definitive Guide to Web Fonts"](https://insider.resource.com/groups/technology-dlt/blog/2013/02/14/definitive-guide-to-webfonts)
 
 ```css
 /* example */
@@ -533,8 +533,6 @@ Use the ["bullet proof"](https://github.com/stubbornella/csslint/wiki/Bulletproo
     -webkit-font-smoothing: antialiased;
 }
 ```
-
-Reference: ["Definitive Guide to Web Fonts"](https://insider.resource.com/groups/technology-dlt/blog/2013/02/14/definitive-guide-to-webfonts)
 
 ## <a name="icons-imagery">Icons and Imagery</a>
 Icon font vs. base64 vs. sprite. Use Resource's [guide for creating icon fonts](https://insider.resource.com/docs/DOC-2265).
