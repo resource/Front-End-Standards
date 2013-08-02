@@ -276,7 +276,7 @@ Selectors are always lowercase
 .selector {
     ...
 }
-    ```
+```
 
 Selectors are dash-delimited. Adhere to the design language of the brand when naming elements/selectors.
 
@@ -292,14 +292,14 @@ Selectors are dash-delimited. Adhere to the design language of the brand when na
 }
 ```
 
-- Exception: underscores are OK when using BEM or any other modifier schema.
+Exception: underscores are OK when using BEM or any other modifier schema.
 
-    ```css
-    /* BEM delimits block, element, and modifiers with two underscores  */
-    .menu__item menu__item_state_current {
-        background-color: #fff;
-    }
-    ```
+```css
+/* BEM delimits block, element, and modifiers with two underscores  */
+.menu__item menu__item_state_current {
+    background-color: #fff;
+}
+```
 
 ##### <a name="specificity">Specificity</a>
 Avoid using overly-specific selectors by understanding [specificity](http://coding.smashingmagazine.com/2007/07/27/css-specificity-things-you-should-know/) and [how it works](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity#How_is_it_calculated.3F). Avoid selector names that are too semantic for scalability and reuse.
@@ -537,10 +537,8 @@ Use the ["bullet proof"](https://github.com/stubbornella/csslint/wiki/Bulletproo
 Reference: ["Definitive Guide to Web Fonts"](https://insider.resource.com/groups/technology-dlt/blog/2013/02/14/definitive-guide-to-webfonts)
 
 ## <a name="icons-imagery">Icons and Imagery</a>
-- Icon font vs. base64 vs. sprite.
+Icon font vs. base64 vs. sprite. Use Resource's [guide for creating icon fonts](https://insider.resource.com/docs/DOC-2265).
 ![Small Images and Iconography Decision Tree](http://nicetransition.com/decision-tree-resize.png)
-
-- Use Resource's [guide for creating icon fonts](https://insider.resource.com/docs/DOC-2265).
 
 
 ## <a name="browser-compatibility">Browser Compatibility</a>
@@ -583,10 +581,7 @@ Use [fallbacks](http://flippinawesome.org/2013/07/08/using-css-fallback-properti
 ```
 
 ## <a name="accessibility">Accessibility</a>
-Avoid low contrast color combinations.
-    - Use [Contrast Ratio](http://leaverou.github.io/contrast-ratio/) to verify accessibility.
-
-Avoid `display: none` when [hiding content](https://github.com/h5bp/html5-boilerplate/blob/master/css/main.css#L152).
+Avoid low contrast color combinations. Use [Contrast Ratio](http://leaverou.github.io/contrast-ratio/) to verify accessibility. Avoid `display: none` when [hiding content](https://github.com/h5bp/html5-boilerplate/blob/master/css/main.css#L152). Avoid `outline: none`.
 
 ```css
 /* bad */
@@ -607,19 +602,13 @@ Avoid `display: none` when [hiding content](https://github.com/h5bp/html5-boiler
 }
 ```
 
-Avoid `outline: none`.
-
 ## <a name="architecture">Architecture</a>
-Use [normalize.css](https://github.com/necolas/normalize.css) to normalize styles.
+Use [normalize.css](https://github.com/necolas/normalize.css) to normalize styles. Only use shorthand value declarations when the value will not be extended. Separate [structure from skin](http://churchm.ag/object-oriented-css-separating-skin-from-structure/). Define repeating visual features as separate "skins"
 
-Leverage OOCSS principles.
+- Leverage OOCSS principles.
     - Abstract commonly used styles into separate classes.
     - Follow the "Single Responsibility Principle".
     - Keep things DRY.
-
-Only use shorthand value declarations when the value will not be extended.
-
-Separate [structure from skin](http://churchm.ag/object-oriented-css-separating-skin-from-structure/). Define repeating visual features as separate "skins"
 
 ```css
 /* bad */
