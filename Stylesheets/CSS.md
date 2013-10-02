@@ -295,14 +295,13 @@ Selectors are dash-delimited. Adhere to the design language of the brand when na
 Exception: underscores are OK when using [BEM](http://bem.info/method/) or any other modifier schema.
 
 ```css
-/* BEM delimits block, element, and modifiers with two underscores  */
-.menu__item menu__item_state_current {
+/* BEM - OK */
+.block__element--modifier {
     background-color: #fff;
 }
 ```
 
-### <a name="specificity">Specificity</a>
-Avoid using overly-specific selectors by understanding [specificity](http://coding.smashingmagazine.com/2007/07/27/css-specificity-things-you-should-know/) and [how it works](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity#How_is_it_calculated.3F). Avoid selector names that are too semantic for scalability and reuse.
+Avoid selector names that are too semantic for scalability and reuse.
 
 ```css
 /* bad */
@@ -332,16 +331,61 @@ Avoid using overly-specific selectors by understanding [specificity](http://codi
 }
 ```
 
-Avoid use of `!important`. Avoid use of #IDs.
+### <a name="specificity">Specificity</a>
+Avoid using overly-specific selectors by understanding [specificity](http://coding.smashingmagazine.com/2007/07/27/css-specificity-things-you-should-know/) and [how it works](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity#How_is_it_calculated.3F). 
 
 ```css
 /* bad */
-#my-selector {
+div.media {
+    ...
+}
+
+.media #video-1 {
     ...
 }
 
 /* good */
-.my-selector {
+.media {
+    ...
+}
+
+.video:first-child {
+    ...
+}
+
+```
+
+
+Use ID selectors sparingly.
+
+```css
+/* bad */
+#walnut-promo {
+    ...
+}
+
+#maple-promo {
+    ...
+}
+
+#hickory-promo {
+    ...
+}
+
+/* good */
+.promo {
+    ...
+}
+
+.promo-walnut {
+    ...
+}
+
+.promo-maple {
+    ...
+}
+
+.promo-hickory {
     ...
 }
 ```
