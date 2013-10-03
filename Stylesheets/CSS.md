@@ -1,5 +1,5 @@
 # CSS Style Guide
-The "Resource Way" for writing legible, scalable, and useful CSS.
+The "Resource Way" of writing legible, scalable, and useful CSS.
 
 ## Table of Contents
 
