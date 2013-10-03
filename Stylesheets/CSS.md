@@ -112,7 +112,7 @@ Each rule declaration on it's own line.
 }
 ```
 
-Keep similar properties grouped together. Use **[CSSComb](http://csscomb.com/)** with the default settings.
+Keep [similar properties](http://www.w3.org/wiki/CSS/Properties) grouped together. Use **[CSSComb](http://csscomb.com/)** with the default settings.
 
 ```css
 /* bad */
