@@ -1,5 +1,5 @@
-# Resource CSS Style Guide
-Promoting the "Resource Way" for writing high-quality cascading style sheets.
+# CSS Style Guide
+The "Resource Way" for writing legible, scalable, and useful CSS.
 
 ## Table of Contents
 
@@ -19,9 +19,11 @@ Promoting the "Resource Way" for writing high-quality cascading style sheets.
 ***
 
 ## <a name="comments">Comments</a>
+Comments should be _useful_ and should provide _clarity_. Use comments to divide sets of rules into groups, or to explain potentially confusing rule declarations.
+
 
 ### Avoid Over Commenting
-Use comments to divide sections and describe larger sets of rules. Don't over comment, as most CSS should be self-explanatory; too much commenting detracts from readability.
+Don't over comment, as most CSS should be self-explanatory; too much commenting detracts from readability.
 
 ```css
 /* bad */
@@ -41,22 +43,6 @@ Use comments to divide sections and describe larger sets of rules. Don't over co
 }
 ```
 
-### Declaring New Section of CSS Document:
-
-```css
-/* ==========================================================================
-   Section Header
-   ========================================================================== */
-```
-
-Suggested Section Setup for a CSS file:
-    * *Base* or *Master Base Template - Structure*
-    * *Typography*
-    * *Links*
-    * *Forms*
-    * *Containers & Holders*
-    * *Tables*
-
 ### Types of Comments
 
 #### Multiple Line
@@ -71,15 +57,6 @@ Suggested Section Setup for a CSS file:
 ```css
 /* Single line */
 ```
-
-#### Preserve Comments
-This is useful for adding Copyright notices to your generated CSS.
-
-```css
-/*! Single line */
-```
-
-
 
 ## <a name="declaration-blocks">Declaration Blocks</a>
 
@@ -114,7 +91,7 @@ Separate multiple selectors with a new line.
 }
 ```
 
-One declaration per line.
+Each rule declaration on it's own line.
 
 ```css
 /* bad */
@@ -135,7 +112,7 @@ One declaration per line.
 }
 ```
 
-Keep similar properties grouped together. Use **[CSSComb](http://csscomb.com/)** default setting
+Keep similar properties grouped together. Use **[CSSComb](http://csscomb.com/)** with the default settings.
 
 ```css
 /* bad */
@@ -163,9 +140,30 @@ Keep similar properties grouped together. Use **[CSSComb](http://csscomb.com/)**
 }
 ```
 
+Separate declaration blocks with a blank line.
+
+```css
+/* bad */
+.selector {
+    ...
+}
+.selector {
+    ...
+}
+
+/* good */
+.selector {
+    ...
+}
+↩
+.selector {
+    ...
+}
+```
+
 
 ## <a name="white-space">White Space</a>
-Use one space between selector and opening bracket.
+Use one space between the selector and the opening bracket.
 
 ```css
 /* bad */
@@ -193,7 +191,7 @@ Use tabs set to 4 spaces.
 }
 ```
 
-No spaces between the key and 1 single space before the value declaration.
+Use one space between the property key and value declaration.
 
 ```css
 /* bad */
@@ -227,34 +225,19 @@ Avoid nesting declaration blocks.
 .selector {
     ...
 }
+
 .selector-2 {
    ...
 }
 ```
 
-Selectors should not start with a space or tab
-
-```css
-/* bad */
-    .selector-2 {
-       ...
-    }
-
-/* bad */
-•.selector-2 {
-    ...
-•}
-
-/* good */
-.selector {
-    ...
-}
-```
 
 ## <a name="selectors">Selectors</a>
 
 ### <a name="naming">Naming</a>
-Selectors are always lowercase
+Adhere to the [design language](http://logicpool.com/archives/235) of the brand when naming selectors.
+
+Selectors never contain uppercase letters.
 
 ```css
 /* bad */
@@ -278,7 +261,7 @@ Selectors are always lowercase
 }
 ```
 
-Selectors are dash-delimited. Adhere to the design language of the brand when naming elements/selectors.
+Selectors are dash-delimited.
 
 ```css
 /* bad */
@@ -301,7 +284,7 @@ Exception: underscores are OK when using [BEM](http://bem.info/method/) or any o
 }
 ```
 
-Avoid selector names that are too semantic for scalability and reuse.
+Avoid overly-semantic selector names.
 
 ```css
 /* bad */
@@ -332,7 +315,7 @@ Avoid selector names that are too semantic for scalability and reuse.
 ```
 
 ### <a name="specificity">Specificity</a>
-Avoid using overly-specific selectors by understanding [specificity](http://coding.smashingmagazine.com/2007/07/27/css-specificity-things-you-should-know/) and [how it works](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity#How_is_it_calculated.3F). 
+Avoid using overly-specific selectors. Understand [specificity](http://coding.smashingmagazine.com/2007/07/27/css-specificity-things-you-should-know/) and [how it works](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity#How_is_it_calculated.3F). 
 
 ```css
 /* bad */
@@ -409,12 +392,12 @@ Avoid inefficient selectors by [understanding](http://css-tricks.com/efficiently
 
 ```css
 /* bad */
-html body ul li a {
+ul li a.menu-link {
     ...
 }
 
 /* good */
-.my-anchor {
+.menu-link {
     ...
 }
 ```
@@ -433,7 +416,7 @@ Avoid unnecessary selectors; keep them as short as possible. Adhere to the "[Inc
 }
 ```
 
-Avoid element selectors outside of normalization.
+Avoid element selectors (outside of [normalization](https://github.com/necolas/normalize.css)).
 
 ```css
 /* bad */
@@ -448,7 +431,7 @@ div {
 ```
 
 ## <a name="value-formatting">Value Formatting</a>
-Use hex or rgba. Use hex shortcut when possible.
+Use hex or rgba. Use hex shortcuts when possible.
 
 ```css
 /* bad */
@@ -456,8 +439,8 @@ Use hex or rgba. Use hex shortcut when possible.
     color: blue;
 }
 
-/* better */
-.my-better-header {
+/* ok */
+.my-ok-header {
     color: #0000ff;
 }
 
@@ -474,11 +457,6 @@ Use hex or rgba. Use hex shortcut when possible.
 Use lowercase for hex values
 
 ```css
-/* terrible */
-.selector {
-    color: #Ccc;
-}
-
 /* bad */
 .selector {
     color: #CCC;
@@ -523,7 +501,7 @@ No quotes on `url()` values.
 ```css
 /* bad */
 .my-container {
-  background-image: url('../img/frown.png');
+  background-image: url("../img/frown.png");
 }
 
 /* good */
@@ -534,7 +512,9 @@ No quotes on `url()` values.
 
 
 ## <a name="typography">Typography</a>
-Use `em` for `font-size`. [PXtoEM](http://pxtoem.com/) can help with the conversion. Use [unit-less values](http://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights/) for `line-height`.
+Use `em` for `font-size`. [PXtoEM](http://pxtoem.com/) can help with the conversion. 
+
+Use [unit-less values](http://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights/) for `line-height`.
 
 ```css
 /* bad */
@@ -550,7 +530,7 @@ Use `em` for `font-size`. [PXtoEM](http://pxtoem.com/) can help with the convers
 }
 ```
 
-Use the ["bullet proof"](https://github.com/stubbornella/csslint/wiki/Bulletproof-font-face) method for `font-face` declarations. Reference: ["Definitive Guide to Web Fonts"](https://insider.resource.com/groups/technology-dlt/blog/2013/02/14/definitive-guide-to-webfonts)
+Use the ["bullet proof"](https://github.com/stubbornella/csslint/wiki/Bulletproof-font-face) method for `font-face` declarations.
 
 ```css
 /* example */
@@ -561,26 +541,14 @@ Use the ["bullet proof"](https://github.com/stubbornella/csslint/wiki/Bulletproo
          url(../fonts/custom-webfont.woff) format("woff"),
          url(../fonts/custom-webfont.ttf) format("truetype"),
          url(../fonts/custom-webfont.svg#My-Font-Family) format("svg");
-    /* you should declare a weight value that aligns with the custom font, default to `normal` */
-    font-weight: normal;
-    /* you should declare a style value that aligns with the custom font, default to `normal` */
+    font-weight: 400;
     font-style: normal;
-}
-
-.custom-font {
-    font-family: "My-Font-Family";
-    font-weight: normal;
-    font-size: inherit;
-    font-style: normal;
-    line-height: .9;
-    *line-height: 1;
-    -webkit-font-smoothing: antialiased;
 }
 ```
 
 ## <a name="icons-imagery">Icons and Imagery</a>
 Icon font vs. base64 vs. sprite. Use Resource's [guide for creating icon fonts](https://insider.resource.com/docs/DOC-2265).
-![Small Images and Iconography Decision Tree](http://nicetransition.com/decision-tree-resize.png)
+![Small Images and Iconography Decision Tree](http://i.imgur.com/lVFZi25.png)
 
 
 ## <a name="browser-compatibility">Browser Compatibility</a>
@@ -588,31 +556,15 @@ Use vendor prefixes for experimental or non-spec properties.
 
 ```css
 .container {
-    -webkit-box-shadow: 20px;
-    box-shadow: 20px;
-    -webkit-transition: -webkit-box-shadow 2s;
-    -moz-transition: -moz-box-shadow 2s;
-    -o-transition: box-shadow 2s;
-    -ms-transition: box-shadow 2s;
-    transition: box-shadow 2s;
-    border-radius: 4px;
-    -webkit-animation: slide 1s alternate;
-    -moz-animation: slide 1s alternate;
-    -ms-animation: slide 1s alternate;
-    -o-animation: slide 1s alternate;
-    animation: slide 1s alternate;
-    background: -webkit-linear-gradient(top, #ccc 10%, #fff);
-    background: -moz-linear-gradient(top, #ccc 10%, #fff);
-    background: -o-linear-gradient(top, #ccc 10%, #fff);
-    background: -ms-linear-gradient(top, #ccc 10%, #fff);
-    background: linear-gradient(top, #ccc 10%, #fff);
     display: -webkit-box;
+    display: -webkit-flex;
     display: -moz-box;
-    display: box;
+    display: -ms-flexbox;
+    display: flex
 }
 ```
 
-Use [fallbacks](http://flippinawesome.org/2013/07/08/using-css-fallback-properties-for-better-cross-browser-compatibility/) when available.
+Use [fallbacks](http://flippinawesome.org/2013/07/08/using-css-fallback-properties-for-better-cross-browser-compatibility/) when necessary.
 
 ```css
 /* good */
@@ -623,7 +575,11 @@ Use [fallbacks](http://flippinawesome.org/2013/07/08/using-css-fallback-properti
 ```
 
 ## <a name="accessibility">Accessibility</a>
-Avoid low contrast color combinations. Use [Contrast Ratio](http://leaverou.github.io/contrast-ratio/) to verify accessibility. Avoid `display: none` when [hiding content](https://github.com/h5bp/html5-boilerplate/blob/master/css/main.css#L152). Avoid `outline: none`.
+Avoid low contrast color combinations. Use [Contrast Ratio](http://leaverou.github.io/contrast-ratio/) to verify accessibility. 
+
+Avoid `outline: none`.
+
+Avoid `display: none` when [hiding content](https://github.com/h5bp/html5-boilerplate/blob/master/css/main.css#L152).
 
 ```css
 /* bad */
@@ -641,51 +597,6 @@ Avoid low contrast color combinations. Use [Contrast Ratio](http://leaverou.gith
     padding: 0;
     position: absolute;
     width: 1px;
-}
-```
-
-## <a name="architecture">Architecture</a>
-Use [normalize.css](https://github.com/necolas/normalize.css) to normalize styles. Only use shorthand value declarations when the value will not be extended. Separate [structure from skin](http://churchm.ag/object-oriented-css-separating-skin-from-structure/). Define repeating visual features as separate "skins"
-
-- Leverage OOCSS principles.
-    - Abstract commonly used styles into separate classes.
-    - Follow the "Single Responsibility Principle".
-    - Keep things DRY.
-
-```css
-/* bad */
-#button {
-    width: 200px;
-    height: 50px;
-    padding: 10px;
-    border: solid 1px #ccc;
-    background: linear-gradient(#ccc, #222);
-    box-shadow: rgba(0, 0, 0, .5) 2px 2px 5px;
-}
-
-#box {
-    width: 400px;
-    overflow: hidden;
-    border: solid 1px #ccc;
-    background: linear-gradient(#ccc, #222);
-    box-shadow: rgba(0, 0, 0, .5) 2px 2px 5px;
-}
-
-/* good */
-.button {
-    width: 200px;
-    height: 50px;
-}
-
-.box {
-    width: 400px;
-    overflow: hidden;
-}
-
-.skin {
-    border: solid 1px #ccc;
-    background: linear-gradient(#ccc, #222);
-    box-shadow: rgba(0, 0, 0, .5) 2px 2px 5px;
 }
 ```
 
