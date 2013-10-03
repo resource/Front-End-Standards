@@ -496,12 +496,17 @@ Avoid using units when declaring `0` as a value.
 }
 ```
 
-No quotes on `url()` values.
+Avoid quotes and absolute paths in `url()` values.
 
 ```css
 /* bad */
 .my-container {
   background-image: url("../img/frown.png");
+}
+
+/* bad */
+.my-container {
+  background-image: url(/img/frown.png);
 }
 
 /* good */
