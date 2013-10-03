@@ -27,7 +27,7 @@ Don't over comment, as most CSS should be self-explanatory; too much commenting 
 
 ```css
 /* bad */
-.media {
+.selector {
     height: 100px; /* set height to 100px */
     width: 100px; /* set width the same as height */
     color: #ff0000; /* red */
@@ -36,7 +36,7 @@ Don't over comment, as most CSS should be self-explanatory; too much commenting 
 
 /* good */
 /* media block */
-.media {
+.selector {
     height: 100px;
     width: 100px;
     color: #ff000;
@@ -217,7 +217,7 @@ Avoid nesting declaration blocks.
 .selector {
     ...
 }
-    .selector-2 {
+    .another-selector {
        ...
     }
 
@@ -226,7 +226,7 @@ Avoid nesting declaration blocks.
     ...
 }
 
-.selector-2 {
+.another-selector {
    ...
 }
 ```
@@ -265,12 +265,12 @@ Selectors are dash-delimited.
 
 ```css
 /* bad */
-.main_selector {
+.super_cool_selector {
     ...
 }
 
 /* good */
-.main-selector {
+.super-cool-selector {
     ...
 }
 ```
@@ -435,21 +435,21 @@ Use hex or rgba. Use hex shortcuts when possible.
 
 ```css
 /* bad */
-.my-bad-header {
+.selector {
     color: blue;
 }
 
 /* ok */
-.my-ok-header {
+.selector {
     color: #0000ff;
 }
 
 /* good */
-.my-good-header {
+.selector {
     color: #00f;
 }
 
-.my-good-header-alt {
+.selector-alt {
     color: rgba(0, 0, 255, 1);
 }
 ```
@@ -472,12 +472,12 @@ Avoid named shortcuts.
 
 ```css
 /* bad */
-.my-font {
+.text-bold {
   font-weight: bold;
 }
 
 /* good */
-.my-font {
+.text-bold {
   font-weight: 700;
 }
 ```
@@ -500,17 +500,17 @@ Avoid quotes and absolute paths in `url()` values.
 
 ```css
 /* bad */
-.my-container {
+.selector {
   background-image: url("../img/frown.png");
 }
 
 /* bad */
-.my-container {
+.selector {
   background-image: url(/img/frown.png);
 }
 
 /* good */
-.my-container {
+.selector {
   background-image: url(../img/rainbow.png);
 }
 ```
@@ -523,13 +523,13 @@ Use [unit-less values](http://meyerweb.com/eric/thoughts/2006/02/08/unitless-lin
 
 ```css
 /* bad */
-.my-paragraph {
+.selector {
     font-size: 1em;
     line-height: 1.3em;
 }
 
 /* good */
-.my-paragraph {
+.selector {
     font-size: 1em;
     line-height: 1.3;
 }
@@ -560,7 +560,7 @@ Icon font vs. base64 vs. sprite. Use Resource's [guide for creating icon fonts](
 Use vendor prefixes for experimental or non-spec properties.
 
 ```css
-.container {
+.selector {
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -588,12 +588,12 @@ Avoid `display: none` when [hiding content](https://github.com/h5bp/html5-boiler
 
 ```css
 /* bad */
-.content {
+.hidden-visually {
    display: none;
 }
 
 /* good */
-.content {
+.hidden-visually {
     border: 0;
     clip: rect(0 0 0 0);
     height: 1px;
