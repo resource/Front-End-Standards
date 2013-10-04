@@ -46,7 +46,16 @@ var setSidebar = function() {
 ```
 
 ### <a name="sizzle">Sizzle</a>
-Use performant selectors. Sizzle reads right-to-left like native CSS, so much of the same rules apply.
+
+Use performant selectors. Sizzle reads [right-to-left](http://css-tricks.com/efficiently-rendering-css/) like native CSS, so much of the same rules apply.
+
+```javascript
+// bad
+var $sidebar = $(".main > .column .sidebar");
+
+// good
+var $sidebar = $(".sidebar");
+```
 
 Use `find` with scoped jQuery object queries (rather than context).
 
