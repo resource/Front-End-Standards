@@ -1,6 +1,6 @@
 # Resource jQuery Style Guide
 
-The "Resource Way" of writing performant and maintainable jQuery.
+The "[Resource](https://github.com/resource) Way" of writing performant and maintainable jQuery.
 
 ## Table of Contents
    
