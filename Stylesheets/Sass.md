@@ -15,16 +15,18 @@ The "[Resource](https://github.com/resource) Way" of writing Sassy CSS.
 1. [Nesting](#nesting)
 1. [References](#references)
 
+***
+
 ## <a name='preface'>Preface</a>  
-This document is a continuation of the [CSS Style Guide](https://github.com/resource/Front-End-Standards/blob/master/Stylesheets/CSS.md). The same rules and style apply to writing Sass.
+This document is a continuation of the [CSS Style Guide](https://github.com/resource/Front-End-Standards/blob/master/Stylesheets/CSS.md). As a baseline, Sass stylesheets should adhere to the CSS style guide.
 
 The examples in this style guide use the `.scss` syntax. This is the preferred syntax when writing Sass. Avoid using the `.sass` syntax.
 
 
 ## <a name='white-space-formatting'>White Space & Formatting</a>
-Style declaration should conform to the [CSS standard](https://github.com/resource/Front-End-Standards/blob/master/Stylesheets/CSS.md#declaration-blocks).
+Style declarations should conform to the [Resource CSS standard](https://github.com/resource/Front-End-Standards/blob/master/Stylesheets/CSS.md#declaration-blocks).
 
-Mixins and Functions should conform to the [JavaScript standard](https://github.com/resource/Front-End-Standards/blob/master/JavaScript/JavaScript.md#formatting) as much as possible.
+Mixins and Functions should conform to the [Resource JavaScript standard](https://github.com/resource/Front-End-Standards/blob/master/JavaScript/JavaScript.md#formatting) as much as possible.
 
 
 ## <a name='imports'>Imports and Partials</a>
@@ -37,36 +39,38 @@ Use dashes and lowercase characters when naming files.
 Avoid using the  ".scss" extension in the `@import` declaration.
 
 ```SCSS
-// Bad
+// bad
 @import "objects/progressBars.scss";
 @import "helpers/spacing.scss"
 
-// Good
+// good
 @import "objects/_progress-bars";
 @import "helpers/_spacing";
 ```
 
 
 ## <a name='variables'>Variables</a>
-Name you variables in a modular way. 
+Name you variables in a [modular way](http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-name-your-sass-variables-modularly/) - providing structure and logic.
 
 Add modifiers to the end of the variable name.
 
 ```SCSS
-// Bad
+// bad
+$sm: 35em;
+$lg: 82em;
+
+// bad
 $small-breakpoint: 35em;
-$medium-breakpoint: 63em;
 $large-breakpoint: 82em;
 
-// Good
+// good
 $breakpoint-small: 35em;
-$breakpoint-medium: 63em;
 $breakpoint-large: 82em;	
 ```
 
 
 ## <a name='interpolation'>Interpolation</a>
-Use the Ruby-esque #{} to "shim" variables into your rules.
+Use the Ruby-esque `#{}` to "shim" variables into your rules.
 
 ```SCSS
 @mixin highlight($color, $side) {
@@ -88,12 +92,12 @@ Use the Ruby-esque #{} to "shim" variables into your rules.
 Use [Pure Sass Functions](http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html) to enhance code [clarity and usability](http://thesassway.com/advanced/pure-sass-functions).
 
 ```SCSS
-// Bad
+// bad
 $blue: #3d7fdf;
 $blue-dark: #2165c8;
 $blue-light: #699ce6;
 
-// Good
+// good
 $blue: #3d7fdf;
 $blue-dark: darken($blue, 10%);
 $blue-light: lighten($blue, 10%);
@@ -102,7 +106,7 @@ $blue-light: lighten($blue, 10%);
 Use them to make your life easier...
 
 ```SCSS
-// Good
+// good
 .selector {
 	background-color: $blue;
 }
@@ -120,10 +124,10 @@ Use dash-delimited mixin names.
 
 Thoroughly document mixin behavior and expected parameters
 
-Group mixins together at the top of the document.
+Group mixins together at the top of the document; better yet, separate mixins into their own partials.
 
 ```SCSS
-// Good
+// good
 
 /**
  * position-absolutely()
@@ -152,29 +156,38 @@ Group mixins together at the top of the document.
 Define a value for optional arguments to avoid errors.
 
 ```SCSS
-// Bad
+// bad
 @mixin button($radius, $color) {
 	border-radius: $radius;
 	color: $color;
 }
 
-// Good.
+.selector {
+	@include button(3px); // error
+}
+
+// good.
 @mixin button($radius, $color: #000) {
 	border-radius: $radius;
 	color: $color;
 }
+
+.selector {
+	@include button(3px); // all good
+}
+
 ```
 
 
 
 
 ## <a name='productivity'>Productivity</a>
-Avoid repetitive rule declarations by leveraging `each`, `for`, and `while`.
+Avoid repetitive rule declarations by leveraging `@each`, `@for`, and `@while`.
 
 Use the `@each` directive to loop through items in a list.
 
 ```SCSS
-// Good
+// good
 $authors: kevin luke mark alex adam;
 
 @each $author in $authors {
@@ -211,29 +224,29 @@ Use the `@for` or `@while` directive to iterate values.
 `@for`:
 
 ```SCSS
-// Good
+// good
 $columns: 4;
 
 @for $i from 1 through $columns {
-	.cols-#{$i} {
+	.column-#{$i} {
 		width: ((100 / $columns) * $i) * 1%;
   	}
 }
 
 // CSS output
-.cols-1 {
+.column-1 {
 	width: 25%;
 }
 
-.cols-2 {
+.column-2 {
 	width: 50%;
 }
 
-.cols-3 {
+.column-3 {
 	width: 75%;
 }
 
-.cols-4 {
+.column-4 {
 	width: 100%;
 }
 ```
@@ -241,18 +254,19 @@ $columns: 4;
 `@while`:
 
 ```SCSS
-// Good
+// good
 $i: 1;
 
 .item {
 	position: absolute;
 	right: 0;
-	@while $i < 4 {
-		&.item-#{$i} {
-			top: $i * 30px;
-		}
-		i$: $i + 1;
+	
+}
+@while $i < 4 {
+	.item-#{$i} {
+		top: $i * 30px;
 	}
+	$i: $i + 1;
 }
 
 // CSS output
@@ -261,15 +275,15 @@ $i: 1;
 	right: 0;
 }
 
-.item.item-1 {
+.item-1 {
 	top: 30px;
 }
 
-.item.item-2 {
+.item-2 {
 	top: 60px;
 }
 
-.item.item-3 {
+.item-3 {
 	top: 90px;
 }
 ```
@@ -279,7 +293,7 @@ $i: 1;
 Use tabs when nesting.
 
 ```SCSS
-// Bad
+// bad
 .foo {
   ...
 ••.bar { 
@@ -290,7 +304,7 @@ Use tabs when nesting.
   }
 }
 
-// Good
+// good
 .foo {
 	...
 	.bar { 
@@ -306,7 +320,7 @@ Use tabs when nesting.
 No empty lines between nested declaration blocks.
 
 ```SCSS
-// Bad
+// bad
 .selector {
 	color: $black;
 	width: 100%;
@@ -322,7 +336,7 @@ No empty lines between nested declaration blocks.
   	}
 }
 
-// Good 
+// good 
 .selector {
 	color: $black;
 	width: 100%;
@@ -339,9 +353,10 @@ No empty lines between nested declaration blocks.
 
 Adhere to [The Inception Rule](http://thesassway.com/beginner/the-inception-rule) when nesting.
 
-However, it is OK to deeply nest interaction states.
+Exception: it is OK to deeply nest interaction states.
 
 ```SCSS
+// ok
 .level-one {
 	background-color: $blue;
 	.level-two { 
@@ -357,17 +372,21 @@ However, it is OK to deeply nest interaction states.
 ```
 
 ## <a name='references'>References</a>
-- [Sass Reference Docs](http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html)
+- [Resource CSS Standards](https://github.com/resource/Front-End-Standards/blob/master/Stylesheets/CSS.md)
+- [Resource JavaScript Standards](https://github.com/resource/Front-End-Standards/blob/master/JavaScript/JavaScript.md)
+- [Name Your SASS Variables Modularly](http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-name-your-sass-variables-modularly/)
+- [Module: Sass::Script::Functions](http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html)
+- [Using pure Sass functions to make reusable logic more useful](http://thesassway.com/advanced/pure-sass-functions)
+- [Nested Selectors: The Inception Rule](http://thesassway.com/beginner/the-inception-rule)
+
+### Resources
 - [The Sass Way](http://thesassway.com/)
 - [Assembling Sass Course](http://www.codeschool.com/courses/assembling-sass)
 - [Sass @extend Intro](http://awardwinningfjords.com/2010/07/27/sass-extend-introduction.html)
 - [SASS @imports](http://SASS-lang.com/docs/yardoc/file.SASS_REFERENCE.html#directives)
 - [@extend your Sass](http://blog.kiskolabs.com/post/5445752361/extend-your-sass)
 - [Handy Advanced Sass](http://12devs.co.uk/articles/handy-advanced-sass/)
-- [Pure Sass Functions](http://thesassway.com/advanced/pure-sass-functions)
-- [The Inception Rule](http://thesassway.com/beginner/the-inception-rule)
 - [More Modular Css](http://thesassway.com/intermediate/avoid-nested-selectors-for-more-modular-css)
-- [Modular Variables](http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-name-your-sass-variables-modularly/)
 - [Unlease the power of @each](http://shoogledesigns.com/blog/blog/2012/10/01/unleash-the-power-of-each-within-sass/)
 - [Sass Style Guide](http://css-tricks.com/sass-style-guide/)
 - [Boost Sass/Compass Efficiency](http://www.netmagazine.com/tutorials/boost-sass-compass-efficiency)
