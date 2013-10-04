@@ -55,17 +55,8 @@ Use `find` with scoped jQuery object queries (rather than context).
 $("ul", ".sidebar").hide();
 
 // bad
-$(".sidebar").find("ul").hide();
-
-// good
 $(".sidebar ul").hide();
 
 // good
-$(".sidebar > ul").hide();
-
-// good (slower)
-$sidebar.find("ul");
-
-// good (faster)
-$($sidebar[0]).find("ul");
+$(".sidebar").find("ul").hide();
 ```
