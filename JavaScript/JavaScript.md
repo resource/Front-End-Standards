@@ -59,19 +59,13 @@ Avoid ambiguous names.
 
 ```javascript
 // bad
-var defW = function() {
-    ...
-}
+var wSpecies;
 
 // worse
-var dw = function() {
-    ...
-}
+var ws;
 
 // good
-var defineWood = function() {
-    ...
-}
+var woodSpecies;
 ```
 
 Use camelCase when naming objects, functions, and instances.
@@ -99,7 +93,7 @@ Use PascalCase when naming constructors or classes.
 // bad
 var wood = function(options) {
     this.species = options.species;
-}
+};
 
 var aspen = new wood({
     species: "Aspen"
@@ -108,7 +102,7 @@ var aspen = new wood({
 // good
 var Wood = function(options) {
     this.species = options.species;
-}
+};
 
 var aspen = new Wood({
     species: "Aspen"
@@ -126,12 +120,12 @@ Use tabs, not spaces.
 // bad
 var plantTree = function() {
 ∙∙var name;
-}
+};
 
 // good 
 var plantTree = function() {
     var name;
-}
+};
 ```
 
 No end of line (trailing) whitespace.
@@ -148,13 +142,13 @@ Pad concatenation points with one space when building strings.
 
 ```javascript
 // bad
-wood.description = "This is a "+adjective+" wood.";
+wood.description = "This is a "+color+" wood.";
 
 // bad
-wood.description = "This is a "+ adjective +" wood.";
+wood.description = "This is a "+ color +" wood.";
 
 // good
-wood.description = "This is a " + adjective + " wood.";
+wood.description = "This is a " + color + " wood.";
 ```
 
 Use one space before leading parens and leading brackets.
@@ -179,7 +173,7 @@ for(var i = 0; i < length; i++){
     ...
 }
 
-// bad
+// good
 for (var i = 0; i < length; i++) {
     ...
 }
@@ -187,15 +181,20 @@ for (var i = 0; i < length; i++) {
 
 **Exceptions**:
 
-Function declarations and invocations.   
+Function expressions and invocations.   
 
 ```javascript
-// ok
+// bad
+var plantTree = function () {
+    ...
+};
+
+// good
 var plantTree = function() {
     ...
-}
+};
 
-// ok
+// good
 plantTree();
 ```
     
@@ -236,16 +235,16 @@ var species,
 
 // bad
 var wood = {
-    species: "Walnut"
-  , grain: "medium"
-  , hardness: 1010
+	species: "Walnut"
+	, grain: "medium"
+	, hardness: 1010
 };
 
 // good
 var wood = {
-  species: "Walnut",
-  grain: "medium",
-  hardness: 1010
+	species: "Walnut",
+	grain: "medium",
+	hardness: 1010
 };
 ```
     
@@ -254,21 +253,21 @@ Always use semicolons.
 ```javascript
 // bad
 (function() {
-  var species = "Birch"
-  return species
+	var species = "Birch"
+	return species
 })()
 
 // good
 (function() {
-  var species = "Birch";
-  return species;
+	var species = "Birch";
+	return species;
 })();
 ```
 
 
 ### <a name="blocks">Blocks</a>  
 
-`if/else/for/while/try` always have braces and are always on multiple lines.
+`if/else/for/while/try` blocks always have braces and always span multiple lines.
 
 ```javascript
 // bad
@@ -289,15 +288,15 @@ Pad large blocks with blank lines.
 ```javascript
 // bad
 var plantTree = function() {
-    // ... lots of stuff...
-}
+	// ...lots of stuff...
+};
 
 // good
 var plantTree = function() {
 
-    // ... lots of stuff...
+    // ...lots of stuff...
 
-}
+};
 ```
 
 
@@ -333,16 +332,16 @@ var description = "Walnut heartwood is a heavy, hard, open-grained " +
 
 ### <a name="booleans">Booleans</a>
 
-Use “can”, “has”, "should", or “is” as a prefix when naming booleans.
+Use _“can”_, _“has”_, _"should"_, or _“is”_ as a prefix when naming booleans.
 
 ```javascript
 // bad
-if (wood.hardEnough(800)) {
+if (wood.hardEnough(value)) {
     ...
 }
 
 // good
-if (wood.isHardEnough(800)) {
+if (wood.isHardEnough(value)) {
     ...
 }
 
@@ -395,8 +394,6 @@ var walnut = {
 };
 ```
 
-
-
 ### <a name="functions">Functions</a>
 
 Use function expressions rather than function declarations.
@@ -447,7 +444,7 @@ var foo = "foo",
     bar = "bar";
 ```
   
-__Exception:__ Some times declaring variables individually, with comments, is helpful in documenting code. This is permissible when [uglifiying](https://github.com/mishoo/UglifyJS2) your scripts, since comments are stripped and variable blocks are combined automatically.
+__Exception:__ Sometimes declaring variables individually - with comments - is helpful when documenting code. Do this only when you have an [uglification](https://github.com/mishoo/UglifyJS2) process in place since UglifyJS will remove comments and combine variable blocks.
     
 ```javascript
 // ok
@@ -600,18 +597,18 @@ if (varieties.length) {
 }
 ```
 
-__Exception__: Avoid shortcut if checking for `0`.
+__Exception__: Avoid shortcuts if checking for `0`.
 
 ```javascript
-var value = 0
+var hardness = 0
 
 // bad 
-if (value) {
+if (hardness) {
     ...
 }
 
 // good
-if (value !== 0) {
+if (hardness !== 0) {
     ...
 }
 ```
@@ -645,7 +642,7 @@ Make your expressions more legible by keeping them brief.
 ```javascript
 // bad
 if ((walnut || hickory) && (spruce || pine)) {
-  ...
+	...
 }
 
 // good
@@ -653,7 +650,7 @@ var hardwood = walnut || spruce,
     softwood = spruce || pine;
 
 if (hardwood && softwood) {
-  ...
+	...
 }
 ```
 
