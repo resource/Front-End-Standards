@@ -12,7 +12,6 @@ Promoting the "Resource Way" of writing semantic, reusable, and maintainable Jav
   1. [Blocks](#blocks)  
 
 ### 2. [Types](#types)
-  1. [Primitive vs. Complex](#primitive-vs-complex)   
   1. [Strings](#strings)    
   1. [Booleans](#booleans)    
   1. [Arrays](#arrays)  
@@ -23,7 +22,6 @@ Promoting the "Resource Way" of writing semantic, reusable, and maintainable Jav
   1. [Variables](#variables)  
   1. [Constructors](#constructors)  
   1. [Properties](#properties)  
-  1. [Casting & Coercion](#casting-and-coercion)  
   1. [Conditional Expressions & Equality](#conditionals)  
   1. [For Loops](#for-loops)  
   1. [Readable Milliseconds](#readable-milliseconds)  
@@ -33,879 +31,683 @@ Promoting the "Resource Way" of writing semantic, reusable, and maintainable Jav
   1. [File Naming Conventions](#file-naming-conventions) 
 
 ### 6. [Appendix](#appendix)  
-  1. [References](#references)
-  1. [Performance](#performance) 
-  1. [About Resource](#about-resource) 
-  1. [License](#license) 
 
 ***
 
 ## <a name="formatting">Formatting</a>  
 ### <a name="comments">Comments</a>  
 
-- Code should be thoroughly documented. The developer should strive to write logical and informative comments that contriburte to code maintainabiltiy and developer collaboration.
+Code should be thoroughly documented. The developer should strive to write logical and informative comments that contribute to code maintainability and developer collaboration.
 
-- Single-line comments should be written with two leading `//` followed by one space.
-  - Use case goes here.
+Single-line comments should be written with two leading `//` followed by one space.
 
-    ```javascript
-    // single-line comment
-    ```
+```javascript
+// single-line comment
+```
 
-- Comment blocks spanning multiple lines should be written using an opening `/**` and closing `*/`, with each line beginning with a single `*` surrounded by one leading and trailing space. 
-  - Use case goes here.
+Comment blocks spanning multiple lines should be written using an opening `/**` and closing `*/`, with each line beginning with a single `*` surrounded by one leading and trailing space. 
 
-    ```javascript
-    /**
-     * Multi-line comment 
-     */
-    ```
+```javascript
+/**
+ * Multi-line comment 
+ */
+```
    
-
 ### <a name="naming-conventions">Naming Conventions</a>
   
-- Avoid ambigious names. Be descriptive with your naming.
+Avoid ambiguous names.
 
-    ```javascript
-    // bad
-    function leanf() {
-        // ...stuff...
-    }
-    
-    // worse
-    function lf() {
-        // ...stuff...
-    }
+```javascript
+// bad
+var defW = function() {
+    ...
+}
 
-    // good
-    function leanForward() {
-        // ..stuff..
-    }
-    ```
+// worse
+var dw = function() {
+    ...
+}
 
-- Use camelCase when naming objects, functions, and instances
+// good
+var defineWood = function() {
+    ...
+}
+```
 
-    ```javascript
-    // bad
-    var OBJEcttsssss = {};
-    var this_is_my_object = {};
-    var this-is-my-object = {};
-    function c() {};
-    var u = new user({
-        name: "Nancy Kramer"
-    });
+Use camelCase when naming objects, functions, and instances. <sup>[[credit](https://github.com/airbnb/javascript#naming-conventions)]</sup>
 
-    // good
-    var thisIsMyObject = {};
-    function thisIsMyFunction() {};
-    var user = new User({
-        name: "Nancy Kramer"
-    });
-    ```
+```javascript
+// bad
+var HardWoods = {};
+var hard_woods = {};
+var ChopDownTree = function() {};
+var w = new wood({
+    species: "Walnut"
+});
 
-- Use PascalCase when naming constructors or classes
+// good
+var hardWoods = {};
+var chopDownTree = function() {};
+var wood = new Wood({
+    species: "Walnut"
+});
+```
 
-    ```javascript
-    // bad
-    function user(options) {
-        this.name = options.name;
-    }
+Use PascalCase when naming constructors or classes. <sup>[[credit](https://github.com/airbnb/javascript#naming-conventions)]</sup>
 
-    var bad = new user({
-        name: "nope"
-    });
+```javascript
+// bad
+var wood = function(options) {
+    this.species = options.species;
+}
 
-    // good
-    function User(options) {
-        this.name = options.name;
-    }
+var aspen = new wood({
+    species: "Aspen"
+});
 
-    var good = new User({
-        name: "yup"
-    });
-    ```
+// good
+var Wood = function(options) {
+    this.species = options.species;
+}
 
-- Use a leading underscore `_` when naming private properties.
+var aspen = new Wood({
+    species: "Aspen"
+});
+```
 
-    ```javascript
-    // bad
-    this.__firstName__ = "Nancy";
-    this.firstName_ = "Nancy";
-
-    // good
-    this._firstName = "Nancy";
-    ```
 
 ### <a name="whitespace">Whitespace</a>  
 
-- Use liberal whitespace to enhance legibility.
+Use liberal whitespace to enhance legibility.
 
-- Use tabs, not spaces.
+Use tabs, not spaces.
 
-- Tabs set to 4 spaces is preferred, but 2 spaces is ok too.
+```javascript
+// bad
+var plantTree = function() {
+∙∙var name;
+}
 
-    ```javascript
-    // ok
-    function() {
-    ∙∙var name;
-    }
+// good 
+var plantTree = function() {
+    var name;
+}
+```
+
+No end of line (trailing) whitespace.
+
+```javascript
+// bad
+var name;∙
+
+// good
+var name;
+```
+
+Pad concatenation points with one space when building strings.
+
+```javascript
+// bad
+wood.description = "This is a "+adjective+" wood.";
+
+// bad
+wood.description = "This is a "+ adjective +" wood.";
+
+// good
+wood.description = "This is a " + adjective + " wood.";
+```
+
+Use one space before leading parens and leading brackets.
+
+```javascript
+// bad
+if(expression){
+    ...
+}else{
+    ...
+}
+
+// good
+if (expression) {
+    ...
+} else {
+    ...
+}
+
+// bad
+for(var i = 0; i < length; i++){
+    ...
+}
+
+// bad
+for (var i = 0; i < length; i++) {
+    ...
+}
+```
+
+**Exceptions**:
+
+Function declarations and invocations.   
+
+```javascript
+// ok
+var plantTree = function() {
+    ...
+}
+
+// ok
+plantTree();
+```
     
-    // ok 
-    function() {
-    ∙∙∙∙var name;
-    }
-    ```
+Functions with callbacks.
 
-- No end of line (trailing) whitespace.
+```javascript
+// ok
+plantTree(function() {
+    ...
+});
+```
 
-    ```javascript
-    // bad
-    function() {
-        var name;∙
-    }
+Functions accepting arrays or objects.
     
-    // good
-    function() {
-        var name;
-    }
-    ```
+```javascript
+// ok
+plantTrees(["Pine", "Walnut"]);    
 
-- Use one space before leading parens and leading brackets.
-
-    ```javascript
-    // bad
-    if(expression){
-        // ...stuff...
-    }
-    
-    // good
-    if (expression) {
-        // ...stuff...
-    }
-    
-    // bad
-    function(){
-        // ...stuff...
-    }
-    
-    // good
-    function() {
-        // ...stuff...
-    }
-    ```
-
-
-- **Exceptions**:  
-  - Function declarations and invocations.    
-
-    ```javascript
-    // ok
-    var myFunction = function() {
-        // ...stuff...
-    }
-    
-    // ok
-    myfunction();
-    ```
-    
-  - Functions with callbacks.
-    
-    ```javascript
-    // ok
-    myfunction(function() {
-        // ..stuff...
-    });
-    ```
-
-  - Functions accepting arrays or objects.
-    
-    ```javascript
-    // ok
-    myfunction(["foo", "bar"]);    
-
-    // ok
-    myfunction({
-        foo: "bar"
-    });
-    ```
-
-- Pad concatenation points with one space when building strings.
-
-    ```javascript
-    // bad
-    var coolString = "Resource is a "+words.adjective+" company.";
-
-    // bad
-    var coolString = "Resource is a "+•words.adjective•+" company.";
-
-    // good
-    var coolString = "Resource is a "•+•words.adjective•+•" company.";
-    ```
+// ok
+plantTree({
+    species: "Pine"
+});
+```
 
 ### <a name="commas-and-semicolons">Commas & Semicolons</a> 
-- Place commas end of line.
+Place commas end of line.
 
-    ```javascript
-    // bad
-    var noodle
-      , lounge
-      , pod;
+```javascript
+// bad
+var species
+  , grain
+  , hardness;
 
-    // good
-    var noodle,
-        lounge,
-        pod;
+// good
+var species,
+    grain,
+    hardness;
 
-    // bad
-    var associate = {
-        firstName: "Nancy"
-      , lastName: "Kramer"
-      , role: "Founder"
-      , superPower: "strength"
-    };
+// bad
+var wood = {
+    species: "Walnut"
+  , grain: "medium"
+  , hardness: 1010
+};
 
-    // good
-    var associate = {
-      firstName: "Nancy",
-      lastName: "Kramer",
-      role: "Founder",
-      superPower: "strength"
-    };
-    ```
+// good
+var wood = {
+  species: "Walnut",
+  grain: "medium",
+  hardness: 1010
+};
+```
     
-- Always use semicolons.
+Always use semicolons.
 
-    ```javascript
-    // bad
-    (function() {
-      var name = "Kramer"
-      return name
-    })()
+```javascript
+// bad
+(function() {
+  var species = "Birch"
+  return species
+})()
 
-    // good
-    (function() {
-      var name = "Kramer";
-      return name;
-    })();
-    ```
+// good
+(function() {
+  var species = "Birch";
+  return species;
+})();
+```
 
 
 ### <a name="blocks">Blocks</a>  
 
-- `if/else/for/while/try` always have braces and are always on multiple lines.
+`if/else/for/while/try` always have braces and are always on multiple lines.
 
-    ```javascript
-    // bad
-    if (expression)
-        return value;
-        
-    // bad
-    if (expression) return value;
+```javascript
+// bad
+if (expression)
+    return value;
     
-    // good
-    if (expression) {
-        return value;
-    }
-    ```
+// bad
+if (expression) return value;
 
-- Pad large blocks with blank lines.
+// good
+if (expression) {
+    return value;
+}
+```
 
-    ```javascript
-    // bad
-    var createOpenBrand = function() {
-        // ... lots of stuff...
-    }
-    
-    // good
-    var createOpenBrand = function() {
+Pad large blocks with blank lines.
 
-        // ... lots of stuff...
-    
-    }
-    ```
+```javascript
+// bad
+var plantTree = function() {
+    // ... lots of stuff...
+}
+
+// good
+var plantTree = function() {
+
+    // ... lots of stuff...
+
+}
+```
 
 
 ## <a name="types">Types</a>  
-### <a name="primitive-vs-complex">Primitive vs. Complex</a>
-
-- **Primitives**: When you access a primitive type you work directly on its value.
-
-    + `string`
-    + `number`
-    + `boolean`
-    + `null`
-    + `undefined`
-
-    ```javascript
-    var foo = 1,
-        bar = foo;
-
-    bar = 9;
-
-    console.log(foo, bar); // => 1, 9
-    ```
-
-- **Complex**: When you access a complex type you work on a reference to its value.
-
-    + `object`
-    + `array`
-    + `function`
-
-    ```javascript
-    var foo = [1, 2],
-        bar = foo;
-
-    bar[0] = 9;
-
-    console.log(foo[0], bar[0]); // => 9, 9
-    ```
-
 
 ### <a name="strings">Strings</a>
-- Use double quotes `""` for strings
+Use double quotes `""` for strings
 
-    ```javascript
-    // bad
-    var name = 'Nancy Kramer';
+```javascript
+// bad
+var species = 'Redwood';
 
-    // good
-    var name = "Nancy Kramer";
+// good
+var species = "Redwood";
+```
 
-    // bad
-    var fullName = 'Nancy ' + this.lastName;
+Long strings should be broken out onto multiple lines and concatenated properly.
 
-    // good
-    var fullName = "Nancy " + this.lastName;
-    ```
+```javascript
+// bad
+var description = "Walnut heartwood is a heavy, hard, open-grained hardwood. Freshly cut live wood may be Dijon-mustard colour, darkening to brown over a few days.";
 
-- Strings longer than 80 characters should be written across multiple lines using string concatenation.
-- Note: If overused, long strings with concatenation could impact performance. [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40)
+// bad
+var description = "Walnut heartwood is a heavy, hard, open-grained \
+hardwood. Freshly cut live wood may be Dijon-mustard \
+colour, darkening to brown over a few days.";
 
-    ```javascript
-    // bad
-    var aboutResource = "There's nothing typical or ordinary about Resource. Even if you've previously worked at an agency, we think you'll find there's something singularly special about us, our offices and the way we do business.";
-
-    // bad
-    var aboutResource = "There's nothing typical \
-    or ordinary about Resource. Even if you've \
-    previously worked at an agency, we think you'll \
-    find there's something singularly special about \
-    us, our offices and the way we do business.";
-
-    var aboutResource = "There's nothing typical" +
-        "or ordinary about Resource. Even if you've" +
-        "previously worked at an agency, we think you'll" +
-        "find there's something singularly special about" +
-        "us, our offices and the way we do business.";
-    ```
+// good
+var description = "Walnut heartwood is a heavy, hard, open-grained " +
+    "hardwood. Freshly cut live wood may be Dijon-mustard " +
+    "colour, darkening to brown over a few days.";
+```
 
 ### <a name="booleans">Booleans</a>
 
-- Use “can”, “has” or “is” as a prefix when naming booleans.
+Use “can”, “has”, "should", or “is” as a prefix when naming booleans.
 
-    ```javascript
-    // bad
-    if (kramer.superPumped()) {
-        return false;
-    }
-    
-    // good
-    if (kramer.isSuperPumped()) {
-        return false;
-    }
-    
-    // bad
-    var shoe.tied = false;
+```javascript
+// bad
+if (wood.hardEnough(800)) {
+    ...
+}
 
-    // good
-    var shoe.isTied = false
-    ```
+// good
+if (wood.isHardEnough(800)) {
+    ...
+}
+
+// bad
+var wood.knots = true;
+
+// good
+var wood.hasKnots = true
+```
 
 
 ### <a name="arrays">Arrays</a>
-- Use the literal syntax for array creation
+Use the literal syntax when creating arrays.
 
-    ```javascript
-    // bad
-    var items = new Array();
+```javascript
+// bad
+var trees = new Array();
 
-    // good
-    var items = [];
-    ```
-
-- If you don"t know array length use Array#push.
-
-    ```javascript
-    var someStack = [];
-
-
-    // bad
-    someStack[someStack.length] = "abracadabra";
-
-    // good
-    someStack.push("abracadabra");
-    ```
+// good
+var trees = [];
+```
     
 ### <a name="objects">Objects</a>
 
-- Use the literal syntax for object creation.
+Use the literal syntax when creating objects.
 
-    ```javascript
-    // bad
-    var item = new Object();
+```javascript
+// bad
+var wood = new Object();
 
-    // good
-    var item = {};
-    ```
+// good
+var wood = {};
+```
 
-- Don"t use [reserved words](https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Reserved_Words) as keys.
+Don't use [reserved words](https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Reserved_Words) as keys.
 
-    ```javascript
-    // bad
-    var resourceU = {
-        class: "Raving Clients",
-        default: { teacher: "Kramer" },
-        private: true
-    };
+```javascript
+// bad
+var walnut = {
+    class: "Magnoliophyta",
+    default: { variety: "English" },
+    private: true
+};
 
-    // good
-    var resourceU = {
-        className: "Raving Clients",
-        defaults: { teacher: "Kramer" },
-        hidden: true
-    };
-    ```
+// good
+var walnut = {
+    className: "Magnoliophyta",
+    defaults: { variety: "English" },
+    hidden: true
+};
+```
 
 
 
 ### <a name="functions">Functions</a>
 
-- Use function expressions rather than function declarations.
+Use function expressions rather than function declarations.
 
-    ```javascript
-    // bad 
-    function funkDeclaration() {
-        // ...stuff...
-    };
-    
-    // good
-    var funkExpression = function() {
-        // ...stuff...
-    };
-    ```
+```javascript
+// bad 
+function funkDeclaration() {
+    ...
+};
 
-- Properly written function expressions:
+// good
+var funkExpression = function() {
+    ...
+};
+```
 
-    ```javascript
-    // anonymous function expression
-    var anonymous = function() {
-        return true;
-    };
+Properly written function expressions: <sup>[[credit](https://github.com/airbnb/javascript#functions)]</sup>
 
-    // named function expression for better traceability
-    var named = function named() {
-        return true;
-    };
+```javascript
+// anonymous function expression
+var anonymous = function() {
+    return true;
+};
 
-    // immediately-invoked function expression (IIFE)
-    (function() {
-        console.log("Welcome to the Internet. Please follow me.");
-    })();
-    ```
+// named function expression for better traceability
+var named = function named() {
+    return true;
+};
 
-- Never declare a function in a non-function block (if, while, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears.
-  - **Note:** ECMA-262 defines a `block` as a list of statements. A function declaration is not a statement. [Read ECMA-262"s note on this issue](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
-
-    ```javascript
-    // bad
-    if (currentUser) {
-        function test() {
-            console.log("Nope.");
-        }
-    }
-
-    // good
-    if (currentUser) {
-        var test = function() {
-            console.log("Yup.");
-        };
-    }
-    ```
-
-- Never name a parameter `arguments`, this will take precedence over the `arguments` object that is given to every function scope.
-
-    ```javascript
-    // bad
-    function nope(name, options, arguments) {
-        // ...stuff...
-    }
-
-    // good
-    function yup(name, options, args) {
-        // ...stuff...
-    }
-    ```
+// immediately-invoked function expression (IIFE)
+(function() {
+    console.log("Welcome to the Internet. Please follow me.");
+})();
+```
 
 
 ## <a name="working-with-types">Working With Types</a>  
 ### <a name="variables">Variables</a>
-- Use one `var` declaration for multiple variables.
+Use one `var` declaration for multiple variables.
 
-    ```javascript
-    // bad
-    var foo = "foo";
-    var bar = "bar";
-    
-    // good
-    var foo = "foo",
-        bar = "bar";
-    ```
+```javascript
+// bad
+var foo = "foo";
+var bar = "bar";
+
+// good
+var foo = "foo",
+    bar = "bar";
+```
   
-- **Exception**: It"s ok to use dedicated `var` declarations in order to enhance legibility, but ONLY when the code is going to be uglified eventually.
+__Exception:__ Some times declaring variables individually, with comments, is helpful in documenting code. This is permissible when [uglifiying](https://github.com/mishoo/UglifyJS2) your scripts, since comments are stripped and variable blocks are combined automatically.
     
-    ```javascript
-    // ok
+```javascript
+// ok
 
-    /**
-     * Data models
-     */
-    var storeModel = {
-        foo: "bar"
-    };
+/**
+ * Tree model
+ * ...
+ */
+var treeModel = {
+    ...
+};
 
-    var userModel = {
-        foo: "bar"
-    };
-    ```
+/**
+ * Wood model
+ * ...
+ */
+var woodModel = {
+    ...
+};
+```
 
-- Declare unassigned variables last. This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
+Declare unassigned variables last. 
 
-    ```javascript
-    // bad
-    var gpat,
-        beerCart = true,
-        noodle,
-        locations = ["Columbus", "Cincinatti", "San Francisco", "Chicago"];
-    
-    // good
-    var beerCart = true,
-        locations = ["Columbus", "Cincinatti", "San Francisco", "Chicago"],
-        gpat, noodle;
-    ```
+```javascript
+// bad
+var quality,
+    knots,
+    wood = woods[0];
 
-- Assign variables at the top of their scope. This helps avoid issues with variable declaration and assignment hoisting related issues. [More information about hoisting in JavaScript](http://www.kenneth-truyers.net/2013/04/20/javascript-hoisting-explained/)
+knots = wood.getKnots(); 
 
-- Create as few globals as possible.
+// good
+var wood = woods[0],
+    knots = wood.getKnots(),
+    quality;
+```
 
-    ```javascript
-    // bad
-    window.brownBagContent = "Knowledge Bombs";
-    window.brownBagPresenter = "Super Cool Associte";
-    
-    // good
-    var brownBag = {
-        content: "Knowledge Bombs",
-        presenter: "Super Cool Associate"
-    };
-    
-    // bad (implied global "goodTime")
-    var brownBag = function(content, presenter) {
-        goodTime = content + presenter;
-        return goodTime;
-    };
-    
-    // good
-    var brownBag = function(content, presenter) {
-        var goodTime = content + presenter;
-        return goodTime;
-    };
-    ```
+
+Create as few globals as possible.
+
+```javascript
+// bad
+window.woodName = "Knotty Pine";
+window.woodHardness = "soft";
+
+// good
+var wood = {
+    name: "Knotty Pine",
+    hardness: "soft"
+};
+```
+
+
+Assign variables at the top of their scope to prevent [hoisting](http://www.kenneth-truyers.net/2013/04/20/javascript-hoisting-explained/).
 
 
 ### <a name="constructors">Constructors</a>
 
-- Assign methods to the prototype object, instead of overwriting the prototype with a new object. Overwriting the prototype makes inheritance impossible: by resetting the prototype you"ll overwrite the base!
+Avoid assigning an object to the prototype. Doing so may overwrite existing properties.
 
-    ```javascript
-    function Orbie() {
-        console.log("new Orbie");
+```javascript
+var Tree = function() {
+    ...
+};
+
+// bad
+Tree.prototype = {
+    grow: function() {
+        ...
+    },
+    die: function() {
+        ...
     }
+};
 
-    // bad
-    Orbie.prototype = {
-        feedTheCulture: function() {
-            console.log("feeding the culture");
-        },  
-        leanForward: function() {
-            console.log("leaning forward");
-        }
-    };
+// good
+Tree.prototype.grow = function() {
+    ...
+};
 
-    // good
-    Orbie.prototype.feedTheCulture = function() {
-        console.log("feeding the culture");
-    };
-
-    Orbie.prototype.leanForward = function() {
-        console.log("leaning forward");
-    };
-    ```
-
-- Methods can return `this` to help with method chaining.
-
-    ```javascript
-    // bad
-    Orbie.prototype.thinkBig = function() {
-      this.thinkingBig = true;
-      return true;
-    };
-
-    Jedi.prototype.takeRisks = function(risk) {
-      this.risk = risk;
-    };
-
-    var pat = new Orbie();
-    pat.thinkBig(); // => true
-    pat.takeRisks("over-deliver") // => undefined
-
-    // good
-    Orbie.prototype.thinkBig = function() {
-      this.thinkingBig = true;
-      return this;
-    };
-
-    Orbie.prototype.takeRisks = function(risk) {
-      this.risk = risk;
-      return this;
-    };
-
-    var pat = new Orbie();
-
-    pat.thinkBig()
-      .takeRisks("over-deliver");
-    ```
-
-
+Tree.prototype.die = function() {
+    ...
+};
+```
 
 ### <a name="properties">Properties</a>
-- Use dot notation when accessing properties.
+Use dot notation when accessing properties.
 
-    ```javascript
-    var pat = {
-      orbie: true,
-      age: 12
-    };
+```javascript
+var wood = {
+    species: "Oak",
+    hardness: 1300
+};
 
-    // bad
-    var isOrbieWinner = pat["orbie"];
+// bad
+var isSoft = wood["hardness"] < 800 ? true : false;
 
-    // good
-    var isOrbieWinner = pat.orbie;
-    ```
+// good
+var isSoft = wood.hardness < 800 ? true : false;
+```
 
-- Use subscript notation `[]` when accessing properties with a variable.
+Use subscript notation `[]` when accessing properties with a variable.
 
-    ```javascript
-    var pat = {
-        orbie: true,
-        age: 12
-    };
+```javascript
+var wood = {
+    species: "Oak",
+    hardness: 1300
+};
 
-    function getProp(prop) {
-      return pat[prop];
-    }
+var getProp = function(prop) {
+  return wood[prop];
+};
 
-    var isOrbieWinner = getProp("orbie");
-    ```
-
-
-
-### <a name="casting-and-coercion">Casting & Coercion</a>
-
-- Perform type coercion at the beginning of the statement.
-
-    ```javascript
-    //  => this.reviewScore = 9;
-
-    // bad
-    var totalScore = this.reviewScore + "";
-
-    // good
-    var totalScore = "" + this.reviewScore;
-
-    // bad
-    var totalScore = "" + this.reviewScore + " total score";
-
-    // good
-    var totalScore = this.reviewScore + " total score";
-    ```
-
-- Use `parseInt` for Numbers and always with a radix for type casting.
-
-    ```javascript
-    // bad
-    var newNumber = parseFloat("30");
-    
-    // bad
-    var newNumber = parseInt("30");
-
-    // good
-    var newNumber = parseInt("30", 10);
-    ```
-
-  - **Exception**: Use `parseFloat` when converting to a floating point number.
-
-    ```javascropt
-    // ok
-    var newNumer = parseFloat("30.4");
-    ```
+var specimenHardness = getProp("hardness");
+```
 
 ### <a name="conditionals">Operators, Conditional Expressions & Equality</a>
-- **Objects** evaluate to **true**
-- **Undefined** evaluates to **false**
-- **Null** evaluates to **false**
-- **Booleans** evaluate to **the value of the boolean**
-- **Numbers** evalute to **false** if **+0, -0, or NaN**, otherwise **true**
-- **Strings** evaluate to **false** if an empty string `""`, otherwise **true**  
 
-  
-- Use `===` and `!==` over `==` and `!=`.
-  - **Exception**: `==` comparison is allowed when comparing to `null`, because it will detect both `null` or `undefined` properties.
+Use `===` and `!==` when comparing values to ensure both _value_ and _type_ are compared.
 
-    ```javascript
-    var foo = null;
+```javascript
+0 == false; // true
+0 === false; // false
 
-    // foo is null, but bar is undefined as it has not been declared
-    if (foo == null && bar == null) {
-        // ...stuff...
-    }
-    ```
+1 == "1"; // true
+1 === "1" // false
+```
 
-- Use shortcuts.
+Use comparison shortcuts.
 
-    ```javascript
-    // bad
-    if (name !== "") {
-      // ...stuff...
-    }
+```javascript
+// bad
+if (wood.species !== "") {
+  ...
+}
 
-    // good
-    if (name) {
-      // ...stuff...
-    }
+// good
+if (wood.species) {
+  ...
+}
 
-    // bad
-    if (collection.length > 0) {
-      // ...stuff...
-    }
+// bad
+if (varieties.length > 0) {
+  ...
+}
 
-    // good
-    if (collection.length) {
-      // ...stuff...
-    }
-    ```
-  - **Exception**: Avoid shortcut if checking for `0`.
+// good
+if (varieties.length) {
+  ...
+}
+```
 
-    ```javascript
-    // => value = 0;
-    
-    // bad 
-    if (value) {
-        // I"m in!
-    }
+__Exception__: Avoid shortcut if checking for `0`.
 
-    // good
-    if (value !== 0) {
-        // I"m NOT in!
-    }
-    ```
+```javascript
+var value = 0
 
-- Avoid comparing to `true` and `false`.
+// bad 
+if (value) {
+    ...
+}
 
-    ```javascript
-    // bad
-    if (isSuperPumped === true) {
-        // ...party...
-    }
-    
-    // good
-    if (isSuperPumped) {
-        // ...party...
-    }
-    
-    // bad
-    if (isSuperPumped === false) {
-        // ...go home...
-    }
-    
-    // good
-    if (!isSuperPumped) {
-        // ...go home...
-    }
-    ```
+// good
+if (value !== 0) {
+    ...
+}
+```
 
-- Make your expressions more legible by keeping them brief.
+Avoid comparing to `true` and `false`.
 
-    ```javascript
-    // bad
-    if ((buca || zPizza) && (udf || jenis)) {
-      // ...party?
-    }
-    
-    // good
-    var pizza = buca || zPizza,
-        iceCream = udf || jenis;
-    
-    if (pizza && iceCream) {
-      // ...party!
-    }
-    ```
+```javascript
+// bad
+if (isSoft === true) {
+    ...
+}
+
+// good
+if (isSoft) {
+    ...
+}
+
+// bad
+if (isSoft === false) {
+    ...
+}
+
+// good
+if (!isSoft) {
+    ...
+}
+```
+
+Make your expressions more legible by keeping them brief.
+
+```javascript
+// bad
+if ((walnut || hickory) && (spruce || pine)) {
+  ...
+}
+
+// good
+var hardwood = walnut || spruce,
+    softwood = spruce || pine;
+
+if (hardwood && softwood) {
+  ...
+}
+```
 
 ### <a name="for-loops">For Loops</a>  
 
-- Cache loop length.
-  - **Note**: It"s OK to declare a variable inside the initialization expression.
+Cache loop length.
 
-    ```javascript
-    // yup
-    var length = toLoop.length
-    for (var i = 0; i < length; i++) {
-        // GOOD - the length is only looked up once and then cached
-    }
-    ```
+__Note__: It's OK to declare a variable inside the initialization expression.
+
+```javascript
+// good
+var length = trees.length
+
+for (var i = 0; i < length; i++) {
+    ...
+}
+```
 
 
 ### <a name="readable-milliseconds">Readable Milliseconds</a>
 
-- Use a multiplier of `1000` to produce more readble timers.
+Use a multiplier of `1000` to produce more readable timers.
 
-    ```javascript
-    // bad
-    var timeout = 30000; 
-    
-    // good
-    var timeout = 30 * 1000; 
-    ```
+```javascript
+// bad
+var timeout = 30000; 
+
+// good
+var timeout = 30 * 1000; 
+```
 
 ## <a name="structure">Structure</a>  
 ### <a name="file-naming-conventions">File Naming Conventions</a>
-- Plugins/Modules should be prepended with the library/class they extend.
+Plugins/Modules should be prepended with the library/class they extend.
 
-    ```javascript
-    // bad
-    myJqueryPlugin.js
-    
-    // good
-    jquery.myJqueryPlugin.js
-    ```
+```javascript
+// bad
+myJqueryPlugin.js
+
+// good
+jquery.myJqueryPlugin.js
+```
     
 
 ## <a name="appendix">Appendix</a>  
 
-### <a name="references">Resources</a>
-
-- [Annotated ECMAScript 5.1](http://es5.github.com/)
+### References
+- [Reserved Words](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Reserved_Words?redirectlocale=en-US&redirectslug=JavaScript%2FReference%2FReserved_Words)
 - [AirBnb JavaScript Style Guide](https://github.com/airbnb/javascript)
+- [Javascript hoisting explained](http://www.kenneth-truyers.net/2013/04/20/javascript-hoisting-explained/)
+
+
+### Resources
+- [Annotated ECMAScript 5.1](http://es5.github.com/)
 - [jQuery Style Guide](http://contribute.jquery.org/style-guide/js/)
 - [Idiomatic JS](https://github.com/rwldrn/idiomatic.js/)
 - [JavaScript Patterns Collection](http://shichuan.github.com/javascript-patterns/)
@@ -913,7 +715,7 @@ Promoting the "Resource Way" of writing semantic, reusable, and maintainable Jav
 - [Functions Explained](http://markdaggett.com/blog/2013/02/15/functions-explained/)
 - [The Essentials of Writing High Quality JavaScript](http://net.tutsplus.com/tutorials/javascript-ajax/the-essentials-of-writing-high-quality-javascript/)
 
-### <a name="performance">Performance</a> 
+### Performance
 - [On Layout & Web Performance](http://kellegous.com/j/2013/01/26/layout-performance/)
 - [String vs Array Concat](http://jsperf.com/string-vs-array-concat/2)
 - [Try/Catch Cost In a Loop](http://jsperf.com/try-catch-in-loop-cost)
@@ -921,6 +723,3 @@ Promoting the "Resource Way" of writing semantic, reusable, and maintainable Jav
 - [jQuery Find vs Context, Selector](http://jsperf.com/jquery-find-vs-context-sel/13)
 - [innerHTML vs textContent for script text](http://jsperf.com/innerhtml-vs-textcontent-for-script-text)
 - [Long String Concatenation](http://jsperf.com/ya-string-concat)
-
-### <a name="about-resource">About Resource</a>  
-### <a name="license">License</a>  
