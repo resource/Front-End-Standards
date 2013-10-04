@@ -1,483 +1,193 @@
-# Sass
+# Sass Style Guide
 
-Promoting the "Resource Way" of writing awesome Sass. "Stay Sassy, Resource"
+The "[Resource](https://github.com/resource) Way" of writing Sassy CSS. 
 
 ## Table of Contents
 
-1. [Definitions](#definitions)
-1. [Commenting](#Commenting)
-1. [Imports and Partials](#Imports)
-1. [Variables](#Variables)
-1. [Interpolation](#Interpolation)
-1. [Sass Script Functions](#Sass Script Functions)
-1. [Mixin](#Mixin)
-1. [Mixin Pitfalls](#Mixin Pitfalls)
-1. [Extend](#Extend)
-1. [Extend Pitfalls](#Extend Pitfalls)
-1. [Placeholder selectors](#Placeholder selectors)
-1. [Content Directive](#Content Directive)
-1. [Functions](#Functions)
-1. [If/Else](#If/Else)
-1. [Each](#Each)
-1. [For/While](#For/While)
-1. [Formatting](#Formatting)
-1. [Line Breaks](#Line Breaks)
-1. [The Inception Rule](#Inception)
+1. [Preface](#preface)
+1. [White Space & Formatting](#white-space-formatting)
+1. [Imports and Partials](#imports)
+1. [Variables](#variables)
+1. [Interpolation](#interpolation)
+1. [Pure Sass Functions](#pure-sass-functions)
+1. [Mixins](#mixins)
+1. [Productivity](#productivity)
+1. [Nesting](#nesting)
 1. [References](#references)
 
-## <a name='definitions'>Definitions</a>  
-The semantics in this document build off of the [Css](https://github.com/LukeAskew/Front-End-Standards/blob/master/Stylesheets/CSS.md) standards for this project.
+***
 
-There are two styles of syntax: .sass and .scss. The .sass style is a "looser" style that omits brackets {} and semi-colons. This document outlines usage of the .scss style. For more on why .scss is our preferred style check out the following articles - [SASS-lang docs](http://SASS-lang.com/docs/yardoc/file.SASS_REFERENCE.html#syntax) [Sass vs Scss](http://thesassway.com/articles/SASS-vs-scss-which-syntax-is-better)
+## <a name='preface'>Preface</a>  
+This document is a continuation of the [CSS Style Guide](https://github.com/resource/Front-End-Standards/blob/master/Stylesheets/CSS.md). As a baseline, Sass stylesheets should adhere to the CSS style guide.
 
-Any reference made to "SASS" moving forward is in respect to the .scss notation. This is because saying "Sass" out loud is easier than "Scss", which just sounds like a snake hissing.
-
-
-## <a name='Commenting'>Commenting</a>
-Follow the conventions for comments set forth in the [CSS standards doc](https://github.com/LukeAskew/Front-End-Standards/blob/master/Stylesheets/CSS.md#comments)
-
-```SCSS      
-// Good
-// This single line comment will not be output to the compiled Css file.
-
-// Good
-/**
- * Multiple Lines. And will be output
- * to the Css file
- */
-
-```
+The examples in this style guide use the `.scss` syntax. This is the preferred syntax when writing Sass. Avoid using the `.sass` syntax.
 
 
-## <a name='Imports'>Imports and Partials</a>
-- Keep @import rules at the top of your file. This makes it easier to find what is included.
-- Use an underscore at the beginning of a filename.
-- Use dashes and lowercase when naming.
-- Do not add ".scss" extension to the @import declaration.
+## <a name='white-space-formatting'>White Space & Formatting</a>
+Style declarations should conform to the [Resource CSS standard](https://github.com/resource/Front-End-Standards/blob/master/Stylesheets/CSS.md#declaration-blocks).
+
+Mixins and Functions should conform to the [Resource JavaScript standard](https://github.com/resource/Front-End-Standards/blob/master/JavaScript/JavaScript.md#formatting) as much as possible.
+
+
+## <a name='imports'>Imports and Partials</a>
+Group `@import` rules at the top of the document.
+
+Denote partials with a leading underscore.
+
+Use dashes and lowercase characters when naming files.
+
+Avoid using the  ".scss" extension in the `@import` declaration.
 
 ```SCSS
-// Bad
-_myCoolPartial.scss
+// bad
+@import "objects/progressBars.scss";
+@import "helpers/spacing.scss"
 
-// Good
-_buttons.scss
-_my-cool-partial.scss
-
-
-// Bad
-@import "base.scss"
-@import "_buttons.scss";
-@import "_myCoolPartial.scss"
-
-// Good
-@import "base";
-@import "buttons";
-@import "my-cool-partial";
+// good
+@import "objects/_progress-bars";
+@import "helpers/_spacing";
 ```
 
 
-## <a name='Variables'>Variables</a>
-Name you variables in a modular way. Use dashes to separate multiple words in a declaration.
+## <a name='variables'>Variables</a>
+Name you variables in a [modular way](http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-name-your-sass-variables-modularly/) - providing structure and logic.
+
+Add modifiers to the end of the variable name.
 
 ```SCSS
-// Bad
-$blue: #3d7fdf;
-$dark-blue: #18488d;
-$darkest-blue: #0b2345;
-$light-blue: #b2ccf2;
+// bad
+$sm: 35em;
+$lg: 82em;
 
-// Instead, group variables that share relationships and commonalities.
-// Good
-$blue: #3d7fdf;
-$blue-dark: #18488d;
-$blue-darkest: #0b2345;
-$blue-light: #b2ccf2;
+// bad
+$small-breakpoint: 35em;
+$large-breakpoint: 82em;
+
+// good
+$breakpoint-small: 35em;
+$breakpoint-large: 82em;	
 ```
 
 
-## <a name='Interpolation'>Interpolation</a>
-Use the Ruby-esque #{} to "shim" variables into your rules.
+## <a name='interpolation'>Interpolation</a>
+Use the Ruby-esque `#{}` to "shim" variables into your rules.
 
 ```SCSS
 @mixin highlight($color, $side) {
 	border-#{$side}-color: $color;
 }
 
-.btn-a {
+.selector {
 	@include highlight(#f00, right);
 }
 
-// Css output
-.btn-a {
+// CSS output
+.selector {
 	border-right-color: #ff0;
 }
 ```
 
 
-## <a name='Sass Script Functions'>Sass Script Functions</a>
-Use of Sass Script Functions (functions native to SASS) is a great way to make your SASS more DRY. [SASS Script Functions Reference](http://SASS-lang.com/docs/yardoc/SASS/Script/Functions.html)
+## <a name='pure-sass-functions'>Pure Sass Functions</a>
+Use [Pure Sass Functions](http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html) to enhance code [clarity and usability](http://thesassway.com/advanced/pure-sass-functions).
 
 ```SCSS
-// Good
-$blue: #054dc3;
-$blue-light: lighten($blue, 25%);
+// bad
+$blue: #3d7fdf;
+$blue-dark: #2165c8;
+$blue-light: #699ce6;
 
-.blue {
+// good
+$blue: #3d7fdf;
+$blue-dark: darken($blue, 10%);
+$blue-light: lighten($blue, 10%);
+```
+
+Use them to make your life easier...
+
+```SCSS
+// good
+.selector {
 	background-color: $blue;
 }
 
-.blue-light {
-	background-color: $blue-light;
+.selector-alt {
+	background-color: complement($blue);
 }
 ```
 
+Prefer "pure Sass" functions over external dependencies like [Compass](http://compass-style.org/) or [Bourbon](http://bourbon.io).
 
-## <a name='Mixin'>Mixin<a/>
-- Be sure your Mixin block comes before the @include statement. 
-- Use camelCase to define them. 
-- Comment code that may be unfamiliar to other developers.
-- It is preferred that you place @mixin rules as the first declaration in your modules.
+
+## <a name='mixins'>Mixins</a>
+Use dash-delimited mixin names. 
+
+Thoroughly document mixin behavior and expected parameters
+
+Group mixins together at the top of the document; better yet, separate mixins into their own partials.
 
 ```SCSS
-// Good
-$blue: #054dc3;
+// good
 
 /**
- * lightenIt()
- * lightens the color of an object. uses SASS Script core function
-	* $color: a hex value
-	* $percent: the percent to lighten the color
+ * position-absolutely()
+ * Applies absolute positioning to an element using directional values passed-in as arguments.
+ * Arguments must be defined in units (e.g. "px", "%"").
+ * @param [top]
+ * @param [right]
+ * @param [bottom]
+ * @param [left]
 */
-@mixin lightenIt($color, $percent) {
-	background-color: lighten($color, $p);	
-	color: ligten($color, $percent);
+@mixin position-absolutely ($top: auto, $right: auto, $bottom: auto, $left: auto) {
+	top: $top;
+	right: $right;
+	bottom: $bottom;
+	left: $left;
+	position: absolute;
 }
 
-.callout-light {
-	@include lightenIt($blue, 25%);
-	font-style: italic;
-}
-```
-
-## <a name='Mixin Pitfalls'>Mixin Pitfalls</a>
-Be careful when calling a Mixin with multiple arguments.
-
-```SCSS
-// Bad
-@mixin button($radius, $color) {
-	border-radius: $radius;
-	color: $color;
+.selector {
+	@include position-absolutely(10px, 10px, 5px, 15px);
 }
 
-// Syntax error: Mixin button is missing argument $color
-.btn-a {
-	@include button(4px);
-}
+
 ```
 
 Define a value for optional arguments to avoid errors.
 
 ```SCSS
-// Good. Optional $color param is defined here as black.
+// bad
+@mixin button($radius, $color) {
+	border-radius: $radius;
+	color: $color;
+}
+
+.selector {
+	@include button(3px); // error
+}
+
+// good.
 @mixin button($radius, $color: #000) {
 	border-radius: $radius;
 	color: $color;
 }
 
-.btn-a {
-	@include button(4px);	
-}
-
-// Css output
-.btn-a {
-	border-radius: 4px;
-	color: #000;
-}
-```
-
-Avoid unecessary duplication with @mixin
-
-```SCSS
-// Bad
-@mixin button {
-	background: #777;
-	border: 1px solid #ccc;
-	font-size: 1em;
-	text-transform: uppercase;
-}
-
-.foo {
-	@include button;
-}
- 
-.bar {
-	@include button;
-	color: #000;
-}
-
-// Css output
-// Bad. Unecessary duplication.
-.foo {
-	background: #777;
-	border: 1px solid #ccc;
-	font-size: 1em;
-	text-transform: uppercase;
-}
-
-.bar {
-	background: #777;
-	color: #000;
-	border: 1px solid #ccc;
-	font-size: 1em;
-	text-transform: uppercase;
-}
-```
-
-
-## <a name='Extend'>Extend</a>
-Avoid duplication by using the @extend directive for lumping shared styles together. It is preferred that you place @extend rules as the first declaration in your modules.
-
-```SCSS
-// Good
-.btn-a {
-	background: #777;
-	border: 1px solid #ccc;
-	font-size: 1em;
-	text-transform: uppercase;
-}
-
-.btn-b {
-	@extend .btn-a;
-	background: #ff0;
-}
-
-// Css output
-// Sass will track and automatically combine selectors for us.
-.btn-a,
-.btn-b {
-	background: #777;
-	border: 1px solid #ccc;
-	font-size: 1em;
-	text-transform: uppercase;
-}
-
-.btn-b {
-	background: #ff0;
-}
-```
-
-
-## <a name='Extend Pitfalls'>Extend Pitfalls</a>
-Since .btn-b extends .btn-a, every instance that modifies .btn-a also modifies .btn-b. This creates stylesheet bloat, if these styles aren't needed.
-
-```SCSS
-.btn-a {
-	background: #777;
-	border: 1px solid #ccc;
-	font-size: 1em;
-	text-transform: uppercase;
-}
-
-.btn-b {
-	@extend .btn-a;
-	background: #ff0;
-}
-
-.sidebar .btn-a {
-	text-transform: lowercase;
-}
-
-// Compiled Css below:
-.btn-a,
-.btn-b {
-	background: #777;
-	border: 1px solid #ccc;
-	font-size: 1em;
-	text-transform: uppercase;
-}
-
-.btn-b {
-	background: #ff0;
-}
-
-// Bad. .btn-b is also scoped here
-.sidebar .btn-a,
-.sidebar .btn-b {
-	text-transform: lowercase;
-}
-```
-
-
-## <a name='Placeholder selectors'>Placeholder selectors</a>
-Counteract stylesheet bloat with %placeholder selectors. Extend common blocks to avoid extra Html classes
-
-```SCSS
-// Good
-%btn {
-	background: #777;
-	border: 1px solid #ccc;
-	font-size: 1em;
-	text-transform: uppercase;
-}
-
-.btn-a {
-	@extend %btn;
-}
-
-.btn-b {
-	@extend %btn;
-	background: #ff0;
-}
-
-.sidebar .btn-a {
-	text-transform: lowercase;
-}
-
-// Css output
-.btn-a,
-.btn-b {
-	background: #777;
-	border: 1px solid #ccc;
-	font-size: 1em;
-	text-transform: uppercase;
-}
-
-.btn-b {
-	background: #ff0;
-}
-
-.sidebar .btn-a {
-	text-transform: lowercase;
-}
-```
-
-
-## <a name='Content Directive'>Content directive</a>
-Use the @content directive to pass a block of styles to a mixin for placement within the styles included by the mixin.
-
-```SCSS
-// Good
-@mixin media($type) {
-	@if $type == tablet {
-		@media all and (min-width: 768px) and (max-width: 991px) {
-		  @content;
-		}
-	}
-	@else if $type == mobile {
-		@media all and (max-width: 767px) {
-		  @content;
-		}
-	}
-}
-
-.content {
-	width:960px;
-	@include media(tablet) {
-		width: 720px;
-	}
-	@include media(mobile) {
-		width: 90%;
-	}
-}
-
-// Css output
-.content {
-	width: 960px;
-	@media all and (min-width: 768px) and (max-width: 991px) {
-		width: 720px;
-	}
-	@media all and (max-width: 767px) {
-		width: 90%;
-	}
-}
-```
-
-
-## <a name='Functions'>Functions</a>
-Use functions when you need to calculate a value that may be reused somewhere else. Use camelCase for longer function names.
-
-```SCSS
-// Good
-@function fluidize($target, $context) {
-	@return ($target / $context) * 100%;
-}
-
-.sidebar {
-	width: fluidize(350px, 1000px);
-}
-
-// Css output
-.sidebar {
-	width: 35%;
-}
-```
-
-
-## <a name='If/Else'>If/Else</a>
-Use @if and @else to conditionally output code.
-
-```SCSS
-// Good
-$pink: #f09ccd;
-$pink-light: #fbe6f3;
-$pink-dark: #8b1459;
-
-$theme: $pink;
-
-header {
-	@if $theme == $pink-dark {
-		background: $pink-dark;
-	} @else if $theme == $pink {
-		background: $pink;
-	} @else {
-		background: $pink-light;
-	}
-} 
-
-// Css output
-header {
-	background: #f09ccd;
+.selector {
+	@include button(3px); // all good
 }
 
 ```
 
-Example @if with @mixin
+
+
+
+## <a name='productivity'>Productivity</a>
+Avoid repetitive rule declarations by leveraging `@each`, `@for`, and `@while`.
+
+Use the `@each` directive to loop through items in a list.
 
 ```SCSS
-@mixin button($color, $rounded: false) {
-	color: $color;
-	@if $rounded {
-		border-radius: $rounded;
-	}
-}
-
-// $rounded false
-.btn-a {
-	@include button(#000);
-}
-
-// $rounded true
-.btn-b {
-	@include button(#333, 4px);
-}
-
-// Css output
-.btn-a {
-	color: #000;
-}
-
-.btn-b {
-	color: #333;
-	border-radius: 4px;
-}
-```
-
-
-## <a name='Each'>Each</a>
-Use the @each directive to loop through items in a list
-
-```SCSS
-// Good
+// good
 $authors: kevin luke mark alex adam;
 
 @each $author in $authors {
@@ -486,7 +196,7 @@ $authors: kevin luke mark alex adam;
 	}
 }
 
-// Css output
+// CSS output
 .author-kevin {
 	background-image: url(author-kevin.jpg);
 }
@@ -509,197 +219,152 @@ $authors: kevin luke mark alex adam;
 ```
 
 
-## <a name='For/While'>For/While</a>
-Use the @for or @while directive to save yourself manual work of repeating similar Css rules;
+Use the `@for` or `@while` directive to iterate values.
+
+`@for`:
 
 ```SCSS
-// @for example
-// Good
+// good
 $columns: 4;
 
 @for $i from 1 through $columns {
-	.cols-#{$i} {
-    	width: ((100 / $columns) * $i) * 1%;
+	.column-#{$i} {
+		width: ((100 / $columns) * $i) * 1%;
   	}
 }
 
-// Css output
-.cols-1 {
+// CSS output
+.column-1 {
 	width: 25%;
 }
 
-.cols-2 {
+.column-2 {
 	width: 50%;
 }
 
-.cols-3 {
+.column-3 {
 	width: 75%;
 }
 
-.cols-4 {
+.column-4 {
 	width: 100%;
 }
+```
 
+`@while`:
 
-// @while example
-// Good
+```SCSS
+// good
 $i: 1;
 
-// @while requires manually updating the index
 .item {
 	position: absolute;
 	right: 0;
-	@while $i < 4 {
-		&.item-#{$i} {
-			top: $i * 30px;
-		}
-		i$: $i + 1;
+	
+}
+@while $i < 4 {
+	.item-#{$i} {
+		top: $i * 30px;
 	}
+	$i: $i + 1;
 }
 
-// Css output
+// CSS output
 .item {
 	position: absolute;
 	right: 0;
 }
-.item.item-1 {
+
+.item-1 {
 	top: 30px;
 }
-.item.item-2 {
+
+.item-2 {
 	top: 60px;
 }
-.item.item-3 {
+
+.item-3 {
 	top: 90px;
 }
 ```
 
 
-## <a name='Formatting'>Formatting</a>
-Keep indentation consistent to your project. If you're using 2 spaces, use 2 spaces. If you're using tabs, use tabs. End each object
+## <a name='nesting'>Nesting</a>
+Use tabs when nesting.
 
 ```SCSS
-// Bad
+// bad
 .foo {
-	...
-	.bar { 
-		...
-		.baz { ... } } }
+  ...
+••.bar { 
+    ...
+••••.baz { 
+      ...
+    }
+  }
+}
 
-// Good
+// good
 .foo {
 	...
 	.bar { 
 		...
 		.baz { 
-		    ...
+			...
 		}
 	}
 }
 ```
 
 
-## <a name='Line Breaks'>Line Breaks</a>
-Keep related modules/component declarations together. Adding a line break to each new declaration. One Css rule per line.
+No empty lines between nested declaration blocks.
 
 ```SCSS
-// Bad
-.module {
-	color: black;
+// bad
+.selector {
+	color: $black;
 	width: 100%;
   	
-  	.shrim {
-  		color: green;
+  	.selector-child {
+  		color: $green;
   		font-size: 16px;
   	}
   	
-  	.spaghett {
-  		color: red;
-  		font-size: 12px;
-  	}
-}
-.next-module {
-	color: white;
-	width: 50%;
-	
-	.foo {
-	    color: black;
-		text-align: left;
-	}
-}
-
-// Good 
-.module {
-	color: black;
-	width: 100%;
-  	.shrim {
-  		color: green;
-  		font-size: 16px;
-  	}
-  	.spaghett {
-  		color: red;
+  	.selector-child-alt {
+  		color: $red;
   		font-size: 12px;
   	}
 }
 
-.next-module {
-	color: white;
-	width: 50%;
-	.foo {
-		color: black;
-		text-align: left;
-	}
+// good 
+.selector {
+	color: $black;
+	width: 100%;
+  	.selector-child {
+  		color: $green;
+  		font-size: 16px;
+  	}
+  	.selector-child-alt {
+  		color: $red;
+  		font-size: 12px;
+  	}
 }
 ```
 
+Adhere to [The Inception Rule](http://thesassway.com/beginner/the-inception-rule) when nesting.
 
-## <a name='Inception'>The "Inception Rule"</a>
-Nesting too deep is getting away from a modular approach to writing Css. Thinking about context before writing your rules is a good start. See the [References](#references) section in this document for more on modular Css and avoiding deeply nested selectors.
-
-**Four contextual examples to keep in mind to avoid over-nesting:**
-
-**1) Site Context**
-- Elements lacking a class or id. One level. e.g. h1-h6, body, ul, p
-
-**2) Page Context**
-- Styling the layout (elements that vary depending on the page). Usually two levels.
+Exception: it is OK to deeply nest interaction states.
 
 ```SCSS
-.cart {
-    .sidebar { 
-  	    width: 150px; 
-    }
-	.content { 
-	    width: 850px; 
-    }
-}
-```
-
-**3) Objects**
-- An element, alone or with children, identifed by class or id
-
-```SCSS
-.special-widget {
-	li { 
-		... 
-	}
-	a { 
-		... 
-	}
-}
-```
-
-**4) Interaction State**
-- Covers anything that changes when you interact with an object. This usually gets close to a fourth indentation, and is "ok". If you find yourself with lots of four-level-nested components consider revising and/or using the [@extend](http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#extend) directive to get back to less than four levels.
-
-```SCSS
-.special-widget {
-	background-color: blue;
-	.super-special { 
-		background-color: red;	
-		a {
-			border: 2px solid yellow;
+// ok
+.level-one {
+	background-color: $blue;
+	.level-two { 
+		background-color: $red;	
+		.level-three {
+			border: 2px solid #000;
 			&:hover {
-				text-decoration: underline;
+				text-decoration: overline;
 			}
 		}
 	}
@@ -707,17 +372,21 @@ Nesting too deep is getting away from a modular approach to writing Css. Thinkin
 ```
 
 ## <a name='references'>References</a>
-- [Sass Reference Docs](http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html)
+- [Resource CSS Standards](https://github.com/resource/Front-End-Standards/blob/master/Stylesheets/CSS.md)
+- [Resource JavaScript Standards](https://github.com/resource/Front-End-Standards/blob/master/JavaScript/JavaScript.md)
+- [Name Your SASS Variables Modularly](http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-name-your-sass-variables-modularly/)
+- [Module: Sass::Script::Functions](http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html)
+- [Using pure Sass functions to make reusable logic more useful](http://thesassway.com/advanced/pure-sass-functions)
+- [Nested Selectors: The Inception Rule](http://thesassway.com/beginner/the-inception-rule)
+
+### Resources
 - [The Sass Way](http://thesassway.com/)
 - [Assembling Sass Course](http://www.codeschool.com/courses/assembling-sass)
 - [Sass @extend Intro](http://awardwinningfjords.com/2010/07/27/sass-extend-introduction.html)
 - [SASS @imports](http://SASS-lang.com/docs/yardoc/file.SASS_REFERENCE.html#directives)
 - [@extend your Sass](http://blog.kiskolabs.com/post/5445752361/extend-your-sass)
 - [Handy Advanced Sass](http://12devs.co.uk/articles/handy-advanced-sass/)
-- [Pure Sass Functions](http://thesassway.com/advanced/pure-sass-functions)
-- [The Inception Rule](http://thesassway.com/beginner/the-inception-rule)
 - [More Modular Css](http://thesassway.com/intermediate/avoid-nested-selectors-for-more-modular-css)
-- [Modular Variables](http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-name-your-sass-variables-modularly/)
 - [Unlease the power of @each](http://shoogledesigns.com/blog/blog/2012/10/01/unleash-the-power-of-each-within-sass/)
 - [Sass Style Guide](http://css-tricks.com/sass-style-guide/)
 - [Boost Sass/Compass Efficiency](http://www.netmagazine.com/tutorials/boost-sass-compass-efficiency)
