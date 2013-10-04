@@ -1,6 +1,6 @@
-# Resource jQuery Style Guide and Best Practices [WORKING DRAFT]
+# Resource jQuery Style Guide
 
-Promoting the "Resource Way" of writing performant and maintainable jQuery.
+The "Resource Way" of writing performant and maintainable jQuery.
 
 ## Table of Contents
    
@@ -9,66 +9,63 @@ Promoting the "Resource Way" of writing performant and maintainable jQuery.
 1. [Sizzle](#sizzle)  
 
 
-### <a name='variables'>Variable Naming</a>
-- Prefix jQuery object variables with a `$`.
+### <a name="variables">Variable Naming</a>
+Prefix jQuery object variables with a `$`.
 
-    ```javascript
-    // bad
-    var sidebar = $('.sidebar');
+```javascript
+// bad
+var sidebar = $(".sidebar");
 
-    // good
-    var $sidebar = $('.sidebar');
-    ```
+// good
+var $sidebar = $(".sidebar");
+```
 
-### <a name='re-query'>Re-query</a>
-- Cache jQuery lookups.
+### <a name="re-query">Re-query</a>
+Cache jQuery lookups.
 
-    ```javascript
-    // bad
-    function setSidebar() {
-      $('.sidebar').hide();
+```javascript
+// bad
+var setSidebar = function() {
+	$(".sidebar").hide();
 
-      // ...stuff...
+	$(".sidebar").css({
+		"background-color": "pink"
+	});
+}
 
-      $('.sidebar').css({
-        'background-color': 'pink'
-      });
-    }
+// good
+var setSidebar = function() {
+	var $sidebar = $(".sidebar");
+	
+	$sidebar.hide();
 
-    // good
-    function setSidebar() {
-      var $sidebar = $('.sidebar');
-      $sidebar.hide();
+	$sidebar.css({
+		"background-color": "pink"
+	});
+}
+```
 
-      // ...stuff...
+### <a name="sizzle">Sizzle</a>
+Use performant selectors. Sizzle reads right-to-left like native CSS, so much of the same rules apply.
 
-      $sidebar.css({
-        'background-color': 'pink'
-      });
-    }
-    ```
+Use `find` with scoped jQuery object queries (rather than context).
 
-### <a name='sizzle'>Sizzle</a>
-- Use performant selectors. Sizzle reads right-to-left like native CSS, so much of the same rules apply.
+```javascript
+// bad
+$("ul", ".sidebar").hide();
 
-- Use `find` with scoped jQuery object queries (rather than context).
+// bad
+$(".sidebar").find("ul").hide();
 
-    ```javascript
-    // bad
-    $('ul', '.sidebar').hide();
+// good
+$(".sidebar ul").hide();
 
-    // bad
-    $('.sidebar').find('ul').hide();
+// good
+$(".sidebar > ul").hide();
 
-    // good
-    $('.sidebar ul').hide();
+// good (slower)
+$sidebar.find("ul");
 
-    // good
-    $('.sidebar > ul').hide();
-
-    // good (slower)
-    $sidebar.find('ul');
-
-    // good (faster)
-    $($sidebar[0]).find('ul');
-    ```
+// good (faster)
+$($sidebar[0]).find("ul");
+```
