@@ -1,4 +1,4 @@
-# CSS Style Guide
+# Resource CSS Style Guide
 The "[Resource](https://github.com/resource) Way" of writing legible, scalable, and useful CSS.
 
 ## Table of Contents

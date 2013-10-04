@@ -1,4 +1,4 @@
-# Sass
+# Resource Sass Style Guide
 
 Promoting the "Resource Way" of writing awesome Sass. "Stay Sassy, Resource"
 

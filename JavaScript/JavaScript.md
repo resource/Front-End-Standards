@@ -1,6 +1,6 @@
 # Resource JavaScript Style Guide
 
-Promoting the "Resource Way" of writing semantic, reusable, and maintainable JavaScript.
+The "[Resource](https://github.com/resource) Way" of writing good JavaScript.
 
 ## Table of Contents
 
