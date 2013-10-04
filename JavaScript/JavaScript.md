@@ -74,7 +74,7 @@ var defineWood = function() {
 }
 ```
 
-Use camelCase when naming objects, functions, and instances. <sup>[[credit](https://github.com/airbnb/javascript#naming-conventions)]</sup>
+Use camelCase when naming objects, functions, and instances.
 
 ```javascript
 // bad
@@ -93,7 +93,7 @@ var wood = new Wood({
 });
 ```
 
-Use PascalCase when naming constructors or classes. <sup>[[credit](https://github.com/airbnb/javascript#naming-conventions)]</sup>
+Use PascalCase when naming constructors or classes.
 
 ```javascript
 // bad
