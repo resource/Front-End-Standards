@@ -1,5 +1,4 @@
-// Sample settings for Sublime Text.
-// Place these items in you User Settings file (accessible from the Preferences/Settings - User menu)
+
 {
 	"dictionary": "Packages/Language - English/en_US.dic",
   	"spell_check": true,
@@ -7,4 +6,5 @@
 	"tab_size": 4,
 	"translate_tabs_to_spaces": false,
 	"trim_trailing_white_space_on_save": true,
+	"word_wrap": true
 }
