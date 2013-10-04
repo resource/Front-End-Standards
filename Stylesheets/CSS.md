@@ -1,5 +1,5 @@
 # CSS Style Guide
-The "Resource Way" of writing legible, scalable, and useful CSS.
+The "[Resource](https://github.com/resource) Way" of writing legible, scalable, and useful CSS.
 
 ## Table of Contents
 
@@ -23,7 +23,7 @@ Comments should be _useful_ and should provide _clarity_. Use comments to divide
 
 
 ### Avoid Over Commenting
-Don't over comment, as most CSS should be self-explanatory; too much commenting detracts from readability.
+Don't over comment, as most CSS should be self-explanatory. Too much commenting detracts from readability.
 
 ```css
 /* bad */
@@ -35,7 +35,7 @@ Don't over comment, as most CSS should be self-explanatory; too much commenting 
 
 
 /* good */
-/* media block */
+/* selector block */
 .selector {
     height: 100px;
     width: 100px;
@@ -43,7 +43,7 @@ Don't over comment, as most CSS should be self-explanatory; too much commenting 
 }
 ```
 
-### Types of Comments
+### Comment Formatting
 
 #### Multiple Line
 ```css
@@ -105,38 +105,34 @@ Each rule declaration on it's own line.
 
 /* good */
 .selector {
-    width: 100px;
-    height: 100px;
     margin: 13px;
     padding: 42px;
+    width: 100px;
+    height: 100px;
 }
 ```
 
-Keep [similar properties](http://www.w3.org/wiki/CSS/Properties) grouped together. Use **[CSSComb](http://csscomb.com/)** with the default settings.
+Keep [similar properties](http://www.w3.org/wiki/CSS/Properties) grouped together. Use [CSScomb](http://csscomb.com/) with the default settings.
 
 ```css
 /* bad */
 .selector {
     height: 100px;
+    top: 0;
     z-index: 2;
     width: 100px;
-    position: relative;
-}
-
-/* bad */
-.selector {
-    height: 100px;
-    position: relative;
-    width: 100px;
-    z-index: 2;
+    position: absolute;
+    right: 0;
 }
 
 /* good */
 .selector {
-    height: 100px;
-    width: 100px;
-    position: relative;
+    position: absolute;
+    top: 0;
+    right: 0;
     z-index: 2;
+    width: 100px;
+    height: 100px;
 }
 ```
 
@@ -147,7 +143,7 @@ Separate declaration blocks with a blank line.
 .selector {
     ...
 }
-.selector {
+.another-selector {
     ...
 }
 
@@ -156,7 +152,7 @@ Separate declaration blocks with a blank line.
     ...
 }
 ↩
-.selector {
+.another-selector {
     ...
 }
 ```
@@ -174,20 +170,6 @@ Use one space between the selector and the opening bracket.
 /* good */
 .selector•{
     ...
-}
-```
-
-Use tabs set to 4 spaces.
-
-```css
-/* bad */
-.selector {
-••float: left;
-}
-
-/* good */
-.selector {
-••••float: left;
 }
 ```
 
@@ -210,7 +192,21 @@ Use one space between the property key and value declaration.
 }
 ```
 
-Avoid nesting declaration blocks.
+Use tabs to indent.
+
+```css
+/* bad */
+.selector {
+••float: left;
+}
+
+/* good */
+.selector {
+    float: left;
+}
+```
+
+Avoid pseudo-nesting declaration blocks.
 
 ```css
 /* bad */
@@ -234,7 +230,7 @@ Avoid nesting declaration blocks.
 
 ## <a name="selectors">Selectors</a>
 
-### <a name="naming">Naming</a>
+### Naming
 Adhere to the [design language](http://logicpool.com/archives/235) of the brand when naming selectors.
 
 Selectors never contain uppercase letters.
@@ -261,7 +257,7 @@ Selectors never contain uppercase letters.
 }
 ```
 
-Selectors are dash-delimited.
+Selectors should be dash-delimited.
 
 ```css
 /* bad */
@@ -284,33 +280,30 @@ Exception: underscores are OK when using [BEM](http://bem.info/method/) or any o
 }
 ```
 
-Avoid overly-semantic selector names.
+Avoid [overly-semantic](http://www.webdesignerdepot.com/2009/05/10-best-css-practices-to-improve-your-code/) selector names.
 
 ```css
 /* bad */
-.largeText {
+.cart-item-blue {
     ...
 }
 
-.clearfix {
+.post-text-large {
     ...
-}
-
-.header-text-red {
-    color: #f00;
 }
 
 /* good */
-.callout-text {
+.cart-item-selected {
     ...
 }
 
-.group {
+.post-title {
     ...
 }
 
-.header-text-alt {
-    color: #f00;
+/* ok - helper class */
+.margin-left--small {
+    ...
 }
 ```
 
@@ -552,7 +545,8 @@ Use the ["bullet proof"](https://github.com/stubbornella/csslint/wiki/Bulletproo
 ```
 
 ## <a name="icons-imagery">Icons and Imagery</a>
-Icon font vs. base64 vs. sprite. Use Resource's [guide for creating icon fonts](https://insider.resource.com/docs/DOC-2265).
+Use the appropriate image delivery method.
+
 ![Small Images and Iconography Decision Tree](http://i.imgur.com/lVFZi25.png)
 
 
@@ -582,9 +576,9 @@ Use [fallbacks](http://flippinawesome.org/2013/07/08/using-css-fallback-properti
 ## <a name="accessibility">Accessibility</a>
 Avoid low contrast color combinations. Use [Contrast Ratio](http://leaverou.github.io/contrast-ratio/) to verify accessibility. 
 
-Avoid `outline: none`.
+[Avoid](http://www.outlinenone.com/) `outline: none`.
 
-Avoid `display: none` when [hiding content](https://github.com/h5bp/html5-boilerplate/blob/master/css/main.css#L152).
+[Avoid](http://snook.ca/archives/html_and_css/hiding-content-for-accessibility) `display: none` when hiding content.
 
 ```css
 /* bad */
@@ -594,62 +588,59 @@ Avoid `display: none` when [hiding content](https://github.com/h5bp/html5-boiler
 
 /* good */
 .hidden-visually {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
     position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    margin: -1px;
+    padding: 0;
     width: 1px;
+    height: 1px;
+    border: 0;
 }
 ```
 
 ## <a name="references">References</a>
-#### CSS Inception Rule ####
-- <a href="http://thesassway.com/beginner/the-inception-rule">http://thesassway.com/beginner/the-inception-rule</a>
 
-#### CSS Specificity Related Articles ####
-- Use of ID's in CSS Selectors (And why to avoid it)
-    - <a href="http://oli.jp/2011/ids/">http://oli.jp/2011/ids/</a>
-- Sorting and grouping of CSS properties
-    - Use [CSSComb](http://csscomb.com/)
+### Declarations and Values
+- [CSScomb](http://csscomb.com/)
+- [Common Website & Web Design Terms](http://logicpool.com/archives/235)
 
-#### Specificity Calculation ####
-- <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity#How_is_it_calculated.3F">https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity#How_is_it_calculated.3F</a>
-- <a href="http://coding.smashingmagazine.com/2007/07/27/css-specificity-things-you-should-know/">http://coding.smashingmagazine.com/2007/07/27/css-specificity-things-you-should-know/</a>
-- <a href="http://iamacamera.org/default.aspx?id=95">http://iamacamera.org/default.aspx?id=95</a>
-- <a href="http://www.stuffandnonsense.co.uk/archives/css_specificity_wars.html">http://www.stuffandnonsense.co.uk/archives/css_specificity_wars.html</a>
+### Specificity
+- [Inception Rule](http://thesassway.com/beginner/the-inception-rule)
+- [Don’t use IDs in CSS selectors?](http://oli.jp/2011/ids/)
+- [10 Best CSS Practices to Improve Your Code](http://www.webdesignerdepot.com/2009/05/10-best-css-practices-to-improve-your-code/)
+- [Specificity - How is it calculated?](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity#How_is_it_calculated.3F)
+- [CSS Specificity: Things You Should Know](http://coding.smashingmagazine.com/2007/07/27/css-specificity-things-you-should-know/)
+- [Specificity Wars](http://www.stuffandnonsense.co.uk/archives/css_specificity_wars.html)
 
 #### Efficiency ####
-- <a href="http://css-tricks.com/efficiently-rendering-css/">http://css-tricks.com/efficiently-rendering-css/</a>
+- [Efficiently Rendering CSS](http://css-tricks.com/efficiently-rendering-css/)
 
 #### CSS Architecture ####
 - BEM
-    - <a href="http://bem.info/method/">http://bem.info/method/</a>
+    - [BEM Methodology](http://bem.info/method/)
 - OOCSS
-    - <a href="http://coding.smashingmagazine.com/2011/12/12/an-introduction-to-object-oriented-css-oocss/">http://coding.smashingmagazine.com/2011/12/12/an-introduction-to-object-oriented-css-oocss/</a>
-    - <a href="http://churchm.ag/object-oriented-css-separating-skin-from-structure/">http://churchm.ag/object-oriented-css-separating-skin-from-structure/</a>
+    - [An Introduction to Object Oriented CSS](http://coding.smashingmagazine.com/2011/12/12/an-introduction-to-object-oriented-css-oocss/)
+    - [Object Oriented CSS: Separating Skin From Structure](http://churchm.ag/object-oriented-css-separating-skin-from-structure/)
 - DRY CSS
-    - <a href="http://www.vanseodesign.com/css/dry-principles/">http://www.vanseodesign.com/css/dry-principles/</a>
+    - [DRY CSS: Don’t Repeat Your CSS](http://www.vanseodesign.com/css/dry-principles/)
 - Normalize.css
-    - <a href="https://github.com/necolas/normalize.css">https://github.com/necolas/normalize.css</a>
-- Separate structure from skin
-    - <a href="http://churchm.ag/object-oriented-css-separating-skin-from-structure/">http://churchm.ag/object-oriented-css-separating-skin-from-structure/</a>
+    - [A modern, HTML5-ready alternative to CSS resets](https://github.com/necolas/normalize.css)
 
 #### Typography ####
-- <a href="http://pxtoem.com/">http://pxtoem.com/</a>
-- <a href="http://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights/">http://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights/</a>
-- <a href="https://github.com/stubbornella/csslint/wiki/Bulletproof-font-face">https://github.com/stubbornella/csslint/wiki/Bulletproof-font-face</a>
-- <a href="https://insider.resource.com/groups/technology-dlt/blog/2013/02/14/definitive-guide-to-webfonts">https://insider.resource.com/groups/technology-dlt/blog/2013/02/14/definitive-guide-to-webfonts</a>
+- [PXtoEM.com: PX to EM conversion made simple.](http://pxtoem.com/)
+- [Unitless line-heights](http://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights/)
+- [Bulletproof font face](https://github.com/stubbornella/csslint/wiki/Bulletproof-font-face)
+- [Definitive Guide to Webfonts](https://insider.resource.com/groups/technology-dlt/blog/2013/02/14/definitive-guide-to-webfonts)
 
 #### Icons and Imagery ####
-- <a href="https://insider.resource.com/docs/DOC-2265">Resource's guide for creating icon fonts</a>
+- [Resource's guide for creating icon fonts](https://insider.resource.com/docs/DOC-2265)
 
 #### Browser Compatibility ####
-- <a href="http://flippinawesome.org/2013/07/08/using-css-fallback-properties-for-better-cross-browser-compatibility/">CSS Fallback Properties for Better Cross-browser Compatibility</a>
+- [CSS Fallback Properties for Better Cross-browser Compatibility](http://flippinawesome.org/2013/07/08/using-css-fallback-properties-for-better-cross-browser-compatibility/)
 
 #### Accessibility ####
-- <a href="http://leaverou.github.io/contrast-ratio/">Verifying accessibility with contrast ratio</a>
-- <a href="https://github.com/h5bp/html5-boilerplate/blob/master/css/main.css#L152">Avoid display: none when hiding content</a>
+- [Contrast Ratio: Easily calculate color contrast ratios. Passing WCAG was never this easy!](http://leaverou.github.io/contrast-ratio/)
+- [CSS outline property - outline: none and outline: 0](http://www.outlinenone.com/)
+- [Hiding Content for Accessibility](http://snook.ca/archives/html_and_css/hiding-content-for-accessibility)
 
