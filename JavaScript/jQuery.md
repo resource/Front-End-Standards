@@ -8,6 +8,7 @@ The "Resource Way" of writing performant and maintainable jQuery.
 1. [Re-query](#re-query)  
 1. [Sizzle](#sizzle)  
 
+***
 
 ### <a name="variables">Variable Naming</a>
 Prefix jQuery object variables with a `$`.
@@ -26,22 +27,26 @@ Cache jQuery lookups.
 ```javascript
 // bad
 var setSidebar = function() {
-	$(".sidebar").hide();
+	
+	$(".sidebar").addClass("hidden-visually");
+	
+	// ...stuff...
 
-	$(".sidebar").css({
-		"background-color": "pink"
-	});
+	$(".sidebar").removeClass("hidden-visually");
+
 }
 
 // good
 var setSidebar = function() {
+	
 	var $sidebar = $(".sidebar");
 	
-	$sidebar.hide();
+	$sidebar.addClass("hidden-visually");
+	
+	// ...stuff...
 
-	$sidebar.css({
-		"background-color": "pink"
-	});
+	$sidebar.removeClass("hidden-visually");
+
 }
 ```
 
@@ -57,15 +62,15 @@ var $sidebar = $(".main > .column .sidebar");
 var $sidebar = $(".sidebar");
 ```
 
-Use `find` with scoped jQuery object queries (rather than context).
+Use `find` to select scoped jQuery object queries.
 
 ```javascript
 // bad
-$("ul", ".sidebar").hide();
+var $sidebarList = $("ul", ".sidebar");
 
 // bad
-$(".sidebar ul").hide();
+var $sidebarList = $(".sidebar ul");
 
 // good
-$(".sidebar").find("ul").hide();
+var $sidebarList = $(".sidebar").find("ul");
 ```
