@@ -1,5 +1,14 @@
 # Resource Front End Standards
 
+__JavaScript__  
+- [JavaScript](https://github.com/resource/Front-End-Standards/blob/master/JavaScript/JavaScript.md)
+- [jQuery](https://github.com/resource/Front-End-Standards/blob/master/JavaScript/jQuery.md)
+
+__Style Sheets__  
+- [CSS](https://github.com/resource/Front-End-Standards/blob/master/Stylesheets/CSS.md)
+- [Sass](https://github.com/resource/Front-End-Standards/blob/master/Stylesheets/Sass.md)
+
+
 ##  Overview title (tbd)
 Agency developers should:  
 - Move quickly.  
