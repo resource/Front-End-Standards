@@ -1,5 +1,4 @@
 # Resource Front End Standards
-***
 
 ##  Overview title (tbd)
 Agency developers should:  
@@ -7,7 +6,6 @@ Agency developers should:
 - Collaborate.  
 - Be consistent.  
 - Write quality code.  
-
 
 Following a style guide helps developers fulfill these requirements. When our code is cohesive it is easier to read a navigate; there is less friction in collaboration and innovation can flourish.
 
