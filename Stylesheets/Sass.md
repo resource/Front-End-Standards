@@ -77,7 +77,7 @@ _my-cool-partial.scss
 
 
 ## <a name='Variables'>Variables</a>
-Name you variables in a modular way. Use dashes to separate multiple words in a declaration.
+Name variables in a modular way. Use dashes to separate multiple words in a declaration.
 
 ```SCSS
 // Bad
