@@ -315,24 +315,14 @@ var description = "Walnut heartwood is a heavy, hard, open-grained " +
 
 ### <a name="booleans">Booleans</a>
 
-Use _“can”_, _“has”_, _"should"_, or _“is”_ as a prefix when naming booleans.
+Use _“can”_, _“has”_, _"should"_, or _“is”_ as a keyword when naming booleans.
 
 ```javascript
 // bad
-if (wood.hardEnough(value)) {
-    ...
-}
+var knots = false;
 
 // good
-if (wood.isHardEnough(value)) {
-    ...
-}
-
-// bad
-var wood.knots = true;
-
-// good
-var wood.hasKnots = true
+var hasKnots = false
 ```
 
 
