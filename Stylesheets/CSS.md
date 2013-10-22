@@ -366,19 +366,6 @@ Use ID selectors sparingly.
 }
 ```
 
-Use preferred-child instead of descendant selectors.
-
-```css
-/* bad */
-.selector p {
-    ...
-}
-
-/* good */
-.selector > p {
-    ...
-}
-```
 
 ### <a name="efficiency">Efficiency</a>
 Avoid inefficient selectors by [understanding](http://css-tricks.com/efficiently-rendering-css/) how selectors are parsed.
