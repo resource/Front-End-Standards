@@ -32,7 +32,7 @@ Resource is an [O.P.E.N.](http://www.resource.com/o-p-e-n/) agency and we strong
 ![Issue Example](http://i.imgur.com/RSkIWwT.png)
 
 ## About Resource
-We were a digital marketing agency before they existed. Decades before the first tweet. Years before the first smartphone or digital commerce transaction. Our company was founded 30 years ago with Apple as our first client, 3 years before Mark Zuckerberg was even born. Digital thinking, digital marketing and digital experience innovation: It’s not just what we do. It’s in our DNA.
+Resource is the largest independent digitally-led agency. We build OPEN brands that empower consumers through creativity, technology, and content. Marketers turn to us for our ability to innovate and deliver results.
 
 
 ## License
