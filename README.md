@@ -11,12 +11,23 @@ Following a style guide helps fulfill these requirements. When our code is cohes
 The purpose of our style guides is not to strictly enforce one way of writing code, but rather to provide a [mostly agreed-upon](https://github.com/resource/Front-End-Standards/issues?direction=desc&labels=&page=1&sort=updated&state=closed) approach. A project's developer lead or architect has the freedom to deviate from these standards when appropriate.
 
 __JavaScript__  
+
 - [JavaScript](https://github.com/resource/Front-End-Standards/blob/master/JavaScript/JavaScript.md)
 - [jQuery](https://github.com/resource/Front-End-Standards/blob/master/JavaScript/jQuery.md)
 
 __Style Sheets__  
+
 - [CSS](https://github.com/resource/Front-End-Standards/blob/master/Stylesheets/CSS.md)
 - [Sass](https://github.com/resource/Front-End-Standards/blob/master/Stylesheets/Sass.md)
+
+
+### Sublime Text Packages
+To aid in style conformity, this project contains a number of "dot" configuration files.
+
+- `.sublime-settings` [Sublime Text Settings](http://www.sublimetext.com/)
+- `.editorconfig` [EditorConfig](https://sublime.wbond.net/packages/EditorConfig)
+- `.jsbeautifyrc` [JsFormat](https://sublime.wbond.net/packages/JsFormat)
+- `.jshintrc` [SublimeLinter](https://sublime.wbond.net/packages/SublimeLinter)
 
 
 ## Contributing
