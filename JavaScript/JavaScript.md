@@ -91,7 +91,7 @@ Use PascalCase when naming constructors or classes.
 
 ```javascript
 // bad
-var wood = function(options) {
+var wood = function (options) {
     this.species = options.species;
 };
 
@@ -100,7 +100,7 @@ var aspen = new wood({
 });
 
 // good
-var Wood = function(options) {
+var Wood = function (options) {
     this.species = options.species;
 };
 
@@ -118,12 +118,12 @@ Use tabs, not spaces.
 
 ```javascript
 // bad
-var plantTree = function() {
+var plantTree = function () {
 ∙∙var name;
 };
 
 // good 
-var plantTree = function() {
+var plantTree = function () {
     var name;
 };
 ```
@@ -179,30 +179,13 @@ for (var i = 0; i < length; i++) {
 }
 ```
 
-**Exceptions**:
-
-Function expressions and invocations.   
-
-```javascript
-// bad
-var plantTree = function () {
-    ...
-};
-
-// good
-var plantTree = function() {
-    ...
-};
-
-// good
-plantTree();
-```
+__Exceptions__:
     
 Functions with callbacks.
 
 ```javascript
 // ok
-plantTree(function() {
+plantTree(function () {
     ...
 });
 ```
@@ -252,13 +235,13 @@ Always use semicolons.
 
 ```javascript
 // bad
-(function() {
+(function () {
 	var species = "Birch"
 	return species
 })()
 
 // good
-(function() {
+(function () {
 	var species = "Birch";
 	return species;
 })();
@@ -287,12 +270,12 @@ Pad large blocks with blank lines.
 
 ```javascript
 // bad
-var plantTree = function() {
+var plantTree = function () {
 	// ...lots of stuff...
 };
 
 // good
-var plantTree = function() {
+var plantTree = function () {
 
     // ...lots of stuff...
 
@@ -400,12 +383,12 @@ Use function expressions rather than function declarations.
 
 ```javascript
 // bad 
-function funkDeclaration() {
+function plantTree () {
     ...
 };
 
 // good
-var funkExpression = function() {
+var plantTree = function () {
     ...
 };
 ```
@@ -414,7 +397,7 @@ Properly written function expressions: <sup>[[credit](https://github.com/airbnb/
 
 ```javascript
 // anonymous function expression
-var anonymous = function() {
+var anonymous = function () {
     return true;
 };
 
@@ -424,7 +407,7 @@ var named = function named() {
 };
 
 // immediately-invoked function expression (IIFE)
-(function() {
+(function () {
     console.log("Welcome to the Internet. Please follow me.");
 })();
 ```
@@ -506,26 +489,26 @@ Assign variables at the top of their scope to prevent [hoisting](http://www.kenn
 Avoid assigning an object to the prototype. Doing so may overwrite existing properties.
 
 ```javascript
-var Tree = function() {
+var Tree = function () {
     ...
 };
 
 // bad
 Tree.prototype = {
-    grow: function() {
+    grow: function () {
         ...
     },
-    die: function() {
+    die: function () {
         ...
     }
 };
 
 // good
-Tree.prototype.grow = function() {
+Tree.prototype.grow = function () {
     ...
 };
 
-Tree.prototype.die = function() {
+Tree.prototype.die = function () {
     ...
 };
 ```
@@ -554,7 +537,7 @@ var wood = {
     hardness: 1300
 };
 
-var getProp = function(prop) {
+var getProp = function (prop) {
   return wood[prop];
 };
 
