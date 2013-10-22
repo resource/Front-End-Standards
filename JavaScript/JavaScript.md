@@ -540,10 +540,10 @@ var wood = {
 };
 
 // bad
-var isSoft = wood["hardness"] < 800 ? true : false;
+var species = wood["species"];
 
 // good
-var isSoft = wood.hardness < 800 ? true : false;
+var species = wood.species;
 ```
 
 Use subscript notation `[]` when accessing properties with a variable.
@@ -608,7 +608,7 @@ if (hardness) {
 }
 
 // good
-if (hardness !== 0) {
+if (hardness === 0) {
     ...
 }
 ```
@@ -652,6 +652,16 @@ var hardwood = walnut || spruce,
 if (hardwood && softwood) {
 	...
 }
+```
+
+When using ternary operators, wrap conditions in parens.
+
+```javascript
+// bad
+var isSoft = wood.hardness < 800 ? true : false;
+
+// good
+var isSoft = (wood.hardness < 800) ? true : false;
 ```
 
 ### <a name="for-loops">For Loops</a>  
