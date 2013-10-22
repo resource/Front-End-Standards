@@ -31,7 +31,7 @@ To aid in style conformity, this project contains a number of "dot" configuratio
 
 
 ## Contributing
-Resource is an [O.P.E.N.](http://www.resource.com/o-p-e-n/) agency and we strongly encourage collaboration and participation in the larger developer community. See our [open issues](https://github.com/resource/Front-End-Standards/issues?direction=desc&sort=updated&state=open) and participate in the conversation.
+Resource is an [OPEN](http://www.resource.com/o-p-e-n/) agency and we strongly encourage collaboration and participation in the larger developer community. See our [open issues](https://github.com/resource/Front-End-Standards/issues?direction=desc&sort=updated&state=open) and participate in the conversation.
 
 ### Creating Issues
 
