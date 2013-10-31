@@ -1,0 +1,26 @@
+{
+  "name": "Front-End-Standards",
+  "version": "1.0.0",
+  "homepage": "https://github.com/resource/Front-End-Standards",
+  "authors": [
+    "Luke Askew <LAskew@resource.com>"
+  ],
+  "description": "The \"Resource Way\" of writing front end code.",
+  "main": "README.md",
+  "keywords": [
+    "standards",
+    "front",
+    "end",
+    "css",
+    "javascript",
+    "agency"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
