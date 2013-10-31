@@ -1,6 +1,6 @@
 {
 	"name": "front-end-standards",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"homepage": "https://github.com/resource/Front-End-Standards",
 	"authors": [
 		"Luke Askew <LAskew@resource.com>"
@@ -17,10 +17,7 @@
 	],
 	"license": "MIT",
 	"ignore": [
-		"**/.*",
 		"node_modules",
-		"bower_components",
-		"test",
-		"tests"
+		"bower_components"
 	]
 }
