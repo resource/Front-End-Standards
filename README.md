@@ -47,5 +47,5 @@ Resource is the largest independent digitally-led agency. We build OPEN brands t
 
 
 ## License
-2013 © [Resource LLC](http://resource.com)  
+2014 © [Resource LLC](http://resource.com)  
 Licensed under the [MIT License](https://github.com/resource/Front-End-Standards/blob/master/LICENSE.md)
