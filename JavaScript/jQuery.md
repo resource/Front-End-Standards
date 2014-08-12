@@ -15,10 +15,10 @@ Prefix jQuery object variables with a `$`.
 
 ```javascript
 // bad
-var sidebar = $(".sidebar");
+var sidebar = $('.sidebar');
 
 // good
-var $sidebar = $(".sidebar");
+var $sidebar = $('.sidebar');
 ```
 
 ### <a name="re-query">Re-query</a>
@@ -28,24 +28,24 @@ Cache jQuery lookups.
 // bad
 var setSidebar = function() {
 	
-	$(".sidebar").addClass("hidden-visually");
+	$('.sidebar').addClass('hidden-visually');
 	
 	// ...stuff...
 
-	$(".sidebar").removeClass("hidden-visually");
+	$('.sidebar').removeClass('hidden-visually');
 
 }
 
 // good
 var setSidebar = function() {
 	
-	var $sidebar = $(".sidebar");
+	var $sidebar = $('.sidebar');
 	
-	$sidebar.addClass("hidden-visually");
+	$sidebar.addClass('hidden-visually');
 	
 	// ...stuff...
 
-	$sidebar.removeClass("hidden-visually");
+	$sidebar.removeClass('hidden-visually');
 
 }
 ```
@@ -56,21 +56,21 @@ Use performant selectors. Sizzle reads [right-to-left](http://css-tricks.com/eff
 
 ```javascript
 // bad
-var $sidebar = $(".main > .column .sidebar");
+var $sidebar = $('.main > .column .sidebar');
 
 // good
-var $sidebar = $(".sidebar");
+var $sidebar = $('.sidebar');
 ```
 
 Use `find` to select scoped jQuery object queries.
 
 ```javascript
 // bad
-var $sidebarList = $("ul", ".sidebar");
+var $sidebarList = $('ul', '.sidebar');
 
 // bad
-var $sidebarList = $(".sidebar ul");
+var $sidebarList = $('.sidebar ul');
 
 // good
-var $sidebarList = $(".sidebar").find("ul");
+var $sidebarList = $('.sidebar').find('ul');
 ```

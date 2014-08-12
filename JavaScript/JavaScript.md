@@ -35,6 +35,7 @@ The "[Resource](https://github.com/resource) Way" of writing good JavaScript.
 ***
 
 ## <a name="formatting">Formatting</a>  
+
 ### <a name="comments">Comments</a>  
 
 Code should be thoroughly documented. The developer should strive to write logical and informative comments that contribute to code maintainability and developer collaboration.
@@ -76,14 +77,14 @@ var HardWoods = {};
 var hard_woods = {};
 var ChopDownTree = function() {};
 var w = new wood({
-    species: "Walnut"
+    species: 'Walnut'
 });
 
 // good
 var hardWoods = {};
 var chopDownTree = function() {};
 var wood = new Wood({
-    species: "Walnut"
+    species: 'Walnut'
 });
 ```
 
@@ -96,7 +97,7 @@ var wood = function (options) {
 };
 
 var aspen = new wood({
-    species: "Aspen"
+    species: 'Aspen'
 });
 
 // good
@@ -105,7 +106,7 @@ var Wood = function (options) {
 };
 
 var aspen = new Wood({
-    species: "Aspen"
+    species: 'Aspen'
 });
 ```
 
@@ -142,13 +143,13 @@ Pad concatenation points with one space when building strings.
 
 ```javascript
 // bad
-wood.description = "This is a "+color+" wood.";
+wood.description = 'This is a '+color+' wood.';
 
 // bad
-wood.description = "This is a "+ color +" wood.";
+wood.description = 'This is a '+ color +' wood.';
 
 // good
-wood.description = "This is a " + color + " wood.";
+wood.description = 'This is a ' + color + ' wood.';
 ```
 
 Use one space before leading parens and leading brackets.
@@ -194,15 +195,16 @@ Functions accepting arrays or objects.
     
 ```javascript
 // ok
-plantTrees(["Pine", "Walnut"]);    
+plantTrees(['Pine', 'Walnut']);    
 
 // ok
 plantTree({
-    species: "Pine"
+    species: 'Pine'
 });
 ```
 
 ### <a name="commas-and-semicolons">Commas & Semicolons</a> 
+
 Place commas end of line.
 
 ```javascript
@@ -218,15 +220,15 @@ var species,
 
 // bad
 var wood = {
-	species: "Walnut"
-	, grain: "medium"
+	species: 'Walnut'
+	, grain: 'medium'
 	, hardness: 1010
 };
 
 // good
 var wood = {
-	species: "Walnut",
-	grain: "medium",
+	species: 'Walnut',
+	grain: 'medium',
 	hardness: 1010
 };
 ```
@@ -236,13 +238,13 @@ Always use semicolons.
 ```javascript
 // bad
 (function () {
-	var species = "Birch"
+	var species = 'Birch'
 	return species
 })()
 
 // good
 (function () {
-	var species = "Birch";
+	var species = 'Birch';
 	return species;
 })();
 ```
@@ -286,31 +288,32 @@ var plantTree = function () {
 ## <a name="types">Types</a>  
 
 ### <a name="strings">Strings</a>
-Use double quotes `""` for strings
+
+Use single quotes `''` for strings
 
 ```javascript
 // bad
-var species = 'Redwood';
+var species = "Redwood";
 
 // good
-var species = "Redwood";
+var species = 'Redwood';
 ```
 
 Long strings should be broken out onto multiple lines and concatenated properly.
 
 ```javascript
 // bad
-var description = "Walnut heartwood is a heavy, hard, open-grained hardwood. Freshly cut live wood may be Dijon-mustard colour, darkening to brown over a few days.";
+var description = 'Walnut heartwood is a heavy, hard, open-grained hardwood. Freshly cut live wood may be Dijon-mustard colour, darkening to brown over a few days.';
 
 // bad
-var description = "Walnut heartwood is a heavy, hard, open-grained \
+var description = 'Walnut heartwood is a heavy, hard, open-grained \
 hardwood. Freshly cut live wood may be Dijon-mustard \
-colour, darkening to brown over a few days.";
+colour, darkening to brown over a few days.';
 
 // good
-var description = "Walnut heartwood is a heavy, hard, open-grained " +
-    "hardwood. Freshly cut live wood may be Dijon-mustard " +
-    "colour, darkening to brown over a few days.";
+var description = 'Walnut heartwood is a heavy, hard, open-grained ' +
+    'hardwood. Freshly cut live wood may be Dijon-mustard ' +
+    'colour, darkening to brown over a few days.';
 ```
 
 ### <a name="booleans">Booleans</a>
@@ -327,6 +330,7 @@ var hasKnots = false
 
 
 ### <a name="arrays">Arrays</a>
+
 Use the literal syntax when creating arrays.
 
 ```javascript
@@ -354,15 +358,15 @@ Don't use [reserved words](https://developer.mozilla.org/en-US/docs/JavaScript/R
 ```javascript
 // bad
 var walnut = {
-    class: "Magnoliophyta",
-    default: { variety: "English" },
+    class: 'Magnoliophyta',
+    default: { variety: 'English' },
     private: true
 };
 
 // good
 var walnut = {
-    className: "Magnoliophyta",
-    defaults: { variety: "English" },
+    className: 'Magnoliophyta',
+    defaults: { variety: 'English' },
     hidden: true
 };
 ```
@@ -398,23 +402,25 @@ var named = function named() {
 
 // immediately-invoked function expression (IIFE)
 (function () {
-    console.log("Welcome to the Internet. Please follow me.");
+    console.log('Welcome to the Internet. Please follow me.');
 })();
 ```
 
 
 ## <a name="working-with-types">Working With Types</a>  
+
 ### <a name="variables">Variables</a>
+
 Use one `var` declaration for multiple variables.
 
 ```javascript
 // bad
-var foo = "foo";
-var bar = "bar";
+var foo = 'foo';
+var bar = 'bar';
 
 // good
-var foo = "foo",
-    bar = "bar";
+var foo = 'foo',
+    bar = 'bar';
 ```
   
 __Exception:__ Sometimes declaring variables individually - with comments - is helpful when documenting code. Do this only when you have an [uglification](https://github.com/mishoo/UglifyJS2) process in place since UglifyJS will remove comments and combine variable blocks.
@@ -460,13 +466,13 @@ Create as few globals as possible.
 
 ```javascript
 // bad
-window.woodName = "Knotty Pine";
-window.woodHardness = "soft";
+window.woodName = 'Knotty Pine';
+window.woodHardness = 'soft';
 
 // good
 var wood = {
-    name: "Knotty Pine",
-    hardness: "soft"
+    name: 'Knotty Pine',
+    hardness: 'soft'
 };
 ```
 
@@ -504,16 +510,17 @@ Tree.prototype.die = function () {
 ```
 
 ### <a name="properties">Properties</a>
+
 Use dot notation when accessing properties.
 
 ```javascript
 var wood = {
-    species: "Oak",
+    species: 'Oak',
     hardness: 1300
 };
 
 // bad
-var species = wood["species"];
+var species = wood['species'];
 
 // good
 var species = wood.species;
@@ -523,7 +530,7 @@ Use subscript notation `[]` when accessing properties with a variable.
 
 ```javascript
 var wood = {
-    species: "Oak",
+    species: 'Oak',
     hardness: 1300
 };
 
@@ -531,7 +538,7 @@ var getProp = function (prop) {
   return wood[prop];
 };
 
-var specimenHardness = getProp("hardness");
+var specimenHardness = getProp('hardness');
 ```
 
 ### <a name="conditionals">Operators, Conditional Expressions & Equality</a>
@@ -542,15 +549,15 @@ Use `===` and `!==` when comparing values to ensure both _value_ and _type_ are 
 0 == false; // true
 0 === false; // false
 
-1 == "1"; // true
-1 === "1" // false
+1 == '1'; // true
+1 === '1'; // false
 ```
 
 Use comparison shortcuts.
 
 ```javascript
 // bad
-if (wood.species !== "") {
+if (wood.species !== '') {
   ...
 }
 
@@ -652,7 +659,6 @@ for (var i = 0; i < length; i++) {
 }
 ```
 
-
 ### <a name="readable-milliseconds">Readable Milliseconds</a>
 
 Use a multiplier of `1000` to produce more readable timers.
@@ -665,8 +671,10 @@ var timeout = 30000;
 var timeout = 30 * 1000; 
 ```
 
-## <a name="structure">Structure</a>  
+## <a name="structure">Structure</a> 
+
 ### <a name="file-naming-conventions">File Naming Conventions</a>
+
 Plugins/Modules should be prepended with the library/class they extend.
 
 ```javascript
@@ -677,7 +685,6 @@ myJqueryPlugin.js
 jquery.myJqueryPlugin.js
 ```
     
-
 ## <a name="appendix">Appendix</a>  
 
 ### References
