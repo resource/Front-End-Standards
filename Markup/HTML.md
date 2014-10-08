@@ -147,7 +147,7 @@ Avoid obtrusive JavaScript. JavaScript should live in `.js` files. This helps ke
 <button onclick="submit()">Click Me!</button>
 ```
 
-Don't rely on markup for visual formatting. (e.g. `<br>`, `<b>`, `<em>`).
+Don't rely on markup for visual formatting. (e.g. `<br>`, `<b>`, `<i>`).
 
 ```html
 <!-- bad -->
@@ -166,8 +166,7 @@ Don't rely on markup for visual formatting. (e.g. `<br>`, `<b>`, `<em>`).
 </p>
 ```
 
-If you use inline formatting tags such as `<b>`, `<em>`, `<strong>`, etc, ensure that the appropriate styles are defined in your stylesheet.
-
+It's OK to use `<strong>` and `<em>` to provide semantic meaning to inline text, but ensure that the appropriate styles are defined in the stylesheet. Do not rely on `<strong>` or `<em>` for visual formatting.
 
 
 
