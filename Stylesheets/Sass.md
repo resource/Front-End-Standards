@@ -18,21 +18,24 @@ The "[Resource](https://github.com/resource) Way" of writing Sassy CSS.
 ***
 
 ## <a name='preface'>Preface</a>  
+
 This document is a continuation of the [CSS Style Guide](https://github.com/resource/Front-End-Standards/blob/master/Stylesheets/CSS.md). As a baseline, Sass stylesheets should adhere to the CSS style guide.
 
 The examples in this style guide use the `.scss` syntax. This is the preferred syntax when writing Sass. Avoid using the `.sass` syntax.
 
 
 ## <a name='white-space-formatting'>White Space & Formatting</a>
+
 Style declarations should conform to the [Resource CSS standard](https://github.com/resource/Front-End-Standards/blob/master/Stylesheets/CSS.md#declaration-blocks).
 
 Mixins and Functions should conform to the [Resource JavaScript standard](https://github.com/resource/Front-End-Standards/blob/master/JavaScript/JavaScript.md#formatting) as much as possible.
 
 
 ## <a name='imports'>Imports and Partials</a>
+
 Group `@import` rules at the top of the document.
 
-Denote partials with a leading underscore.
+Use a leading underscore `_` in partial filenames, but exclude the underscore when importing the partial.
 
 Use dashes and lowercase characters when naming files.
 
@@ -41,15 +44,16 @@ Avoid using the  ".scss" extension in the `@import` declaration.
 ```SCSS
 // bad
 @import "objects/progressBars.scss";
-@import "helpers/spacing.scss"
+@import "helpers/_spacing.scss"
 
 // good
-@import "objects/_progress-bars";
-@import "helpers/_spacing";
+@import "objects/progress-bars";
+@import "helpers/spacing";
 ```
 
 
 ## <a name='variables'>Variables</a>
+
 Name you variables in a [modular way](http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-name-your-sass-variables-modularly/) - providing structure and logic.
 
 Add modifiers to the end of the variable name.
@@ -68,27 +72,8 @@ $breakpoint-small: 35em;
 $breakpoint-large: 82em;	
 ```
 
-
-## <a name='interpolation'>Interpolation</a>
-Use the Ruby-esque `#{}` to "shim" variables into your rules.
-
-```SCSS
-@mixin highlight($color, $side) {
-	border-#{$side}-color: $color;
-}
-
-.selector {
-	@include highlight(#f00, right);
-}
-
-// CSS output
-.selector {
-	border-right-color: #ff0;
-}
-```
-
-
 ## <a name='pure-sass-functions'>Pure Sass Functions</a>
+
 Use [Pure Sass Functions](http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html) to enhance code [clarity and usability](http://thesassway.com/advanced/pure-sass-functions).
 
 ```SCSS
@@ -120,6 +105,7 @@ Prefer "pure Sass" functions over external dependencies like [Compass](http://co
 
 
 ## <a name='mixins'>Mixins</a>
+
 Use dash-delimited mixin names. 
 
 Thoroughly document mixin behavior and expected parameters
@@ -179,9 +165,8 @@ Define a value for optional arguments to avoid errors.
 ```
 
 
-
-
 ## <a name='productivity'>Productivity</a>
+
 Avoid repetitive rule declarations by leveraging `@each`, `@for`, and `@while`.
 
 Use the `@each` directive to loop through items in a list.
@@ -290,6 +275,7 @@ $i: 1;
 
 
 ## <a name='nesting'>Nesting</a>
+
 Use tabs when nesting.
 
 ```SCSS

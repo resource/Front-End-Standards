@@ -1,4 +1,5 @@
 # Resource CSS Style Guide
+
 The "[Resource](https://github.com/resource) Way" of writing legible, scalable, and useful CSS.
 
 ## Table of Contents
@@ -19,10 +20,12 @@ The "[Resource](https://github.com/resource) Way" of writing legible, scalable, 
 ***
 
 ## <a name="comments">Comments</a>
+
 Comments should be _useful_ and should provide _clarity_. Use comments to divide sets of rules into groups, or to explain potentially confusing rule declarations.
 
 
 ### Avoid Over Commenting
+
 Don't over comment, as most CSS should be self-explanatory. Too much commenting detracts from readability.
 
 ```css
@@ -159,6 +162,7 @@ Separate declaration blocks with a blank line.
 
 
 ## <a name="white-space">White Space</a>
+
 Use one space between the selector and the opening bracket.
 
 ```css
@@ -231,6 +235,7 @@ Avoid pseudo-nesting declaration blocks.
 ## <a name="selectors">Selectors</a>
 
 ### Naming
+
 Adhere to the [design language](http://logicpool.com/archives/235) of the brand when naming selectors.
 
 Selectors never contain uppercase letters.
@@ -308,6 +313,7 @@ Avoid [overly-semantic](http://www.webdesignerdepot.com/2009/05/10-best-css-prac
 ```
 
 ### <a name="specificity">Specificity</a>
+
 Avoid using overly-specific selectors. Understand [specificity](http://coding.smashingmagazine.com/2007/07/27/css-specificity-things-you-should-know/) and [how it works](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity#How_is_it_calculated.3F). 
 
 ```css
@@ -368,6 +374,7 @@ Use ID selectors sparingly.
 
 
 ### <a name="efficiency">Efficiency</a>
+
 Avoid inefficient selectors by [understanding](http://css-tricks.com/efficiently-rendering-css/) how selectors are parsed.
 
 ```css
@@ -411,6 +418,7 @@ div {
 ```
 
 ## <a name="value-formatting">Value Formatting</a>
+
 Use hex or rgba. Use hex shortcuts when possible.
 
 ```css
@@ -497,7 +505,8 @@ Avoid quotes and absolute paths in `url()` values.
 
 
 ## <a name="typography">Typography</a>
-Use `em` for `font-size`. [PXtoEM](http://pxtoem.com/) can help with the conversion. 
+
+Use `em` for `font-size`.
 
 Use [unit-less values](http://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights/) for `line-height`.
 
@@ -532,12 +541,12 @@ Use the ["bullet proof"](https://github.com/stubbornella/csslint/wiki/Bulletproo
 ```
 
 ## <a name="icons-imagery">Icons and Imagery</a>
-Use the appropriate image delivery method.
 
-![Small Images and Iconography Decision Tree](http://i.imgur.com/lVFZi25.png)
+Use [SVG for icons](http://css-tricks.com/svg-symbol-good-choice-icons/) and vector imagery. Avoid icon fonts.
 
 
 ## <a name="browser-compatibility">Browser Compatibility</a>
+
 Use vendor prefixes for experimental or non-spec properties.
 
 ```css
@@ -561,6 +570,7 @@ Use [fallbacks](http://flippinawesome.org/2013/07/08/using-css-fallback-properti
 ```
 
 ## <a name="accessibility">Accessibility</a>
+
 Avoid low contrast color combinations. Use [Contrast Ratio](http://leaverou.github.io/contrast-ratio/) to verify accessibility. 
 
 [Avoid](http://www.outlinenone.com/) `outline: none`.
