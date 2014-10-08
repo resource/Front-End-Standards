@@ -20,6 +20,9 @@ __Style Sheets__
 - [CSS](https://github.com/resource/Front-End-Standards/blob/master/Stylesheets/CSS.md)
 - [Sass](https://github.com/resource/Front-End-Standards/blob/master/Stylesheets/Sass.md)
 
+__Markup__
+
+- [HTML](https://github.com/resource/Front-End-Standards/blob/master/Markup/HTML.md)
 
 ### Sublime Text Packages
 To aid in style conformity, this project contains a number of "dot" configuration files.
