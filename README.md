@@ -28,6 +28,7 @@ To aid in style conformity, this project contains a number of "dot" configuratio
 - `.editorconfig` [EditorConfig](https://sublime.wbond.net/packages/EditorConfig)
 - `.jsbeautifyrc` [JsFormat](https://sublime.wbond.net/packages/JsFormat)
 - `.jshintrc` [SublimeLinter](https://sublime.wbond.net/packages/SublimeLinter)
+- `csscomb` [CSSComb](http://csscomb.com/)
 
 
 ## Contributing
