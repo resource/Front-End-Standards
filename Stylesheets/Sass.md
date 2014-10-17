@@ -303,19 +303,17 @@ Use tabs when nesting.
 ```
 
 
-No empty lines between nested declaration blocks.
+Add empty lines between nested declaration blocks.
 
 ```SCSS
 // bad
 .selector {
 	color: $black;
 	width: 100%;
-  	
   	.selector-child {
   		color: $green;
   		font-size: 16px;
   	}
-  	
   	.selector-child-alt {
   		color: $red;
   		font-size: 12px;
@@ -326,10 +324,12 @@ No empty lines between nested declaration blocks.
 .selector {
 	color: $black;
 	width: 100%;
+
   	.selector-child {
   		color: $green;
   		font-size: 16px;
   	}
+
   	.selector-child-alt {
   		color: $red;
   		font-size: 12px;
