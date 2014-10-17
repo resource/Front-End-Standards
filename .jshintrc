@@ -17,5 +17,5 @@
     "quotmark": "single",
     "trailing": true,
     "undef": true,
-    "predef": []
+    "predef": {}
 }
